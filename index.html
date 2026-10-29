@@ -450,6 +450,16 @@ details.ev ul{margin:8px 0 0;padding-left:18px;display:grid;gap:4px;font-size:14
 .tseg{display:inline-flex;align-items:center}
 .titem{padding:0 12px}
 .tsep{color:var(--accent);font-size:8px}
+.scorebar{background:var(--surface);color:var(--ink);overflow:hidden;white-space:nowrap;border-bottom:1px solid var(--line);font-size:13px;display:flex;align-items:center}
+.scorebar .slab{flex:none;background:var(--ink);color:var(--bg);font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:8px 12px;position:relative;z-index:1}
+.scorebar .twrap{overflow:hidden;flex:1;min-width:0;mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent)}
+.strack{animation-duration:90s}
+.scorebar:hover .ttrack{animation-play-state:paused}
+.sitem{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;font-weight:600;font-variant-numeric:tabular-nums}
+.sitem .sic{margin:0}
+.sitem small{font-weight:500;color:var(--muted);font-size:11.5px}
+.ssep{width:1px;height:14px;background:var(--line);display:inline-block}
+@media (prefers-reduced-motion:reduce){.scorebar .twrap{overflow-x:auto}.strack{animation:none}}
 @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.ticker .twrap{overflow-x:auto}.ticker .ttrack{animation:none}}
 /* timeline */
@@ -526,7 +536,7 @@ footer.site b{color:#fff;font-family:var(--display);font-weight:400;font-size:20
   "glance": [
     {
       "topic": "Women's sports",
-      "text": "The Golden State Valkyries can win the WNBA title in their second season at 12:30 p.m. ET today in Atlanta; a Dream win forces Game 7 on Saturday in San Francisco.",
+      "text": "The Dream beat the Valkyries 80-69 to tie the WNBA Finals 3-3, setting up the first Game 7 in Finals history on Saturday night in San Francisco.",
       "item": "wnba-finals"
     },
     {
@@ -552,12 +562,12 @@ footer.site b{color:#fff;font-family:var(--display);font-weight:400;font-size:20
       "leagues": [
         "WNBA"
       ],
-      "title": "Valkyries can clinch the WNBA title in a Thursday matinee in Atlanta",
-      "body": "Golden State leads the Atlanta Dream 3-2 after winning Games 4 and 5, and Game 6 tips at 12:30 p.m. ET today at State Farm Arena (about 17,000 seats) instead of the Dream's 3,500-seat home, because the Hawks play there tonight. The Dream sold 10,000 Game 6 tickets in the first 90 minutes. A Dream win forces Game 7 on Saturday, October 31 in San Francisco.",
-      "why": "Big-arena demand for a Finals game shows how far the WNBA audience has grown, and the scheduling clash shows how often the league still competes with men's teams for venues and time slots.",
-      "source": "ESPN, Oct 28; Yahoo Sports, Oct 26; Front Office Sports, Oct 28",
+      "title": "Dream beat the Valkyries 80-69 to force the first Game 7 in WNBA Finals history",
+      "body": "Atlanta won Game 6 80-69 on October 29 to tie the series 3-3; Allisha Gray scored 23 for the Dream and Golden State's Gabby Williams led all scorers with 26. Game 6 sold out at State Farm Arena despite being moved to a 12:30 p.m. ET start because the Hawks had the building that night. Game 7 is Saturday at 8 p.m. ET at Chase Center in San Francisco, the first since the Finals became best-of-seven in 2025.",
+      "why": "A winner-take-all Saturday night final gives the WNBA its biggest single-game stage yet, after a weekday afternoon tip that players publicly criticized.",
+      "source": "theScore, Oct 29; ESPN, Oct 29; ABC7 San Francisco, Oct 29",
       "quality": "Major outlet",
-      "url": "https://www.espn.com/wnba/story/_/id/50303751/finals-2026-game-6-preview-atlanta-valkyries"
+      "url": "https://www.thescore.com/wnba/news/3638543/dream-force-1-st-game-7-in-wnba-finals-history-with-win-over-valkyries"
     },
     {
       "id": "mlb-lockout",
@@ -1103,16 +1113,6 @@ footer.site b{color:#fff;font-family:var(--display);font-weight:400;font-size:20
   ],
   "calendar": [
     {
-      "date": "2026-10-29",
-      "end": "",
-      "event": "WNBA Finals Game 6, Valkyries at Dream",
-      "where": "State Farm Arena, Atlanta",
-      "league": "WNBA",
-      "note": "Today, 12:30 p.m. ET on USA. Golden State leads 3-2 and can clinch its first title. Game 7, if needed, is Saturday, October 31 in San Francisco.",
-      "url": "https://www.espn.com/wnba/story/_/id/50303751/finals-2026-game-6-preview-atlanta-valkyries",
-      "time": "12:30 p.m. ET"
-    },
-    {
       "date": "2026-10-30",
       "end": "",
       "event": "NBA Cup group play begins",
@@ -1132,13 +1132,14 @@ footer.site b{color:#fff;font-family:var(--display);font-weight:400;font-size:20
       "time": "10 a.m. CT"
     },
     {
-      "date": "2026-11-02",
+      "date": "2026-10-31",
       "end": "",
-      "event": "MLB free agents can sign with any team",
-      "where": "",
-      "league": "MLB",
-      "note": "4 p.m. CT. Option and qualifying offer decisions are also due; signings must happen before the December 1 labour deadline or wait out a lockout.",
-      "url": "https://mlbtraderumors.com/2026/10/the-2026-27-offseason-begins.html"
+      "event": "WNBA Finals Game 7, Dream at Valkyries",
+      "where": "Chase Center, San Francisco",
+      "league": "WNBA",
+      "time": "8 p.m. ET",
+      "note": "Series tied 3-3. The first Game 7 in WNBA Finals history, and Golden State's chance at a title in its second season.",
+      "url": "https://www.thescore.com/wnba/news/3638543/dream-force-1-st-game-7-in-wnba-finals-history-with-win-over-valkyries"
     },
     {
       "date": "2026-11-01",
@@ -1149,6 +1150,15 @@ footer.site b{color:#fff;font-family:var(--display);font-weight:400;font-size:20
       "note": "All eight matches at 5 p.m. ET on ESPN platforms. Decides the Shield and the full playoff bracket.",
       "url": "https://espnpressroom.com/press-release/espn-to-provide-exclusive-coverage-of-all-eight-nwsl-decision-day-matches/",
       "time": "5 p.m. ET"
+    },
+    {
+      "date": "2026-11-02",
+      "end": "",
+      "event": "MLB free agents can sign with any team",
+      "where": "",
+      "league": "MLB",
+      "note": "4 p.m. CT. Option and qualifying offer decisions are also due; signings must happen before the December 1 labour deadline or wait out a lockout.",
+      "url": "https://mlbtraderumors.com/2026/10/the-2026-27-offseason-begins.html"
     },
     {
       "date": "2026-11-06",
@@ -1285,7 +1295,7 @@ footer.site b{color:#fff;font-family:var(--display);font-weight:400;font-size:20
     "label": "Week of October 26",
     "items": [
       "The Brewers beat the Rays 4-1 in Game 5 to win their first World Series.",
-      "The Valkyries lead the Dream 3-2 in the WNBA Finals; Game 6 is Thursday afternoon in Atlanta.",
+      "The Dream beat the Valkyries in Game 6 to force the first Game 7 in WNBA Finals history, Saturday in San Francisco.",
       "Baseball's labour deal expires December 1, and a lockout is widely expected.",
       "PSA reopens its Value grading tier at $39.99 after a nearly five-month pause.",
       "ESPN confirms early talks on a Sparks sale at about $700M; the PWHL expands to 12 teams.",
@@ -1694,9 +1704,121 @@ footer.site b{color:#fff;font-family:var(--display);font-weight:400;font-size:20
     ]
   },
   "ticker": [
-    "World Series: Brewers beat Rays in Game 5 to win their first title",
-    "WNBA Finals: Valkyries lead Dream 3-2, Game 6 at 12:30 p.m. ET today",
-    "WNBA Finals Game 5: Valkyries 64, Dream 55"
+    "WNBA Finals Game 6: Dream 80, Valkyries 69; series tied 3-3",
+    "Brewers win their first World Series, beating the Rays 4-1 in Game 5",
+    "WNBA Finals Game 7: Saturday, 8 p.m. ET, Chase Center"
+  ],
+  "scores": [
+    {
+      "league": "WNBA",
+      "date": "2026-10-29",
+      "text": "WNBA Finals G6: ATL 80, GSV 69 (series 3-3)"
+    },
+    {
+      "league": "MLB",
+      "date": "2026-10-28",
+      "text": "World Series G5: MIL 4, TB 1 (MIL wins 4-1)"
+    },
+    {
+      "league": "NBA",
+      "date": "2026-10-28",
+      "text": "MIA 129, ATL 117"
+    },
+    {
+      "league": "NBA",
+      "date": "2026-10-28",
+      "text": "CLE 121, WAS 111"
+    },
+    {
+      "league": "NBA",
+      "date": "2026-10-28",
+      "text": "PHI 114, IND 109"
+    },
+    {
+      "league": "NBA",
+      "date": "2026-10-28",
+      "text": "DET 97, CHA 89"
+    },
+    {
+      "league": "NBA",
+      "date": "2026-10-28",
+      "text": "TOR 129, ORL 99"
+    },
+    {
+      "league": "NBA",
+      "date": "2026-10-28",
+      "text": "HOU 132, MIL 100"
+    },
+    {
+      "league": "NBA",
+      "date": "2026-10-28",
+      "text": "NYK 133, CHI 127"
+    },
+    {
+      "league": "NBA",
+      "date": "2026-10-28",
+      "text": "GSW 119, MIN 114"
+    },
+    {
+      "league": "NBA",
+      "date": "2026-10-28",
+      "text": "DEN 104, NOP 91"
+    },
+    {
+      "league": "NBA",
+      "date": "2026-10-28",
+      "text": "SAS 117, UTA 111"
+    },
+    {
+      "league": "NBA",
+      "date": "2026-10-28",
+      "text": "DAL 120, OKC 96"
+    },
+    {
+      "league": "NBA",
+      "date": "2026-10-28",
+      "text": "LAL 103, LAC 87"
+    },
+    {
+      "league": "NHL",
+      "date": "2026-10-28",
+      "text": "WSH 5, PHI 2"
+    },
+    {
+      "league": "NHL",
+      "date": "2026-10-28",
+      "text": "EDM 4, CGY 0"
+    },
+    {
+      "league": "NHL",
+      "date": "2026-10-28",
+      "text": "COL 5, NJ 2"
+    },
+    {
+      "league": "NHL",
+      "date": "2026-10-28",
+      "text": "SEA 5, TOR 4"
+    },
+    {
+      "league": "NFL",
+      "date": "2026-10-26",
+      "text": "MNF: DAL 38, PHI 21"
+    },
+    {
+      "league": "Soccer (Europe)",
+      "date": "2026-10-25",
+      "text": "EPL: LIV 2, BRI 0"
+    },
+    {
+      "league": "Soccer (Europe)",
+      "date": "2026-10-25",
+      "text": "EPL: BOU 3, MUN 0"
+    },
+    {
+      "league": "Soccer (Europe)",
+      "date": "2026-10-24",
+      "text": "EPL: TOT 2, CHE 0"
+    }
   ]
 }
 </script>
@@ -1723,6 +1845,7 @@ footer.site b{color:#fff;font-family:var(--display);font-weight:400;font-size:20
 <div class="shell">
 <div class="mtop"><a class="brand" href="#home"><b>The Sporting Reporter</b><span>Created by Jesse Fader</span></a><button class="mbtn" type="button" id="mopen" aria-controls="side" aria-expanded="false">Menu</button></div>
 <div class="ticker" role="region" aria-label="Key numbers and results"><span class="tlab">Today</span><div class="twrap"><div class="ttrack" id="ticker-track"></div></div></div>
+<div class="scorebar" role="region" aria-label="Recent scores" id="scorebar"><span class="slab">Scores</span><div class="twrap"><div class="ttrack strack" id="score-track"></div></div></div>
 
 
 <section class="hero" id="hero">
@@ -1899,7 +2022,7 @@ footer.site b{color:#fff;font-family:var(--display);font-weight:400;font-size:20
   function mitem(box,href,label,n){ var a=el("a"); a.href=href; a.append(document.createTextNode(label)); if(n!=null) a.append(el("small",null,String(n))); box.append(a); return a; }
   document.getElementById("n-all").textContent=(D.items||[]).length;
   LEAGUES.forEach(function(l){ if(presentL[l]) mitem(ml,"#league-"+slug(l),l,cnt(function(it){return it.leagues.indexOf(l)>=0;})); });
-  CATS.forEach(function(c){ if(present[c[0]]) mitem(mt,"#topic-"+c[0],c[1],cnt(function(it){return it.cat.indexOf(c[0])>=0;})); });
+  CATS.forEach(function(c){ if(present[c[0]]&&c[0]!=="women") mitem(mt,"#topic-"+c[0],c[1],cnt(function(it){return it.cat.indexOf(c[0])>=0;})); });
   if(L){ document.getElementById("nav-labour").textContent=(L.league||"")+" labour watch"; }
   var side=document.getElementById("side"), nscrim=document.getElementById("nscrim"), mopen=document.getElementById("mopen");
   function openSide(){ side.classList.add("open"); nscrim.hidden=false; mopen.setAttribute("aria-expanded","true"); }
@@ -2141,6 +2264,11 @@ footer.site b{color:#fff;font-family:var(--display);font-weight:400;font-size:20
     (D.calendar||[]).filter(function(e){ return e.date>TODAY; }).sort(function(a,b){ return a.date<b.date?-1:1; }).slice(0,3).forEach(function(e){ bits.push("Next: "+e.event+", "+md(e.date)); });
     function fill(){ var s=el("span","tseg"); bits.forEach(function(b){ s.append(el("span","titem",b), el("span","tsep","●")); }); return s; }
     tk.append(fill(), fill()); var dur=Math.max(30,bits.join(" ").length/5); tk.style.animationDuration=dur+"s"; })();
+
+  /* ---------- scores bar ---------- */
+  (function(){ var tr=document.getElementById("score-track"), bar=document.getElementById("scorebar"); var sc=(D.scores||[]); if(!sc.length){ bar.hidden=true; return; }
+    function seg(){ var s=el("span","tseg"); sc.forEach(function(x){ var it=el("span","sitem"); it.append(sicon([x.league]), document.createTextNode(x.text)); if(x.date) it.append(el("small",null,md(x.date))); s.append(it, el("span","ssep")); }); return s; }
+    tr.append(seg(), seg()); tr.style.animationDuration=Math.max(45,sc.length*5)+"s"; })();
 
   /* ---------- theme switch ---------- */
   (function(){ var root=document.documentElement, box=document.getElementById("theme"); if(!box) return; var cur=jget("tsr-theme","auto");
