@@ -1711,7 +1711,7 @@ footer.site b{color:#fff;font-family:var(--display);font-weight:400;font-size:20
     <details data-g="markets"><summary>Markets</summary><div class="sub"><a href="#cards">Card prices</a><a href="#markets">Indicators and top sales</a><a href="#rookies">Rookies to watch</a></div></details>
     <a href="#forecasts">Forecasts</a>
     <a href="#labour" id="nav-labour">Labour watch</a>
-    <a href="#competitors">Competitors</a>
+    <a href="#competitors">Card industry</a>
     <a href="#calendar">Calendar</a>
     <a href="#saved">Saved stories <small id="n-saved"></small></a>
     <details data-g="packs"><summary>Card packs</summary><div class="sub"><a href="#packs">Open packs</a><a href="#library">My library</a></div></details>
@@ -1862,7 +1862,7 @@ footer.site b{color:#fff;font-family:var(--display);font-weight:400;font-size:20
 (function(){
   var D; try { D = JSON.parse(document.getElementById("pulse-data").textContent); } catch(e) { D = null; }
   if (!D) return;
-  var CATS=[["women","Women's sports"],["collectibles","Card market"],["sports","League and team news"],["competitors","Competitors"],["venues","Venues and real estate"],["fans","Fan pulse"],["ai","AI and technology"]];
+  var CATS=[["women","Women's sports"],["collectibles","Card market"],["sports","League and team news"],["competitors","Card industry"],["venues","Venues and real estate"],["fans","Fan pulse"],["ai","AI and technology"]];
   var CATNAME={}; CATS.forEach(function(c){ CATNAME[c[0]]=c[1]; });
   var LEAGUES=["NBA","NFL","MLB","NHL","MLS","Soccer (Europe)","WNBA","NWSL","PWHL"];
   var MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
@@ -1923,7 +1923,7 @@ footer.site b{color:#fff;font-family:var(--display);font-weight:400;font-size:20
   /* ---------- views and banner text ---------- */
   var TITLES={home:["Today's brief",""],saved:["Saved stories","Stories you starred, kept here until you remove them."],news:["All stories","Every story in today's edition, ranked by how much it matters."],library:["My library","Every card you have pulled. Open up to three packs a day."],reads:["Worth reading","Articles from the past week worth reading in full."],cards:["Card prices","A searchable log of verified public sales by player, across leagues."],markets:["Markets","Figures tracked over time, added only when a source publishes them, plus the week's top sales."],
     rookies:["Rookies to watch","First-year players whose performance is moving card demand, with each league's card licensee."],forecasts:["Forecasts","Short-range calls built on public evidence, each with a date when it will be checked."],
-    labour:[(L&&L.title)||"Labour watch","Where bargaining stands, the dates that matter, and what the reporting expects."],competitors:["Competitors","Who holds what, their latest verified move, and what to watch next."],
+    labour:[(L&&L.title)||"Labour watch","Where bargaining stands, the dates that matter, and what the reporting expects."],competitors:["Card industry","The card makers, marketplaces and graders shaping the hobby: who holds what, their latest verified move, and what to watch next."],
     calendar:["Calendar","The next 60 days, with what to know before each date."],people:["People moves","Leadership and ownership changes at leagues, teams and competitors."],
     archive:["Past editions","The top three headlines from each daily edition."],ask:["Ask the Reporter","Ask anything about today's edition, or follow a thread further."]};
   var heroIn=document.getElementById("hero-in"), hero=document.getElementById("hero");
