@@ -42,6 +42,82 @@ h1,h2,h3,h4{margin:0;text-wrap:balance}
 .muted{color:var(--muted)}
 .lk{text-decoration-color:var(--accent);text-underline-offset:3px}
 
+/* card market hub */
+#nav details.hot>summary{color:var(--ink);font-weight:700}
+.hotdot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);margin-left:6px;vertical-align:1px}
+.mtabs{display:flex;gap:2px;overflow-x:auto;border-bottom:1px solid var(--line);margin-bottom:4px;scrollbar-width:none}
+.mtabs::-webkit-scrollbar{display:none}
+.mtabs a{flex:none;padding:10px 14px;font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .15s,border-color .15s}
+.mtabs a:hover{color:var(--ink)}
+.mtabs a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--accent)}
+.pulse{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:24px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:28px;align-items:start}
+.pl-l{display:grid;gap:10px;align-content:start}
+.pl-l p{margin:0;font-size:14px}
+.pv{font-family:var(--display);font-size:68px;line-height:.95}
+.pchg{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:13.5px;color:var(--ink2)}
+.ev p{font-size:13.5px;color:var(--muted);margin:8px 0 0}
+.pl-r{display:grid;gap:12px;min-width:0}
+.bars{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:6px;height:210px;align-items:end}
+.bar{all:unset;cursor:pointer;display:grid;grid-template-rows:minmax(0,1fr) auto;height:100%;gap:4px;min-width:0;text-align:center;border-radius:4px}
+.bar .cw{display:flex;align-items:flex-end;height:100%;padding-top:18px;box-sizing:border-box}
+.bar .col{position:relative;width:100%;display:block;background:var(--line);border-radius:3px 3px 0 0;transition:background .15s;min-height:3px}
+.bar:hover .col{background:var(--muted)}
+.bar.last .col{background:var(--accent)}
+.bar[aria-pressed="true"] .col{background:var(--ink)}
+.bar.last[aria-pressed="true"] .col{background:var(--accent);box-shadow:0 0 0 2px var(--surface),0 0 0 4px var(--accent)}
+.bar .bv{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);padding-bottom:3px;font-size:11px;font-weight:700;font-variant-numeric:tabular-nums;color:var(--muted);visibility:hidden;white-space:nowrap}
+.bar[aria-pressed="true"] .bv,.bar.last .bv{visibility:visible;color:var(--ink)}
+.bar .bl{font-size:10.5px;color:var(--muted);white-space:nowrap;overflow:hidden}
+.bar:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.binfo{display:grid;gap:3px;font-size:13.5px;border-top:1px solid var(--line);padding-top:10px;min-height:64px}
+.binfo span{color:var(--muted)}
+.binfo .lk{font-size:13px;color:var(--muted);justify-self:start}
+.movers{display:grid;gap:10px}
+.mv{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--good);border-radius:4px;padding:14px 16px;display:grid;gap:4px}
+.mv.dn{border-left-color:var(--bad)}
+.mvh{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.mvh b{font-size:16px}
+.mvc{font-family:var(--display);font-size:28px;line-height:1;color:var(--good);white-space:nowrap}
+.mv.dn .mvc{color:var(--bad)}
+.mvs{font-size:13px}
+.mvp{font-size:14px;font-weight:600;font-variant-numeric:tabular-nums}
+.mv p{margin:2px 0 0;font-size:14px;color:var(--ink2)}
+.mvf{font-size:12.5px;color:var(--muted)}
+.mvf .lk{color:var(--muted)}
+.twocol>.sec{align-content:start}
+.ladder{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:16px}
+.ld{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:18px 20px;display:grid;gap:10px}
+.ldh{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.ldh b{font-size:15.5px;line-height:1.35}
+.ldr{display:grid;grid-template-columns:110px minmax(0,1fr) auto auto;gap:10px;align-items:center;font-size:14px}
+.ldl{font-weight:600}
+.ldb{height:12px;background:var(--sunk);border-radius:3px;overflow:hidden}
+.ldb i{display:block;height:100%;background:var(--ink2);border-radius:3px}
+.ldv{font-weight:700;font-variant-numeric:tabular-nums}
+.ldd{font-size:12px}
+.ldx{margin:0;font-family:var(--display);font-size:22px;text-transform:uppercase;line-height:1.1}
+.pchw{margin:0;display:grid;gap:4px}
+.pch{width:100%;max-width:460px;height:auto;display:block;overflow:visible}
+.pchw figcaption{font-size:12.5px}
+.rsum{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.rs{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:16px 18px;display:grid;grid-template-columns:auto 1fr;gap:2px 10px;align-items:center}
+.rs b{font-family:var(--display);font-weight:400;font-size:26px;text-transform:uppercase;line-height:1}
+.rs span{grid-column:2;font-size:13px;color:var(--muted)}
+.mkdot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--muted);flex:none}
+.mk-topps{background:#3b82f6}.mk-panini{background:#e08a1e}.mk-upper-deck{background:#10a37f}
+.mkchip{display:inline-flex;align-items:center;gap:7px;font-weight:700}
+.mkband{margin-top:36px;display:grid;gap:14px}
+.mkh{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px;border-bottom:2px solid var(--ink);padding-bottom:10px}
+.mkh h2{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:30px;line-height:1}
+.mkh .btn{justify-self:auto}
+.mkt{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:14px}
+.mtile{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:18px 20px;display:grid;gap:6px;text-decoration:none;transition:transform .15s,box-shadow .15s}
+.mtile:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.mtile b{font-family:var(--display);font-weight:400;font-size:40px;line-height:1}
+.mtile.up b{color:var(--good)} .mtile.dn b{color:var(--bad)}
+.mtile span.muted{font-size:13.5px}
+@media (max-width:760px){.pulse{grid-template-columns:1fr;padding:18px}.pv{font-size:56px}.bars{height:170px;gap:4px}.bar:nth-child(even):not(.last) .bl{visibility:hidden}.bar .bl{overflow:visible}.rs{padding:12px;grid-template-columns:1fr;gap:4px}.rs b{font-size:19px}.rs span{grid-column:1;font-size:12px}.rs .mkdot{display:none}.ldr{grid-template-columns:90px minmax(0,1fr) auto}.ldd{display:none}}
+
 /* sidebar shell */
 :root{--sw:256px}
 .side{position:fixed;top:0;left:0;bottom:0;width:var(--sw);background:var(--rail);border-right:1px solid var(--line);display:flex;flex-direction:column;gap:18px;z-index:50;padding:calc(24px + env(safe-area-inset-top,0px)) 14px 18px calc(14px + env(safe-area-inset-left,0px));overflow-y:auto;transition:transform .28s cubic-bezier(.2,.8,.2,1)}
@@ -67,6 +143,7 @@ h1,h2,h3,h4{margin:0;text-wrap:balance}
 @media (max-width:900px){
   .side{transform:translateX(-102%);width:min(300px,86vw);box-shadow:20px 0 40px rgba(0,0,0,.5)}
   .side.open{transform:none}
+  .side:not(.open){box-shadow:none}
   .shell{margin-left:0}
   .mtop{display:flex;position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:var(--rail);border-bottom:1px solid var(--line);align-items:center;justify-content:space-between;gap:12px;padding:10px max(16px,env(safe-area-inset-right,0px)) 10px max(16px,env(safe-area-inset-left,0px))}
   .mtop .brand{text-decoration:none;display:grid}
@@ -2659,11 +2736,10 @@ footer.site b{color:#fff;font-family:var(--display);font-weight:400;font-size:20
   <div class="theme" id="theme" role="group" aria-label="Colour theme"></div>
   <nav id="nav">
     <a href="#home">Home</a>
+    <details data-g="market" class="hot"><summary><span>Card market <i class="hotdot" aria-hidden="true"></i></span></summary><div class="sub"><a href="#market">Overview</a><a href="#market-prices">Prices and sales</a><a href="#market-calendar">Releases and auctions</a><a href="#market-rights">Licensing map</a><a href="#market-landscape">Market landscape</a><a href="#market-rookies">Rookies to watch</a><a href="#market-forecasts">Card forecasts</a></div></details>
     <details data-g="news"><summary>News</summary><div class="sub"><a href="#news">All stories <small id="n-all"></small></a><span class="lbl">Leagues</span><div id="m-leagues" style="display:grid;gap:1px"></div><span class="lbl">Topics</span><div id="m-topics" style="display:grid;gap:1px"></div></div></details>
-    <details data-g="markets"><summary>Markets</summary><div class="sub"><a href="#cards">Card prices</a><a href="#markets">Indicators and top sales</a><a href="#rookies">Rookies to watch</a></div></details>
     <a href="#forecasts">Forecasts</a>
     <a href="#labour" id="nav-labour">Labour watch</a>
-    <a href="#card-industry">Card industry</a>
     <a href="#calendar">Calendar</a>
     <a href="#saved">Saved stories <small id="n-saved"></small></a>
     <details data-g="packs"><summary>Card packs</summary><div class="sub"><a href="#packs">Open packs</a><a href="#library">My library</a></div></details>
@@ -2693,6 +2769,7 @@ footer.site b{color:#fff;font-family:var(--display);font-weight:400;font-size:20
         <div class="timeline" id="timeline"></div>
         <a class="btn allbtn" href="#news">All stories &rarr;</a>
       </div>
+      <section class="mkband" id="mkband" aria-label="Card market"></section>
       <div class="packzone" id="packzone">
         <div class="pz-h"><div><h2>Open a pack</h2><p>Pick a sport. Each pack holds one player card for your library, with no repeats.</p></div><div class="left" id="packs-left"></div></div>
         <div class="packs" id="packs"></div>
@@ -2720,24 +2797,63 @@ footer.site b{color:#fff;font-family:var(--display);font-weight:400;font-size:20
     <section class="view first" data-view="reads" hidden><div class="reads" id="reads"></div></section>
 
 
-    <section class="view first" data-view="cards" hidden>
+    <section class="view first" data-view="market" hidden>
+      <nav class="mtabs" aria-label="Card market sections"></nav>
+      <div class="pulse" id="pulse"></div>
+      <div class="twocol">
+        <div class="sec"><div class="sec-h"><h2>Movers</h2><span>Price moves and what drove them</span></div><div class="movers" id="movers"></div></div>
+        <div class="sec"><div class="sec-h"><h2>Coming up</h2><a class="lk" href="#market-calendar" style="font-size:13.5px;color:var(--muted)">All releases and auctions &rarr;</a></div><div class="reads" id="mk-next"></div></div>
+      </div>
+      <div class="sec"><div class="sec-h"><h2 id="sales-label">Top sales</h2><span id="sales-src"></span></div>
+        <div class="tw"><table><thead><tr><th>Card</th><th class="r">Price</th><th>Sold via</th><th>Date</th></tr></thead><tbody id="sales"></tbody></table></div></div>
+      <div class="sec"><div class="sec-h"><h2>Indicators</h2><span class="legend"><span><i class="sw sw-fact"></i>Published figure</span><span><i class="sw sw-fc"></i>Projection (dashed)</span></span></div><div class="ind" id="ind"></div></div>
+    </section>
+
+    <section class="view first" data-view="market-prices" hidden>
+      <nav class="mtabs" aria-label="Card market sections"></nav>
       <div class="legend"><span><i class="sw sw-fact"></i>Verified sale from a named source</span><span><i class="sw sw-fc"></i>Forecast, not a sale</span></div>
       <div class="tools">
-        <input class="search" id="card-q" type="search" placeholder="Search a player: Ohtani, Flagg, Clark..." aria-label="Search a player" autocomplete="off">
+        <input class="search" id="card-q" type="search" placeholder="Search a player: Ohtani, Flagg, Purdy..." aria-label="Search a player" autocomplete="off">
         <div class="chips" id="card-lg"></div>
       </div>
       <div class="players" id="players"></div>
+      <div class="sec" id="ladder-wrap"><div class="sec-h"><h2>What condition and rarity add</h2><span>The same card at different grades or print runs</span></div><div class="ladder" id="ladder"></div></div>
     </section>
 
-    <section class="view first" data-view="markets" hidden>
-      <div class="legend"><span><i class="sw sw-fact"></i>Published figure</span><span><i class="sw sw-fc"></i>Projection (dashed line)</span></div>
-      <div class="ind" id="ind"></div>
-      <div class="sec"><div class="sec-h"><h2 id="sales-label">Top sales</h2><span id="sales-src"></span></div>
-        <div class="tw"><table><thead><tr><th>Card</th><th class="r">Price</th><th>Sold via</th><th>Date</th></tr></thead><tbody id="sales"></tbody></table></div></div>
+    <section class="view first" data-view="market-calendar" hidden>
+      <nav class="mtabs" aria-label="Card market sections"></nav>
+      <div class="sec"><div class="sec-h"><h2>Auctions closing</h2><span>Big closes tend to set the week's top prices</span></div>
+        <div class="tw"><table><thead><tr><th>Closes</th><th>Auction</th><th>House</th><th>Note</th></tr></thead><tbody id="auc"></tbody></table></div></div>
+      <div class="sec"><div class="sec-h"><h2>Releases</h2><span id="rel-src"></span></div>
+        <div class="chips" id="rel-mk"></div>
+        <div class="tw"><table><thead><tr><th>Date</th><th>Product</th><th>Maker</th></tr></thead><tbody id="rel"></tbody></table></div></div>
+      <div class="sec"><div class="sec-h"><h2>Recent results</h2><span>The biggest recent public sales and where they closed</span></div>
+        <div class="tw"><table><thead><tr><th>Date</th><th>Card</th><th>House</th><th class="r">Price</th></tr></thead><tbody id="res"></tbody></table></div></div>
     </section>
 
-    <section class="view first" data-view="rookies" hidden>
+    <section class="view first" data-view="market-rights" hidden>
+      <nav class="mtabs" aria-label="Card market sections"></nav>
+      <div class="rsum" id="rsum"></div>
+      <div class="tw"><table><thead><tr><th>Property</th><th>Card maker</th><th>Since</th><th>Term</th><th>Source</th></tr></thead><tbody id="rights"></tbody></table></div>
+      <div class="sec"><div class="sec-h"><h2>Recent and coming changes</h2></div><ul class="tl" id="rdates"></ul></div>
+    </section>
+
+    <section class="view first" data-view="market-landscape" hidden>
+      <nav class="mtabs" aria-label="Card market sections"></nav>
+      <div class="board" id="board"></div>
+    </section>
+
+    <section class="view first" data-view="market-rookies" hidden>
+      <nav class="mtabs" aria-label="Card market sections"></nav>
       <div class="tw"><table><thead><tr><th>Player</th><th>League</th><th>Team</th><th>Card rights</th><th>Why now</th></tr></thead><tbody id="rookies"></tbody></table></div>
+    </section>
+
+    <section class="view first" data-view="market-forecasts" hidden>
+      <nav class="mtabs" aria-label="Card market sections"></nav>
+      <div class="legend"><span><i class="sw sw-fc"></i>Forecast: an evidence-based judgment with a check date</span><span><i class="sw sw-fact"></i>Facts elsewhere on this page</span></div>
+      <div class="sec"><div class="sec-h"><h2>Open calls</h2><span id="mf-open-n"></span></div><div class="fgrid" id="mf-open"></div></div>
+      <div class="sec" id="mf-pl-wrap" hidden><div class="sec-h"><h2>Price ranges</h2><span>Forecast ranges for single cards</span></div><div class="fgrid" id="mf-pl"></div></div>
+      <div class="sec" id="mf-past-wrap"><div class="sec-h"><h2>Track record</h2><span id="mf-rec"></span></div><div class="fgrid" id="mf-past"></div></div>
     </section>
 
     <section class="view first" data-view="forecasts" hidden>
@@ -2753,8 +2869,6 @@ footer.site b{color:#fff;font-family:var(--display);font-weight:400;font-size:20
       <div class="sec"><div class="sec-h"><h2>What the reporting expects</h2><span>Expectations of the outlets named, not this brief</span></div><div class="ol" id="lab-out"></div></div>
       <div class="sec"><div class="sec-h"><h2>Related articles</h2></div><div class="reads" id="lab-art"></div></div>
     </section>
-
-    <section class="view first" data-view="card-industry" hidden><div class="board" id="board"></div></section>
 
     <section class="view first" data-view="calendar" hidden>
       <div class="filters"><label class="ctl" for="cal-lg">League <select id="cal-lg"></select></label></div>
@@ -2799,7 +2913,7 @@ footer.site b{color:#fff;font-family:var(--display);font-weight:400;font-size:20
 <nav class="tabbar" aria-label="Quick sections" id="tabbar">
   <a href="#home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11 12 4l9 7v9h-6v-6H9v6H3z"/></svg>Home</a>
   <a href="#news"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9h10M7 13h10M7 17h6"/></svg>News</a>
-  <a href="#cards"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5M4 19h16M8 15l4-4 3 3 5-6"/></svg>Markets</a>
+  <a href="#market"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5M4 19h16M8 15l4-4 3 3 5-6"/></svg>Cards</a>
   <a href="#packs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M9 7h6"/></svg>Packs</a>
   <button type="button" id="mopen2" aria-controls="side"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>Menu</button>
 </nav>
@@ -2827,7 +2941,7 @@ footer.site b{color:#fff;font-family:var(--display);font-weight:400;font-size:20
   function slug(s){ return s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""); }
   var TODAY=D.updated;
   function ago(iso){ var n=dnum(TODAY)-dnum(iso); return n<=0?"Today":n===1?"Yesterday":n<7?n+" days ago":md(iso); }
-  function money(v){ return v>=1e6?"$"+(Math.round(v/1e4)/100)+"M":v>=1e3?"$"+Math.round(v/1e3)+"K":"$"+v; }
+  function money(v){ return v>=1e6?"$"+(Math.round(v/1e4)/100)+"M":v>=1e4?"$"+Math.round(v/1e3)+"K":"$"+v.toLocaleString("en-US",{minimumFractionDigits:v%1?2:0,maximumFractionDigits:2}); }
   function qbadge(q){ return el("span","badge "+(q==="Reported"||q==="Social"?"b-rep":"b-fact"),q==="Reported"?"Reported, unconfirmed":q==="Social"?"Social, unverified":q); }
   function store(get,key,val){ try { if(get) return localStorage.getItem(key); localStorage.setItem(key,val); } catch(e){ return null; } }
   function localISO(){ try { return new Intl.DateTimeFormat("en-CA",{timeZone:"America/Toronto",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date()); } catch(e){ return TODAY; } }
@@ -2874,9 +2988,9 @@ footer.site b{color:#fff;font-family:var(--display);font-weight:400;font-size:20
     nx.classList.remove("on"); void nx.offsetWidth; nx.classList.add("on"); setTimeout(function(){ cur.classList.remove("on"); },1700); },6000);
 
   /* ---------- views and banner text ---------- */
-  var TITLES={home:["Today's brief",""],saved:["Saved stories","Stories you starred, kept here until you remove them."],news:["All stories","Every story in today's edition, ranked by how much it matters."],library:["My library","Every card you have pulled. Open up to three packs a day."],reads:["Worth reading","Articles from the past week worth reading in full."],cards:["Card prices","A searchable log of verified public sales by player, across leagues."],markets:["Markets","Figures tracked over time, added only when a source publishes them, plus the week's top sales."],
-    rookies:["Rookies to watch","First-year players whose performance is moving card demand, with each league's card licensee."],forecasts:["Forecasts","Short-range calls built on public evidence, each with a date when it will be checked."],
-    labour:[(L&&L.title)||"Labour watch","Where bargaining stands, the dates that matter, and what the reporting expects."],"card-industry":["Card industry","The card makers, marketplaces and graders shaping the hobby: who holds what, their latest verified move, and what to watch next."],
+  var TITLES={home:["Today's brief",""],saved:["Saved stories","Stories you starred, kept here until you remove them."],news:["All stories","Every story in today's edition, ranked by how much it matters."],library:["My library","Every card you have pulled. Open up to three packs a day."],reads:["Worth reading","Articles from the past week worth reading in full."],"market":["Card market","The business of the hobby in one place: where high-end prices sit, what moved them, what is coming, and who holds the rights."],"market-prices":["Prices and sales","A searchable log of verified public sales by player, plus what condition and rarity add to a card."],"market-calendar":["Releases and auctions","Products coming to shelves and the auction closes that set the week's top prices."],"market-rights":["Licensing map","Who holds the card rights to each league and property, and what changes next."],"market-landscape":["Market landscape","The card makers, marketplaces, graders and auction houses shaping the hobby: what each holds, its latest verified move, and what to watch."],"market-rookies":["Rookies to watch","First-year players whose performance is moving card demand, with each league's card licensee."],"market-forecasts":["Card forecasts","Calls on the card market built on public sales data, each with a date when it will be checked."],
+    forecasts:["Forecasts","Short-range calls built on public evidence, each with a date when it will be checked."],
+    labour:[(L&&L.title)||"Labour watch","Where bargaining stands, the dates that matter, and what the reporting expects."],
     calendar:["Calendar","The next 60 days, with what to know before each date."],people:["People moves","Leadership and ownership changes at leagues, teams and card industry companies."],
     archive:["Past editions","The top three headlines from each daily edition."],ask:["Ask the Reporter","Ask anything about today's edition, or follow a thread further."]};
   var heroIn=document.getElementById("hero-in"), hero=document.getElementById("hero");
@@ -2899,9 +3013,10 @@ footer.site b{color:#fff;font-family:var(--display);font-weight:400;font-size:20
   function navMark(h,v){ var key=h&&h!=="home"?h:"home"; if(VIEWS.indexOf(key)<0&&key.indexOf("league-")!==0&&key.indexOf("topic-")!==0&&key!=="packs") key="home";
     document.querySelectorAll("#nav details").forEach(function(d){ d.open=false; });
     document.querySelectorAll("#nav a").forEach(function(a){ var on=a.getAttribute("href")==="#"+key; if(on){ a.setAttribute("aria-current","page"); var d=a.closest("details"); if(d) d.open=true; } else a.removeAttribute("aria-current"); });
-    var tk=v==="news"?"news":["cards","markets","rookies"].indexOf(v)>=0?"cards":(key==="packs"||v==="library")?"packs":v==="home"?"home":"";
+    var tk=v==="news"?"news":v.indexOf("market")===0?"market":(key==="packs"||v==="library")?"packs":v==="home"?"home":"";
     document.querySelectorAll("#tabbar a").forEach(function(a){ if(a.getAttribute("href")==="#"+tk) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); }); }
-  function route(){ if(location.hash==="#competitors"){ history.replaceState(null,"","#card-industry"); }
+  var OLD={competitors:"market-landscape","card-industry":"market-landscape",cards:"market-prices",markets:"market",rookies:"market-rookies"};
+  function route(){ var oh=(location.hash||"").slice(1); if(OLD[oh]){ history.replaceState(null,"","#"+OLD[oh]); }
     var h=(location.hash||"").slice(1), r=resolve(h), next=document.querySelector('.view[data-view="'+r.v+'"]'), prev=current;
     if(r.v==="news") render();
     navMark(h,r.v);
@@ -2999,6 +3114,15 @@ footer.site b{color:#fff;font-family:var(--display);font-weight:400;font-size:20
   var curLg="All", q=document.getElementById("card-q"), lgBox=document.getElementById("card-lg"), plBox=document.getElementById("players");
   lgs.forEach(function(l){ var b=el("button","chip",l); b.type="button"; b.setAttribute("aria-pressed",l==="All"?"true":"false"); b.onclick=function(){ curLg=l; lgBox.querySelectorAll(".chip").forEach(function(x){ x.setAttribute("aria-pressed",x===b?"true":"false"); }); renderPl(); }; lgBox.append(b); });
   function sortS(arr){ return arr.slice().sort(function(x,y){return x.date<y.date?1:x.date>y.date?-1:y.price-x.price;}); }
+  function pchart(sales){ var ns="http://www.w3.org/2000/svg", W=420,H=120,P={l:8,r:8,t:14,b:22}, svg=document.createElementNS(ns,"svg"); svg.setAttribute("viewBox","0 0 "+W+" "+H); svg.setAttribute("class","pch"); svg.setAttribute("role","img"); svg.setAttribute("aria-label","Logged sales over time");
+    function add(t,a){ var e=document.createElementNS(ns,t); for(var k in a) e.setAttribute(k,a[k]); svg.append(e); return e; }
+    var xs=sales.map(function(x){return dnum(x.date);}), x0=Math.min.apply(null,xs), x1=Math.max.apply(null,xs); if(x1-x0<20){ x0-=10; x1+=10; }
+    var ls=sales.map(function(x){return Math.log10(x.price);}), y0=Math.floor(Math.min.apply(null,ls)), y1=Math.ceil(Math.max.apply(null,ls)); if(y1===y0) y1++;
+    function X(v){ return P.l+(v-x0)/(x1-x0)*(W-P.l-P.r); } function Y(v){ return H-P.b-(v-y0)/(y1-y0)*(H-P.t-P.b); }
+    for(var k=y0;k<=y1;k++){ add("line",{x1:P.l,x2:W-P.r,y1:Y(k),y2:Y(k),stroke:"var(--line)","stroke-width":1}); var tx=add("text",{x:P.l,y:Y(k)-3,"font-size":10,fill:"var(--muted)","font-family":"Archivo, sans-serif"}); tx.textContent=money(Math.pow(10,k)); }
+    sales.forEach(function(x){ var c=add("circle",{cx:X(dnum(x.date)),cy:Y(Math.log10(x.price)),r:5,fill:"var(--accent)",stroke:"var(--surface)","stroke-width":2}); var ti=document.createElementNS(ns,"title"); ti.textContent=x.card+": "+usd(x.price)+", "+mdy(x.date); c.append(ti); });
+    var a=add("text",{x:P.l,y:H-5,"font-size":10.5,fill:"var(--muted)","font-family":"Archivo, sans-serif"}); a.textContent=mdy(new Date(x0*864e5).toISOString().slice(0,10)); var b=add("text",{x:W-P.r,y:H-5,"text-anchor":"end","font-size":10.5,fill:"var(--muted)","font-family":"Archivo, sans-serif"}); b.textContent=mdy(new Date(x1*864e5).toISOString().slice(0,10));
+    var w=el("figure","pchw"); w.append(svg, el("figcaption","muted","Every logged sale on a log scale. Different cards sell at very different levels, so compare like cards only.")); return w; }
   function renderPl(){ plBox.textContent=""; var term=q.value.trim().toLowerCase();
     var ps=C.players.filter(function(p){ return (curLg==="All"||p.league===curLg)&&(!term||(p.name+" "+p.team).toLowerCase().indexOf(term)>=0); })
       .sort(function(a,b){ var x=sortS(a.sales)[0], y=sortS(b.sales)[0]; return x.date<y.date?1:x.date>y.date?-1:y.price-x.price; });
@@ -3009,7 +3133,7 @@ footer.site b{color:#fff;font-family:var(--display);font-weight:400;font-size:20
       sm.append(l,r); d.append(sm); var body=el("div","body"), tw=el("div","tw"), t=el("table");
       t.innerHTML="<thead><tr><th>Date</th><th>Card</th><th>Grade</th><th class='r'>Sale price</th><th>Sold via</th><th>Source</th></tr></thead>"; var tb=el("tbody");
       s.forEach(function(x){ var tr=el("tr"), sc=el("td"); sc.append(link(x.source,x.url)); tr.append(el("td","dt",mdy(x.date)),el("td",null,x.card),el("td","muted",x.grade||"Not stated"),el("td","n r","$"+x.price.toLocaleString("en-US",{minimumFractionDigits:x.price%1?2:0})),el("td",null,x.venue),sc); tb.append(tr); });
-      t.append(tb); tw.append(t); body.append(tw);
+      t.append(tb); tw.append(t); body.append(tw); if(s.length>=2) body.append(pchart(s));
       if(p.forecast){ var f=el("div","pfc"); f.append(el("span","badge b-fc","Forecast, not a sale"), el("b",null,p.forecast.card+": "+money(p.forecast.low)+" to "+money(p.forecast.high)+" by "+md(p.forecast.by)), el("span","muted",p.forecast.basis)); body.append(f); }
       d.append(body); plBox.append(d); }); }
   q.addEventListener("input",renderPl); renderPl();
@@ -3074,6 +3198,82 @@ footer.site b{color:#fff;font-family:var(--display);font-weight:400;font-size:20
   cs.onchange=renderCal; renderCal();
   var pb=document.getElementById("people"); (D.people||[]).slice().sort(function(a,b){return a.date<b.date?1:-1;}).forEach(function(p){ var tr=el("tr"), who=el("td"); who.append(el("b",null,p.who)); var ctx=el("td"); ctx.append(document.createTextNode(p.context+" "), link("Source",p.url)); if(p.quality==="Reported"){ ctx.append(document.createTextNode(" ")); ctx.append(qbadge("Reported")); }
     tr.append(el("td","dt",md(p.date)),who,el("td",null,p.org),el("td",null,p.move),ctx); pb.append(tr); });
+
+  /* ---------- card market hub ---------- */
+  var MK=D.market||{};
+  var MTABS=[["market","Overview"],["market-prices","Prices and sales"],["market-calendar","Releases and auctions"],["market-rights","Licensing map"],["market-landscape","Landscape"],["market-rookies","Rookies"],["market-forecasts","Forecasts"]];
+  document.querySelectorAll(".mtabs").forEach(function(nv){ var v=nv.closest(".view").dataset.view; MTABS.forEach(function(t){ var a=el("a",null,t[1]); a.href="#"+t[0]; if(t[0]===v) a.setAttribute("aria-current","page"); nv.append(a); }); });
+  function usd(v){ return "$"+v.toLocaleString("en-US",{minimumFractionDigits:v%1?2:0,maximumFractionDigits:2}); }
+  function pct(n,approx){ var r=Math.round(n); return (approx?"≈ ":"")+(r>0?"+":r<0?"−":"")+Math.abs(r)+"%"; }
+  /* pulse */
+  var PU=MK.pulse, PP=(PU&&PU.points)||[];
+  function pulseChange(){ if(PP.length<2) return null; var a=PP[PP.length-2].v, b=PP[PP.length-1].v; return {p:(b-a)/a*100, prev:PP[PP.length-2]}; }
+  (function(){ var box=document.getElementById("pulse"); if(!box) return; if(!PP.length){ box.hidden=true; return; }
+    var l=PP[PP.length-1], ch=pulseChange(), left=el("div","pl-l");
+    left.append(el("span","eyebrow",PU.name+" · our index"), el("span","pv",money(l.v)));
+    var cl=el("div","pchg"); if(ch){ cl.append(el("span","badge "+(ch.p>=0?"b-hit":"b-miss"),pct(ch.p)), document.createTextNode(" vs "+ch.prev.wk)); } cl.append(el("span","muted"," · week of "+l.wk)); left.append(cl);
+    left.append(el("p","muted",PU.note));
+    var how=el("details","ev"); how.append(el("summary",null,"How this is calculated")); how.append(el("p",null,PU.method)); left.append(how);
+    var right=el("div","pl-r"), bars=el("div","bars"), info=el("div","binfo"); var mx=Math.max.apply(null,PP.map(function(p){return p.v;}));
+    function show(p,b){ bars.querySelectorAll(".bar").forEach(function(x){ x.setAttribute("aria-pressed",String(x===b)); }); info.textContent="";
+      var t=el("b",null,"Week of "+p.wk+": "+money(p.v)); info.append(t, el("span",null,"Top sale: "+(p.top?money(p.top)+", ":"")+p.lead+(p.house&&p.house!=="Not stated"?" ("+p.house+")":"")+". "), link("SI list, "+p.pub+" ↗",p.url)); }
+    PP.forEach(function(p,i){ var b=el("button","bar"); b.type="button"; b.setAttribute("aria-label","Week of "+p.wk+", "+money(p.v)); var col=el("span","col"); col.style.height=Math.max(3,p.v/mx*100)+"%"; if(i===PP.length-1) b.classList.add("last");
+      var v=el("span","bv",money(p.v)), cw=el("span","cw"); col.append(v); cw.append(col); b.append(cw,el("span","bl",md(p.d))); b.onclick=function(){ show(p,b); }; bars.append(b); });
+    right.append(bars, info); box.append(left,right); show(l,bars.lastChild); })();
+  /* movers */
+  var MV=(MK.movers||[]);
+  (function(){ var box=document.getElementById("movers"); if(!box) return; if(!MV.length){ box.append(el("p","muted","No verified moves this week.")); return; }
+    MV.forEach(function(m){ var r=el("div","mv "+(m.dir==="down"?"dn":"up")), top=el("div","mvh"), nm=el("b"); nm.append(sicon([m.league]), document.createTextNode(m.player));
+      top.append(nm, el("span","mvc",pct(m.change,m.approx))); var sub=el("div","muted mvs",m.card+(m.grade?", "+m.grade:"")+" · "+m.window);
+      r.append(top, sub);
+      if(m.to){ var pr=el("div","mvp"); pr.append(document.createTextNode((m.from?(m.fromApprox?"about ":"")+usd(m.from)+(m.fromLabel?" ("+m.fromLabel+")":"")+" → ":"Latest sale ")+usd(m.to)+(m.toDate?" on "+md(m.toDate):""))); r.append(pr); }
+      r.append(el("p",null,m.why)); var f=el("div","mvf"); f.append(link(m.source+", "+md(m.date),m.url)); if(m.note) f.append(el("span","muted"," · "+m.note)); r.append(f); box.append(r); }); })();
+  /* coming up */
+  var REL=(MK.releases||[]).filter(function(r){ return r.date>=TODAY; }), AUC=(MK.auctions||[]).filter(function(a){ return a.closes>=TODAY; });
+  var NEXT=REL.map(function(r){ return {date:r.date,kind:r.note&&/preorder/i.test(r.note)?"Preorders":"Release",t:r.product,sub:r.maker,league:r.league,url:(MK.releasesSource||{}).url}; })
+    .concat(AUC.map(function(a){ return {date:a.closes,kind:"Auction closes",t:a.house+" "+a.name,sub:a.note||"",league:"Multi",url:a.url}; })).sort(function(a,b){ return a.date<b.date?-1:1; });
+  (function(){ var box=document.getElementById("mk-next"); if(!box) return; if(!NEXT.length){ box.append(el("div","read","Nothing scheduled.")); return; }
+    var picks=NEXT.filter(function(x){ return x.kind==="Auction closes"; }).slice(0,2).concat(NEXT.filter(function(x){ return x.kind!=="Auction closes"; }).slice(0,4)).sort(function(a,b){ return a.date<b.date?-1:1; });
+    picks.forEach(function(x){ var a=link("",x.url,"read"); var k=el("span","kick"); k.append(sicon([x.league]), document.createTextNode(x.kind+" · "+dow(x.date)+" "+md(x.date))); a.append(k, el("b",null,x.t)); if(x.sub) a.append(el("span",null,x.sub)); box.append(a); }); })();
+  /* ladder */
+  (function(){ var box=document.getElementById("ladder"); if(!box) return; var LD=MK.ladder||[]; if(!LD.length){ document.getElementById("ladder-wrap").hidden=true; return; }
+    LD.forEach(function(x){ var c=el("div","ld"), h=el("div","ldh"); var nm=el("b"); nm.append(sicon([x.league]), document.createTextNode(x.card)); h.append(nm, el("span","badge b-fact",x.kind)); c.append(h);
+      var mx=Math.max.apply(null,x.rows.map(function(r){return r.price;})), mn=Math.min.apply(null,x.rows.map(function(r){return r.price;}));
+      x.rows.forEach(function(r){ var row=el("div","ldr"), bw=el("div","ldb"), bi=el("i"); bi.style.width=(r.price/mx*100)+"%"; bw.append(bi); row.append(el("span","ldl",r.label), bw, el("span","ldv",usd(r.price)), el("span","muted ldd",md(r.date))); c.append(row); });
+      c.append(el("p","ldx",(Math.round(mx/mn*10)/10)+"× the price for the "+(x.kind==="Condition"?"higher grade":"rarer version")));
+      var f=el("div","mvf"); f.append(link(x.source,x.url)); if(x.venue&&x.venue!=="Not stated") f.append(el("span","muted"," · Sold on "+x.venue)); c.append(f); box.append(c); }); })();
+  /* releases and auctions */
+  (function(){ var ab=document.getElementById("auc"); if(!ab) return; if(!AUC.length) ab.append(Object.assign(el("tr"),{innerHTML:"<td colspan='4' class='muted'>No closes scheduled.</td>"}));
+    AUC.forEach(function(a){ var tr=el("tr"), n=el("td"); n.append(el("b",null,a.name)); if(a.opens) n.append(el("div","muted",(a.opens>TODAY?"Opens ":"Opened ")+md(a.opens))); var nt=el("td"); nt.append(document.createTextNode((a.note||"")+" "), link("Source",a.url));
+      var left=dnum(a.closes)-dnum(TODAY); tr.append(el("td","dt",md(a.closes)+(left<=14?" · in "+left+" days":"")), n, el("td",null,a.house), nt); ab.append(tr); });
+    var rs=MK.releasesSource; if(rs){ var sp=document.getElementById("rel-src"); sp.append(document.createTextNode("Source: "), link(rs.source,rs.url)); }
+    var makers=["All"]; REL.forEach(function(r){ if(makers.indexOf(r.maker)<0) makers.push(r.maker); }); var cur="All", mb=document.getElementById("rel-mk"), rb=document.getElementById("rel");
+    function draw(){ rb.textContent=""; REL.filter(function(r){ return cur==="All"||r.maker===cur; }).forEach(function(r){ var tr=el("tr"), p=el("td"); var pb=el("b"); pb.append(sicon([r.league]), document.createTextNode(r.product)); p.append(pb); if(r.note) p.append(el("div","muted",r.note)); tr.append(el("td","dt",dow(r.date)+" "+md(r.date)), p, el("td",null,r.maker)); rb.append(tr); }); }
+    makers.forEach(function(m){ var b=el("button","chip",m); b.type="button"; b.setAttribute("aria-pressed",String(m==="All")); b.onclick=function(){ cur=m; mb.querySelectorAll(".chip").forEach(function(x){ x.setAttribute("aria-pressed",String(x===b)); }); draw(); }; mb.append(b); }); draw();
+    var rsb=document.getElementById("res"); (MK.results||[]).slice().sort(function(a,b){ return a.date<b.date?1:-1; }).forEach(function(r){ var tr=el("tr"), c=el("td"); c.append(document.createTextNode(r.card+" "), link("Source",r.url)); tr.append(el("td","dt",md(r.date)), c, el("td",null,r.house), el("td","n r",money(r.price))); rsb.append(tr); }); })();
+  /* licensing map */
+  (function(){ var tb=document.getElementById("rights"); if(!tb) return; var R=MK.rights||[], cnt={}; R.forEach(function(r){ cnt[r.holder]=(cnt[r.holder]||0)+1; });
+    var sm=document.getElementById("rsum"); Object.keys(cnt).sort(function(a,b){ return cnt[b]-cnt[a]; }).forEach(function(k){ var c=el("div","rs"); c.append(el("i","mkdot mk-"+slug(k)), el("b",null,k), el("span",null,cnt[k]+" of "+R.length+" properties listed")); sm.append(c); });
+    R.forEach(function(r){ var tr=el("tr"), p=el("td"), pb=el("b"); pb.append(sicon([r.league]), document.createTextNode(r.property)); p.append(pb); var h=el("td"), hc=el("span","mkchip"); hc.append(el("i","mkdot mk-"+slug(r.holder)), document.createTextNode(r.holder)); h.append(hc); if(r.owner) h.append(el("div","muted","Owned by "+r.owner));
+      var sc=el("td"); sc.append(link(r.source,r.url)); tr.append(p,h,el("td",null,r.since),el("td","muted",r.term),sc); tb.append(tr); });
+    var ul=document.getElementById("rdates"); (MK.rightsDates||[]).forEach(function(x){ var li=el("li",x.date<TODAY?"past":null); var sp=el("span"); sp.append(document.createTextNode(x.event+" "), link("Source",x.url)); li.append(el("b",null,mdy(x.date)), sp); ul.append(li); }); })();
+  /* card forecasts */
+  (function(){ var ob=document.getElementById("mf-open"); if(!ob) return; var CF=(D.forecasts||[]).filter(function(f){ return f.card; });
+    var op=CF.filter(function(f){ return f.status==="open"; }).sort(function(a,b){ return a.checkBy<b.checkBy?-1:1; }), ps=CF.filter(function(f){ return f.status!=="open"; });
+    op.forEach(function(f){ ob.append(fcard(f)); }); if(!op.length) ob.append(el("p","muted","No open card calls."));
+    document.getElementById("mf-open-n").textContent=op.length+" open";
+    var hit=ps.filter(function(f){return f.status==="hit";}).length, part=ps.filter(function(f){return f.status==="partial";}).length;
+    document.getElementById("mf-rec").textContent=ps.length?hit+" happened, "+part+" partly, "+(ps.length-hit-part)+" did not, of "+ps.length+" checked":"No card calls checked yet. Each open call is scored on its check date and kept here.";
+    if(ps.length) ps.forEach(function(f){ document.getElementById("mf-past").append(fcard(f)); });
+    var pf=(C.players||[]).filter(function(p){ return p.forecast; }); if(pf.length){ document.getElementById("mf-pl-wrap").hidden=false; pf.forEach(function(p){ var c=el("div","fcard"); c.append(el("span","badge b-fc","Forecast, not a sale"), el("h4",null,p.name+": "+p.forecast.card), el("p",null,money(p.forecast.low)+" to "+money(p.forecast.high)+" by "+md(p.forecast.by)), el("p","muted",p.forecast.basis)); document.getElementById("mf-pl").append(c); }); } })();
+  /* home band */
+  (function(){ var bx=document.getElementById("mkband"); if(!bx) return; var hd=el("div","mkh"); var t=el("div"); t.append(el("span","eyebrow","Card market"), el("h2",null,"The hobby this week")); var a=el("a","btn","Open the card market →"); a.href="#market"; hd.append(t,a); bx.append(hd);
+    var g=el("div","mkt");
+    function tile(href,ey,big,sub,cls){ var x=el("a","mtile"+(cls?" "+cls:"")); x.href=href; x.append(el("span","eyebrow",ey), el("b",null,big), el("span","muted",sub)); g.append(x); }
+    if(PP.length){ var l=PP[PP.length-1], ch=pulseChange(); tile("#market",PU.name,money(l.v),(ch?pct(ch.p)+" vs "+ch.prev.wk+". ":"")+"Middle price of the week's five biggest sales."); }
+    var fm=MV.slice().sort(function(a,b){ return Math.abs(b.change)-Math.abs(a.change); })[0]; if(fm) tile("#market",fm.dir==="down"?"Biggest faller":"Biggest mover",pct(fm.change,fm.approx),fm.player+", "+fm.card+(fm.grade?" "+fm.grade:"")+", "+fm.window+".",fm.dir==="down"?"dn":"up");
+    var nx=NEXT[0]; if(nx) tile("#market-calendar","Next up",dow(nx.date)+" "+md(nx.date),(nx.kind==="Preorders"?"Preorders open":nx.kind)+": "+nx.t+".");
+    bx.append(g); })();
 
 
   /* ---------- saved page ---------- */
