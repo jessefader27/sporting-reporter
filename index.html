@@ -1,0 +1,2334 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}</style></head><body><title>The Sporting Reporter</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wdth,wght@75..110,400..800&display=swap">
+<style>
+/* Layout: corporate-site pattern. Black top bar with dropdown menus, a full-width night-arena banner with a tall condensed headline, then clean white sections. Facts are solid; forecasts are dashed. */
+:root{
+  --bg:#f3f5f8; --surface:#ffffff; --sunk:#eef1f5; --ink:#111827; --ink2:#2b3443; --muted:#5f6b7d; --line:#e1e6ed; --rail:#ffffff;
+  --bar:#0b0f16; --bar-ink:#ffffff; --bar-muted:#b9c0cb; --hero-ink:#ffffff;
+  --accent:#d6202f; --accent-soft:rgba(214,32,47,.09); --accent-ink:#ffffff;
+  --good:#127a4d; --good-soft:#e2f3ea; --warn:#8d6a12; --warn-soft:#f8efd6; --bad:#b4192e; --bad-soft:#fbe4e7;
+  --fc:#6b4fbf; --fc-soft:#efebfb; --shadow:0 1px 2px rgba(17,24,39,.05),0 8px 24px rgba(17,24,39,.06);
+  --display:"Anton","Impact","Arial Narrow Bold",sans-serif;
+  --font:"Archivo","Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0b0f15; --surface:#141a24; --sunk:#1a212d; --ink:#eef1f6; --ink2:#c9d0db; --muted:#94a0b5; --line:#252e3c; --rail:#080b10;
+  --bar:#06080c; --accent:#ff4655; --accent-soft:rgba(255,70,85,.14);
+  --good:#5bd39d; --good-soft:rgba(91,211,157,.14); --warn:#e9c56a; --warn-soft:rgba(233,197,106,.14); --bad:#ff8090; --bad-soft:rgba(255,128,144,.14);
+  --fc:#b7a4ff; --fc-soft:rgba(183,164,255,.12); --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.3); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0b0f15; --surface:#141a24; --sunk:#1a212d; --ink:#eef1f6; --ink2:#c9d0db; --muted:#94a0b5; --line:#252e3c; --rail:#080b10;
+  --bar:#06080c; --accent:#ff4655; --accent-soft:rgba(255,70,85,.14);
+  --good:#5bd39d; --good-soft:rgba(91,211,157,.14); --warn:#e9c56a; --warn-soft:rgba(233,197,106,.14); --bad:#ff8090; --bad-soft:rgba(255,128,144,.14);
+  --fc:#b7a4ff; --fc-soft:rgba(183,164,255,.12); --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.3); color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:15.5px;line-height:1.55;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--rail)}
+.in{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+h1,h2,h3,h4{margin:0;text-wrap:balance}
+.disp{font-family:var(--display);font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:.95}
+.eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.sic{display:inline-flex;vertical-align:-3px;margin-right:6px}
+.si{width:15px;height:15px;display:block}
+.pl .nm .si{width:18px;height:18px}
+.kick{font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.lk{text-decoration-color:var(--accent);text-underline-offset:3px}
+
+/* sidebar shell */
+:root{--sw:256px}
+.side{position:fixed;top:0;left:0;bottom:0;width:var(--sw);background:var(--rail);border-right:1px solid var(--line);display:flex;flex-direction:column;gap:18px;z-index:50;padding:calc(24px + env(safe-area-inset-top,0px)) 14px 18px calc(14px + env(safe-area-inset-left,0px));overflow-y:auto;transition:transform .28s cubic-bezier(.2,.8,.2,1)}
+.side .brand{display:grid;gap:4px;padding:0 10px;text-decoration:none}
+.side .brand b{font-family:var(--display);font-weight:400;font-size:27px;line-height:.95;text-transform:uppercase;letter-spacing:.02em;color:var(--ink)}
+.side .brand span{font-size:12px;color:var(--muted);letter-spacing:.04em}
+.side .fresh{margin:0 10px;justify-self:start;align-self:flex-start;background:var(--sunk);font-size:12.5px}
+#nav{display:grid;gap:2px}
+#nav a,#nav summary{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 12px;border-radius:8px;text-decoration:none;color:var(--ink2);font-size:14.5px;font-weight:550;cursor:pointer;list-style:none;position:relative;transition:background .15s,color .15s}
+#nav summary::-webkit-details-marker{display:none}
+#nav summary::after{content:"";width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(-45deg);opacity:.6;transition:transform .2s}
+#nav details[open]>summary::after{transform:rotate(45deg)}
+#nav a:hover,#nav summary:hover{background:var(--sunk);color:var(--ink)}
+#nav a[aria-current="page"]{background:var(--accent-soft);color:var(--ink)}
+#nav a[aria-current="page"]::before{content:"";position:absolute;left:0;top:8px;bottom:8px;width:3px;border-radius:3px;background:var(--accent)}
+#nav .sub{display:grid;gap:1px;padding:2px 0 8px 12px;margin-left:10px;border-left:1px solid var(--line)}
+#nav .sub a{font-size:13.5px;font-weight:500;padding:7px 10px}
+#nav .sub a small{font-size:11.5px;color:var(--muted);font-weight:500}
+#nav .lbl{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:10px 10px 4px}
+.side-foot{margin-top:auto;padding:12px 10px 0;border-top:1px solid var(--line);font-size:12px;color:var(--muted);display:grid;gap:3px}
+.shell{margin-left:var(--sw);min-width:0}
+.mtop,.tabbar,.nscrim{display:none}
+@media (max-width:900px){
+  .side{transform:translateX(-102%);width:min(300px,86vw);box-shadow:20px 0 40px rgba(0,0,0,.5)}
+  .side.open{transform:none}
+  .shell{margin-left:0}
+  .mtop{display:flex;position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:var(--rail);border-bottom:1px solid var(--line);align-items:center;justify-content:space-between;gap:12px;padding:10px max(16px,env(safe-area-inset-right,0px)) 10px max(16px,env(safe-area-inset-left,0px))}
+  .mtop .brand{text-decoration:none;display:grid}
+  .mtop .brand b{font-family:var(--display);font-weight:400;font-size:20px;text-transform:uppercase;color:var(--ink);line-height:1}
+  .mtop .brand span{font-size:10.5px;color:var(--muted)}
+  .mbtn{background:var(--sunk);border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:8px 12px;font-size:14px;font-weight:600;cursor:pointer}
+  .nscrim{display:block;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:45}
+  .nscrim[hidden]{display:none!important}
+  .tabbar{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--rail);border-top:1px solid var(--line);padding:6px max(6px,env(safe-area-inset-left,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(6px,env(safe-area-inset-right,0px))}
+  .tabbar a,.tabbar button{all:unset;cursor:pointer;display:grid;justify-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--muted);padding:6px 0;border-radius:8px}
+  .tabbar svg{width:22px;height:22px}
+  .tabbar [aria-current="page"]{color:var(--ink)}
+  .tabbar [aria-current="page"] svg{color:var(--accent)}
+  main .in{padding-bottom:110px}
+  footer.site .in{padding-bottom:110px}
+  .packzone{scroll-margin-top:70px}
+}
+/* jersey card art */
+.face .art svg.jersey{position:absolute;left:50%;top:45%;width:74%;transform:translate(-50%,-50%);filter:drop-shadow(0 10px 18px rgba(0,0,0,.45))}
+.face .art svg.icon.sm{left:auto;right:10px;top:auto;bottom:62px;width:18%;transform:none;opacity:.9}
+.lib .tc .face .art svg.icon.sm{bottom:40px}
+
+/* banner */
+.hero{position:relative;color:var(--hero-ink);background:#05070b;overflow:hidden}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.35) 55%,rgba(0,0,0,.1) 100%),linear-gradient(0deg,rgba(0,0,0,.55),rgba(0,0,0,0) 45%)}
+.hero .in{transition:min-height .3s ease,padding .3s ease;position:relative;z-index:1;display:grid;gap:14px;align-content:end;min-height:400px;padding-block:56px 64px}
+.hero.small .in{min-height:230px;padding-block:40px 40px}
+.hero h1{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(48px,8vw,96px);line-height:.92;letter-spacing:.005em}
+.hero.small h1{font-size:clamp(40px,6vw,68px)}
+.hero p{margin:0;max-width:60ch;font-size:17px;color:#e3e7ee}
+.hmeta{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;font-size:13.5px;color:#d5dbe4}
+.fresh{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);backdrop-filter:blur(6px);border-radius:999px;padding:5px 12px 5px 10px;font-weight:600;color:#fff}
+.fresh i{width:8px;height:8px;border-radius:50%;background:#4fd08f;box-shadow:0 0 0 3px rgba(79,208,143,.25)}
+.fresh.stale i{background:#e9c56a;box-shadow:0 0 0 3px rgba(233,197,106,.25)}
+.crumb{font-size:13px;color:#cfd5de;text-decoration:none;font-weight:600}
+.crumb:hover{color:#fff}
+
+main .in{display:grid;gap:40px;padding-block:0 64px}
+.view{display:grid;gap:40px}
+.lift{margin-top:-44px;position:relative;z-index:2}
+.sec{display:grid;gap:16px}
+.sec-h{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 16px;border-bottom:2px solid var(--ink);padding-bottom:10px}
+.sec-h h2{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:30px;line-height:1;letter-spacing:.01em}
+.sec-h span{font-size:13.5px;color:var(--muted)}
+.first{padding-top:40px}
+
+/* top three */
+.top3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.t3{all:unset;box-sizing:border-box;cursor:pointer;background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:22px 22px 20px;display:grid;gap:10px;align-content:start;border-top:4px solid var(--accent);box-shadow:0 10px 30px rgba(0,0,0,.12);transition:transform .18s}
+.t3:hover{transform:translateY(-3px)}
+.t3:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.t3 p{margin:0;font-weight:650;font-size:18px;line-height:1.38}
+.t3 .more{font-size:13px;font-weight:700;color:var(--muted)}
+
+/* filters */
+.filters{display:flex;flex-wrap:wrap;gap:12px 16px;align-items:end;background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:14px 16px}
+.ctl{display:grid;gap:5px;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+select{font:inherit;font-size:14.5px;text-transform:none;letter-spacing:0;font-weight:500;padding:8px 12px;border-radius:4px;border:1px solid var(--line);background:var(--surface);color:var(--ink);min-width:170px}
+.chk{display:inline-flex;gap:8px;align-items:center;font-size:14.5px;font-weight:500;padding-bottom:8px;cursor:pointer}
+.chk input{accent-color:var(--accent);width:16px;height:16px}
+.fend{margin-left:auto;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.status{font-size:13px;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:14px;padding:9px 16px;border-radius:6px;background:var(--accent);color:#fff;text-decoration:none;border:0;cursor:pointer;justify-self:start}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+
+/* stories */
+.stories{display:grid;background:var(--surface);border:1px solid var(--line);border-radius:4px}
+.story{display:grid;grid-template-columns:150px minmax(0,1fr);gap:6px 28px;padding:22px 24px;border-top:1px solid var(--line)}
+.story:first-child{border-top:0}
+.story .sside{display:grid;gap:6px;align-content:start;justify-items:start}
+.story .age{font-size:13px;font-weight:600;color:var(--muted)}
+.story .age.today{color:var(--accent)}
+.story .main{display:grid;gap:8px;min-width:0}
+.story h3{font-size:20px;font-weight:750;line-height:1.28}
+.story h3 button{all:unset;cursor:pointer}
+.story h3 button:hover{text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:4px;text-decoration-thickness:2px}
+.story h3 button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.story .sum{margin:0;font-size:15.5px;line-height:1.6;max-width:72ch}
+.story .why{margin:0;font-size:15px;color:var(--muted);max-width:72ch}
+.story .why b{color:var(--ink);font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-right:6px}
+.foot{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;font-size:13px;color:var(--muted)}
+.empty{padding:32px;text-align:center;color:var(--muted)}
+
+/* badges */
+.badge{display:inline-flex;align-items:center;font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;border-radius:3px;padding:3px 7px;white-space:nowrap}
+.b-fact{background:var(--sunk);color:var(--muted)}
+.b-rep{background:var(--warn-soft);color:var(--warn)}
+.b-fc{background:var(--fc-soft);color:var(--fc)}
+.b-new{background:var(--accent);color:var(--accent-ink)}
+.b-hit{background:var(--good-soft);color:var(--good)} .b-miss{background:var(--bad-soft);color:var(--bad)} .b-partial{background:var(--warn-soft);color:var(--warn)}
+
+/* explore tiles with hover preview */
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.tile{position:relative;display:grid;gap:6px;align-content:start;text-decoration:none;background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:20px;min-height:160px;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.tile .stat{font-family:var(--display);font-size:40px;line-height:1;margin-top:6px}
+.tile .cap{font-size:13.5px;color:var(--muted);line-height:1.4}
+.tile .go{position:absolute;right:18px;top:18px;color:var(--muted)}
+.peek{position:absolute;inset:0;background:#0b0f16;color:#fff;padding:18px 20px;display:grid;gap:8px;align-content:start;opacity:0;transform:translateY(14px);transition:opacity .22s,transform .22s;pointer-events:none}
+.peek .eyebrow{color:#aab3c0}
+.peek ul{margin:0;padding:0;list-style:none;display:grid;gap:7px}
+.peek li{font-size:13px;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.peek .open{font-size:11.5px;font-weight:700;color:#ff8a95;letter-spacing:.08em;text-transform:uppercase}
+@media (hover:hover){.tile:hover,.tile:focus-visible{transform:translateY(-3px);box-shadow:0 14px 30px rgba(0,0,0,.12)}.tile:hover .peek,.tile:focus-visible .peek{opacity:1;transform:none}}
+
+.twocol{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px}
+.reads{display:grid;background:var(--surface);border:1px solid var(--line);border-radius:4px}
+.read{display:grid;gap:3px;padding:14px 18px;border-top:1px solid var(--line);text-decoration:none}
+.read:first-child{border-top:0}
+.read:hover{background:var(--sunk)}
+.read b{font-size:15.5px;line-height:1.35}
+.read span{font-size:13.5px;color:var(--muted)}
+.week{margin:0;padding:16px 18px 16px 38px;background:var(--surface);border:1px solid var(--line);border-radius:4px;display:grid;gap:8px;font-size:15px}
+details.arc{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:14px 18px}
+details.arc>summary{cursor:pointer;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+details.arc ul{margin:12px 0 0;padding-left:18px;display:grid;gap:8px;font-size:14px}
+
+/* drawer */
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:70;opacity:0;transition:opacity .2s}
+.scrim.on{opacity:1}
+.drawer{position:fixed;z-index:71;top:0;right:0;bottom:0;width:min(560px,100%);background:var(--surface);box-shadow:-14px 0 40px rgba(0,0,0,.25);transform:translateX(100%);transition:transform .26s cubic-bezier(.2,.8,.2,1);display:grid;grid-template-rows:auto 1fr;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);padding-right:env(safe-area-inset-right,0px)}
+.drawer.on{transform:none}
+.dh{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 22px;border-bottom:1px solid var(--line)}
+.x{border:0;background:var(--sunk);border-radius:999px;width:36px;height:36px;cursor:pointer;font-size:19px;line-height:1;flex:none}
+.db{overflow:auto;padding:24px 26px 44px;display:grid;gap:16px;align-content:start}
+.db h3{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:34px;line-height:1}
+.db p{margin:0;font-size:16px;line-height:1.65}
+.whybox{background:var(--sunk);border-left:3px solid var(--accent);padding:14px 16px;display:grid;gap:4px}
+.srcline{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;font-size:13.5px;color:var(--muted)}
+@media (max-width:640px){.drawer{top:auto;width:100%;height:88vh;border-radius:16px 16px 0 0;transform:translateY(100%)}}
+
+/* tables */
+.tw{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:4px}
+table{border-collapse:collapse;width:100%;min-width:620px;font-size:14.5px}
+th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:700;background:var(--sunk)}
+tr:last-child td{border-bottom:0}
+td.r,th.r{text-align:right}
+td.n{font-variant-numeric:tabular-nums;font-weight:700;white-space:nowrap}
+td.dt{white-space:nowrap;color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* forecasts */
+.legend{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:13.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.sw{display:block;flex:none;width:24px;height:13px;border-radius:3px}
+.sw-fact{background:var(--surface);border:1.5px solid var(--muted)}
+.sw-fc{border:1.5px dashed var(--fc);background:var(--fc-soft)}
+.sw-rep{border:1.5px dashed var(--warn);background:var(--warn-soft)}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:16px}
+.fcard{background:var(--surface);border-radius:4px;padding:20px 22px;border:1.5px dashed var(--fc);display:grid;gap:10px;align-content:start}
+.fcard h4{font-size:18px;line-height:1.35;font-weight:700}
+.fmeta{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;font-size:13px;color:var(--muted)}
+.pips{display:inline-flex;gap:3px;vertical-align:middle;margin-left:4px}
+.pips i{width:16px;height:5px;border-radius:3px;background:var(--line)}
+.pips i.on{background:var(--fc)}
+details.ev>summary{cursor:pointer;font-size:13.5px;font-weight:600;color:var(--muted)}
+details.ev ul{margin:8px 0 0;padding-left:18px;display:grid;gap:4px;font-size:14.5px}
+
+/* card prices */
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.search{flex:1 1 300px;min-width:0;font:inherit;font-size:16px;padding:12px 14px;border-radius:4px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 13px;font-size:13.5px;font-weight:600;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:#fff;border-color:var(--accent)}
+.players{display:grid;gap:10px}
+.pl{background:var(--surface);border:1px solid var(--line);border-radius:4px}
+.pl>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;padding:16px 20px;align-items:center}
+.pl>summary::-webkit-details-marker{display:none}
+.pl>summary:hover{background:var(--sunk)}
+.pl .nm{font-weight:800;font-size:18px}
+.pl .sub{font-size:13px;color:var(--muted)}
+.pl .last{text-align:right}
+.pl .last b{display:block;font-family:var(--display);font-weight:400;font-size:28px;line-height:1.05}
+.pl .last span{font-size:12px;color:var(--muted)}
+.pl .body{padding:0 20px 20px;display:grid;gap:12px}
+.pl .tw{border-radius:4px}
+.pfc{border:1.5px dashed var(--fc);background:var(--fc-soft);border-radius:4px;padding:12px 14px;display:grid;gap:4px;font-size:14.5px}
+
+/* markets */
+.ind{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}
+.ic{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:20px;display:grid;gap:8px;align-content:start;min-width:0}
+.ic .v{font-family:var(--display);font-size:42px;line-height:1}
+.ic .d{font-size:13.5px;color:var(--muted)}
+.ic svg{width:100%;height:auto;display:block;overflow:visible}
+
+/* labour */
+.lstatus{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);color:var(--ink);border-radius:4px;padding:24px;display:grid;gap:8px}
+.lstatus .eyebrow{color:var(--muted)}
+.lstatus .cd{font-family:var(--display);font-size:54px;line-height:1}
+.lstatus p{margin:0;font-size:17px;line-height:1.5;max-width:70ch}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:14px}
+.fact{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:18px;display:grid;gap:6px;align-content:start}
+.fact .v{font-family:var(--display);font-size:36px;line-height:1}
+.fact p{margin:0;font-size:14px;color:var(--muted)}
+.fact a{font-size:12.5px;color:var(--muted)}
+.tl{list-style:none;margin:0;padding:0;display:grid;background:var(--surface);border:1px solid var(--line);border-radius:4px}
+.tl li{display:grid;grid-template-columns:100px minmax(0,1fr);gap:16px;padding:12px 18px;border-top:1px solid var(--line);font-size:14.5px}
+.tl li:first-child{border-top:0}
+.tl li.past{color:var(--muted)}
+.ol{display:grid;gap:12px}
+.ob{border:1.5px dashed var(--warn);border-radius:4px;padding:16px 18px;display:grid;gap:6px;background:var(--surface)}
+.ob p{margin:0;font-size:15px}
+
+/* competitors, rookies */
+.board{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px}
+.co{background:var(--surface);border:1px solid var(--line);border-radius:4px;display:grid;align-content:start}
+.co header{padding:18px 20px;border-bottom:1px solid var(--line);display:grid;gap:4px}
+.co h4{font-family:var(--display);font-weight:400;font-size:28px;text-transform:uppercase;line-height:1}
+.co .b{padding:16px 20px;display:grid;gap:10px}
+.co dl{margin:0;display:grid;gap:10px}
+.co dt{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.co dd{margin:3px 0 0;font-size:14.5px}
+
+/* ask */
+.ask{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:22px;display:grid;gap:12px}
+.ask form{display:flex;gap:8px;flex-wrap:wrap}
+.ask input{flex:1 1 300px;min-width:0;font:inherit;font-size:16px;padding:12px 14px;border:1px solid var(--line);border-radius:4px;background:var(--bg);color:var(--ink)}
+.sugg{display:flex;flex-wrap:wrap;gap:8px}
+.sugg button{border:1px solid var(--line);background:var(--bg);border-radius:999px;padding:7px 12px;font-size:13.5px;cursor:pointer;text-align:left}
+.answer{margin:0;white-space:pre-wrap;font-size:16px;line-height:1.6;max-width:72ch}
+
+
+/* view transitions */
+.view{transition:opacity .22s ease,transform .22s ease}
+.view.out{opacity:0;transform:translateY(-8px)}
+.view.pre{opacity:0;transform:translateY(16px)}
+#hero-in{transition:opacity .25s ease,transform .25s ease}
+#hero-in.pre{opacity:0;transform:translateY(14px)}
+
+/* home headlines */
+.heads{display:grid;background:var(--surface);border:1px solid var(--line);border-radius:4px}
+.head{all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:120px minmax(0,1fr) 20px;gap:4px 20px;align-items:baseline;padding:16px 22px;border-top:1px solid var(--line);transition:background .15s}
+.head:first-child{border-top:0}
+.head:hover{background:var(--sunk)}
+.head:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.head b{font-size:17px;font-weight:700;line-height:1.35}
+.head .chev{color:var(--muted);transition:transform .15s}
+.head:hover .chev{transform:translateX(3px)}
+.allbtn{justify-self:start}
+
+/* packs */
+.packzone{background:#07090d;color:#fff;border-radius:6px;padding:28px;display:grid;gap:22px;position:relative;overflow:hidden}
+.packzone::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 80% at 80% 0%,rgba(214,32,47,.28),transparent 60%),radial-gradient(50% 70% at 0% 100%,rgba(90,120,200,.22),transparent 60%);pointer-events:none}
+.packzone>*{position:relative}
+.pz-h{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:10px 20px}
+.pz-h h2{font-family:var(--display);font-weight:400;font-size:36px;text-transform:uppercase;line-height:1}
+.pz-h p{margin:4px 0 0;color:#b9c2cf;font-size:14.5px}
+.left{display:flex;gap:6px;align-items:center;font-size:13.5px;color:#cfd6e0}
+.left i{width:14px;height:20px;border-radius:3px;background:linear-gradient(160deg,#ff5a66,#a3121f);box-shadow:0 0 0 1px rgba(255,255,255,.2)}
+.left i.used{background:#2a3140;box-shadow:none}
+.packs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+.pack{all:unset;box-sizing:border-box;cursor:pointer;aspect-ratio:5/7;border-radius:10px;position:relative;overflow:hidden;display:grid;place-items:center;
+  background:linear-gradient(155deg,var(--p1),var(--p2));box-shadow:0 12px 30px rgba(0,0,0,.45),inset 0 0 0 1px rgba(255,255,255,.18);transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s}
+.pack::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(115deg,rgba(255,255,255,0) 0 18px,rgba(255,255,255,.06) 18px 19px)}
+.pack::after{content:"";position:absolute;top:-60%;left:-80%;width:60%;height:220%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);transform:rotate(20deg);transition:left .6s}
+.pack:hover{transform:translateY(-6px) rotate(-1.5deg)}
+.pack:hover::after{left:130%}
+.pack:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.pack[disabled]{cursor:not-allowed;filter:grayscale(.7) brightness(.6)}
+.pack[disabled]:hover{transform:none}
+.pack svg{width:46%;height:auto;filter:drop-shadow(0 4px 10px rgba(0,0,0,.4))}
+.pack .crimp{position:absolute;left:0;right:0;height:9px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.35) 0 4px,rgba(0,0,0,.15) 4px 8px)}
+.pack .crimp.t{top:0}.pack .crimp.b{bottom:0}
+.pack .pl1{position:absolute;bottom:18px;left:0;right:0;text-align:center;font-family:var(--display);font-size:20px;letter-spacing:.04em;text-transform:uppercase}
+.pack .pl2{position:absolute;top:18px;left:0;right:0;text-align:center;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.8)}
+.pz-note{font-size:12.5px;color:#8f9aab;margin:0}
+
+/* opening stage */
+.stage{position:fixed;inset:0;z-index:80;background:rgba(3,5,9,.92);display:grid;place-items:center;padding:24px;opacity:0;transition:opacity .25s}
+.stage.on{opacity:1}
+.stage .inner{display:grid;gap:20px;justify-items:center;perspective:1200px}
+.stage .big{width:min(260px,62vw);aspect-ratio:5/7;position:relative}
+.stage .big .pack{width:100%;height:100%;cursor:default}
+.stage .big .pack:hover{transform:none}
+.shake{animation:shake .6s ease-in-out}
+@keyframes shake{0%,100%{transform:rotate(0)}15%{transform:rotate(-5deg) scale(1.03)}30%{transform:rotate(5deg) scale(1.05)}45%{transform:rotate(-4deg) scale(1.06)}60%{transform:rotate(4deg) scale(1.07)}80%{transform:rotate(-2deg) scale(1.08)}}
+.tear{position:absolute;left:0;right:0;top:0;height:16%;border-radius:10px 10px 0 0;background:linear-gradient(155deg,var(--p1),var(--p2));animation:tear .55s cubic-bezier(.3,.1,.3,1) forwards;z-index:3}
+@keyframes tear{to{transform:translate(70px,-160px) rotate(28deg);opacity:0}}
+.packdrop{animation:drop .6s .35s cubic-bezier(.5,0,.7,.4) forwards}
+@keyframes drop{to{transform:translateY(120vh) rotate(8deg)}}
+.flash{position:fixed;inset:0;background:radial-gradient(circle at 50% 50%,rgba(255,255,255,.9),rgba(255,255,255,0) 60%);z-index:81;pointer-events:none;animation:flash .7s ease-out forwards}
+@keyframes flash{from{opacity:1}to{opacity:0}}
+.stage .msg{color:#fff;text-align:center;display:grid;gap:4px}
+.stage .msg b{font-family:var(--display);font-size:28px;text-transform:uppercase;font-weight:400;letter-spacing:.02em}
+.stage .msg span{color:#b9c2cf;font-size:14px}
+.stage .row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.stage .btn{background:#fff;color:#000}
+.stage .btn.ghost{background:transparent;color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)}
+
+/* trading card */
+.tc{width:min(280px,70vw);aspect-ratio:5/7;position:relative;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.tc.rise{animation:rise .7s cubic-bezier(.2,.9,.3,1.2) both}
+@keyframes rise{from{transform:translateY(60vh) rotateY(180deg) scale(.6)}to{transform:translateY(0) rotateY(180deg) scale(1)}}
+.tc.flip{transform:rotateY(0)}
+.tc.back-first{transform:rotateY(180deg)}
+.face,.back{position:absolute;inset:0;border-radius:12px;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden}
+.back{transform:rotateY(180deg);background:repeating-linear-gradient(45deg,#0d1522 0 10px,#111c2d 10px 20px);box-shadow:inset 0 0 0 6px #d6202f,inset 0 0 0 8px #fff;display:grid;place-items:center}
+.back span{font-family:var(--display);color:#fff;font-size:44px;letter-spacing:.04em;text-transform:uppercase;line-height:.9;text-align:center}
+.face{background:var(--cbg);padding:9px;box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.face .frame{position:absolute;inset:9px;border-radius:7px;overflow:hidden;background:linear-gradient(170deg,var(--a1),var(--a2));display:grid;grid-template-rows:auto 1fr auto}
+.face .art{position:absolute;inset:0}
+.face .art svg.field{position:absolute;inset:0;width:100%;height:100%;opacity:.22}
+.face .art .ini{position:absolute;right:-6%;top:12%;font-family:var(--display);font-size:150px;line-height:.8;color:rgba(255,255,255,.12);letter-spacing:-.02em}
+.face .art svg.icon{position:absolute;left:50%;top:44%;width:44%;transform:translate(-50%,-50%);opacity:.95;filter:drop-shadow(0 8px 18px rgba(0,0,0,.45))}
+.face .top{position:relative;display:flex;justify-content:space-between;align-items:center;padding:10px 12px;font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#fff}
+.face .rar{background:rgba(0,0,0,.45);padding:3px 7px;border-radius:3px}
+.face .plate{position:relative;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.85) 30%);padding:34px 12px 12px;color:#fff;display:grid;gap:2px}
+.face .plate .nm{font-family:var(--display);font-size:26px;line-height:.95;text-transform:uppercase;letter-spacing:.01em}
+.face .plate .sub{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.8);display:flex;justify-content:space-between}
+.face .sheen{position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;opacity:0}
+.r-ref .face .sheen{opacity:.55;background:linear-gradient(115deg,rgba(255,0,128,.0) 20%,rgba(255,0,160,.35) 35%,rgba(0,220,255,.35) 50%,rgba(140,255,90,.35) 65%,rgba(255,255,255,0) 80%);background-size:250% 250%;animation:holo 4s linear infinite}
+.r-gold .face{--cbg:linear-gradient(135deg,#8a6a1c,#f5d77a 40%,#a7802a 60%,#f1d27a)}
+.r-gold .face .sheen{opacity:.4;background:linear-gradient(115deg,transparent 30%,rgba(255,240,180,.7) 50%,transparent 70%);background-size:250% 250%;animation:holo 3s linear infinite}
+.r-one .face{--cbg:linear-gradient(135deg,#000,#2a2a2a 50%,#000)}
+.r-one .face .sheen{opacity:.6;background:linear-gradient(115deg,transparent 30%,rgba(255,215,120,.6) 50%,transparent 70%);background-size:250% 250%;animation:holo 2.4s linear infinite}
+@keyframes holo{from{background-position:0% 0%}to{background-position:250% 250%}}
+.tc.glow{filter:drop-shadow(0 0 28px var(--glow))}
+
+/* library */
+.libtools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.prog{display:grid;gap:6px;min-width:240px}
+.bar2{height:8px;background:var(--line);border-radius:6px;overflow:hidden}
+.bar2 i{display:block;height:100%;background:var(--accent);border-radius:6px}
+.lib{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px}
+.lib .slot{all:unset;box-sizing:border-box;cursor:pointer;display:block}
+.lib .slot .tc{width:100%;transition:transform .2s}
+.lib .slot:hover .tc{transform:translateY(-4px) rotate(-1deg)}
+.lib .slot:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:10px}
+.lib .tc .face .plate .nm{font-size:17px}
+.lib .tc .face .plate{padding:24px 8px 8px}
+.lib .tc .face .plate .sub{font-size:8.5px}
+.lib .tc .face .top{font-size:7.5px;padding:7px 8px}
+.lib .tc .face .art .ini{font-size:90px}
+.lib .tc .face{padding:6px}.lib .tc .face .frame{inset:6px}
+.libempty{padding:28px;border:1px dashed var(--line);border-radius:6px;color:var(--muted);text-align:center}
+.mini{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+@media (max-width:900px){.packs{grid-template-columns:repeat(3,minmax(0,1fr))}.mini{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:560px){.packs{grid-template-columns:repeat(2,minmax(0,1fr))}.packzone{padding:20px}.head{grid-template-columns:minmax(0,1fr) 16px}.head .age{grid-column:1}.head b{grid-column:1}.head .chev{grid-column:2;grid-row:1/span 2}.lib{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (prefers-reduced-motion:reduce){.shake,.tear,.packdrop,.tc.rise,.flash,.sheen{animation:none!important}}
+/* pack opening v2 */
+.stage-x{position:absolute;top:calc(16px + env(safe-area-inset-top,0px));right:calc(16px + env(safe-area-inset-right,0px));width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#fff;font-size:26px;line-height:1;cursor:pointer;z-index:3}
+.stage-x:hover{background:rgba(255,255,255,.18)}
+.fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
+.stage{background:radial-gradient(circle at 50% 42%,rgba(30,40,60,.95),rgba(3,5,9,.97) 60%)}
+.slot3d{position:relative;width:min(280px,70vw);aspect-ratio:5/7;perspective:1200px}
+.slot3d .big{position:absolute;inset:0;width:100%;z-index:2}
+.big.enter{animation:enter .7s cubic-bezier(.2,.9,.3,1.1) both}
+@keyframes enter{from{transform:translateY(40px) rotateY(-200deg) scale(.6);opacity:0}to{transform:none;opacity:1}}
+.big.charge .pack{animation:charge 1.2s ease-in both}
+@keyframes charge{0%{transform:none;box-shadow:0 0 0 rgba(0,0,0,0)}20%{transform:rotate(-2deg)}35%{transform:rotate(3deg) scale(1.02)}50%{transform:rotate(-4deg) scale(1.04)}65%{transform:rotate(5deg) scale(1.06)}80%{transform:rotate(-5deg) scale(1.08)}100%{transform:rotate(0) scale(1.1);box-shadow:0 0 60px 10px var(--glow)}}
+.big.torn .pack{transform:scale(1.1);box-shadow:0 0 60px 10px var(--glow);clip-path:polygon(0 15%,6% 13%,12% 16%,18% 13%,25% 16%,32% 13%,40% 16%,47% 13%,55% 16%,62% 13%,70% 16%,78% 13%,86% 16%,93% 13%,100% 15%,100% 100%,0 100%)}
+.tear{clip-path:polygon(0 0,100% 0,100% 94%,93% 81%,86% 100%,78% 81%,70% 100%,62% 81%,55% 100%,47% 81%,40% 100%,32% 81%,25% 100%,18% 81%,12% 100%,6% 81%,0 94%)}
+.big.away{animation:away .7s .25s cubic-bezier(.5,0,.7,.4) forwards}
+@keyframes away{to{transform:translateY(110vh) rotate(10deg)}}
+.beam{position:absolute;left:10%;right:10%;top:-60%;height:80%;background:linear-gradient(0deg,var(--glow),transparent);filter:blur(12px);opacity:0;z-index:1;transition:opacity .4s}
+.beam.on{opacity:1}
+.tc.inpack{position:absolute;inset:0;width:100%;z-index:1;transform:translateY(0) scale(.86) rotateY(180deg);transition:transform .8s cubic-bezier(.2,.9,.3,1.05)}
+.tc.inpack.out{transform:translateY(-14%) scale(1) rotateY(180deg);z-index:3}
+.tc.inpack.show{transform:translateY(0) scale(1.04) rotateY(0);filter:drop-shadow(0 0 34px var(--glow))}
+.msg .rtag{justify-self:center;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.12);animation:stamp .45s cubic-bezier(.2,1.4,.4,1) both}
+.msg .rtag.r-gold{background:linear-gradient(90deg,#a7802a,#f5d77a,#a7802a);color:#2a1d00}
+.msg .rtag.r-one{background:#000;color:#ffd56b;box-shadow:0 0 0 1px #ffd56b}
+.msg .rtag.r-ref{background:linear-gradient(90deg,#ff5ec8,#5ee0ff,#a6ff6b);color:#000}
+@keyframes stamp{from{transform:scale(2.2);opacity:0}to{transform:none;opacity:1}}
+.msg{animation:fadeup .4s ease both}
+@keyframes fadeup{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.stage .btn[disabled]{opacity:.5;cursor:default}
+
+/* scenes */
+.scenes{position:absolute;inset:0;overflow:hidden}
+.scene{position:absolute;inset:-5%;width:110%;height:110%;opacity:0;transition:opacity 1.6s ease}
+.scene.on{opacity:1;animation:kb 9s ease-out both}
+@keyframes kb{from{transform:scale(1) translate(0,0)}to{transform:scale(1.07) translate(-2%,-1%)}}
+@media (prefers-reduced-motion:reduce){.scene.on{animation:none}}
+/* ticker */
+.ticker{background:var(--bar);color:#e8ecf2;overflow:hidden;white-space:nowrap;border-bottom:1px solid rgba(255,255,255,.08);font-size:13px;display:flex;align-items:center}
+.ticker .tlab{flex:none;background:var(--accent);color:#fff;font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:9px 12px;position:relative;z-index:1}
+.ticker .twrap{overflow:hidden;flex:1;min-width:0;mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent)}
+.ticker .ttrack{display:inline-flex;animation:tick 60s linear infinite;padding-left:12px}
+.ticker:hover .ttrack{animation-play-state:paused}
+.tseg{display:inline-flex;align-items:center}
+.titem{padding:0 12px}
+.tsep{color:var(--accent);font-size:8px}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.ticker .twrap{overflow-x:auto}.ticker .ttrack{animation:none}}
+/* timeline */
+.homegrid{display:grid;grid-template-columns:minmax(0,1fr);gap:28px}
+.greet{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 16px}
+.greet h2{font-family:var(--display);font-weight:400;font-size:32px;text-transform:uppercase;line-height:1}
+.greet span{font-size:13.5px;color:var(--muted)}
+.timeline{display:grid;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:8px 24px 18px;box-shadow:var(--shadow)}
+.tgroup{display:grid;gap:2px}
+.tlabel{display:flex;align-items:baseline;gap:12px;padding:16px 0 6px}
+.tlabel span{font-family:var(--display);font-size:22px;letter-spacing:.03em;text-transform:uppercase}
+.tlabel small{font-size:12.5px;color:var(--muted)}
+.tlist{list-style:none;margin:0;padding:0 0 0 22px;border-left:2px solid var(--line);margin-left:6px;display:grid;gap:2px}
+.tlist li{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:start}
+.tlist .dot{position:absolute;left:-29px;top:18px;width:12px;height:12px;border-radius:50%;background:var(--surface);border:2px solid var(--muted)}
+.tgroup:first-child .dot{border-color:var(--accent);background:var(--accent)}
+.tbtn{all:unset;box-sizing:border-box;cursor:pointer;display:grid;gap:3px;padding:12px 14px;border-radius:10px;transition:background .15s;min-width:0}
+.tbtn:hover{background:var(--sunk)}
+.tbtn:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.tbtn b{font-size:17px;font-weight:700;line-height:1.35}
+.tmeta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
+.tage{font-size:12px;font-weight:600;color:var(--muted)}
+.tage.today{color:var(--accent)}
+.twhy{font-size:14.5px;color:var(--muted);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tevent{display:grid!important;grid-template-columns:86px minmax(0,1fr)!important;padding:10px 14px}
+.tevent.quiet{display:block!important;color:var(--muted);font-size:14.5px}
+.twhen{font-weight:700;font-size:14px;color:var(--ink);font-variant-numeric:tabular-nums}
+.tdesc{display:grid;gap:3px;min-width:0}
+.tdesc b{font-size:15.5px;font-weight:650}
+.tevent.big .twhen{color:var(--accent)}
+.star{all:unset;cursor:pointer;font-size:20px;line-height:1;color:var(--muted);padding:12px 6px;border-radius:8px}
+.star[aria-pressed="true"]{color:#f5b638}
+.star:hover{color:#f5b638}
+.star:focus-visible{outline:2px solid var(--accent)}
+.rtick{font-size:11.5px;font-weight:700;color:var(--good);letter-spacing:.04em}
+.saved-row{grid-template-columns:minmax(0,1fr) auto!important;display:grid!important;gap:12px;align-items:start}
+.tlink{all:unset;cursor:pointer;font-weight:700;font-size:16px;line-height:1.35}
+.tlink:hover{text-decoration:underline;text-decoration-color:var(--accent)}
+.story .main h3{display:flex;gap:8px;align-items:flex-start;justify-content:space-between}
+.story .star{padding:0 4px}
+.dstar{display:flex;gap:10px;align-items:center}
+/* theme switch */
+.theme{display:flex;gap:2px;margin:0 10px;background:var(--sunk);border-radius:8px;padding:3px;align-self:flex-start}
+.theme button{all:unset;cursor:pointer;font-size:12px;font-weight:600;padding:5px 10px;border-radius:6px;color:var(--muted)}
+.theme button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.side .fresh{color:var(--ink)}
+@media (max-width:640px){.timeline{padding:4px 14px 14px}.tevent{grid-template-columns:62px minmax(0,1fr)!important;padding:10px 8px}.tbtn{padding:10px 8px}.tbtn b{font-size:16px}}
+
+footer.site{background:var(--bar);color:var(--bar-muted)}
+footer.site .in{padding-block:30px 36px;display:grid;gap:8px;font-size:13px}
+footer.site p{margin:0;max-width:90ch}
+footer.site b{color:#fff;font-family:var(--display);font-weight:400;font-size:20px;letter-spacing:.02em;text-transform:uppercase}
+
+@media (max-width:900px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.top3{grid-template-columns:1fr}.twocol{grid-template-columns:1fr}}
+@media (max-width:640px){
+  .hero .in{min-height:300px;padding-block:40px 60px}.hero.small .in{min-height:170px;padding-block:28px}
+  .hero p{font-size:15.5px}
+  .story{grid-template-columns:1fr;padding:18px}
+  .story .sside{display:flex;flex-wrap:wrap;gap:6px 10px}
+  .brand b{font-size:19px;white-space:normal}.brand span{font-size:10px;margin-top:2px}
+  .tl li{grid-template-columns:76px minmax(0,1fr)}
+  .fend{margin-left:0}
+  select{min-width:0;width:100%}.ctl{flex:1 1 140px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;scroll-behavior:auto!important}}
+</style>
+
+<!-- DAILY DATA: the scheduled update replaces only the JSON inside this tag. -->
+<script type="application/json" id="pulse-data">
+{
+  "updated": "2026-10-29",
+  "edition": "Thursday, October 29, 2026",
+  "glance": [
+    {
+      "topic": "Women's sports",
+      "text": "The Golden State Valkyries can win the WNBA title in their second season at 12:30 p.m. ET today in Atlanta; a Dream win forces Game 7 on Saturday in San Francisco.",
+      "item": "wnba-finals"
+    },
+    {
+      "topic": "Baseball",
+      "text": "The Brewers won their first World Series last night, and attention now turns to the December 1 expiry of baseball's labour deal and a likely lockout.",
+      "item": "world-series"
+    },
+    {
+      "topic": "Grading",
+      "text": "PSA reopens its Value tier today at $39.99 a card, up from $32.99, ending a nearly five-month pause on its cheapest grading option.",
+      "item": "psa"
+    }
+  ],
+  "items": [
+    {
+      "id": "wnba-finals",
+      "date": "2026-10-29",
+      "score": 92,
+      "cat": [
+        "women",
+        "sports"
+      ],
+      "leagues": [
+        "WNBA"
+      ],
+      "title": "Valkyries can clinch the WNBA title in a Thursday matinee in Atlanta",
+      "body": "Golden State leads the Atlanta Dream 3-2 after winning Games 4 and 5, and Game 6 tips at 12:30 p.m. ET today at State Farm Arena (about 17,000 seats) instead of the Dream's 3,500-seat home, because the Hawks play there tonight. The Dream sold 10,000 Game 6 tickets in the first 90 minutes. A Dream win forces Game 7 on Saturday, October 31 in San Francisco.",
+      "why": "Big-arena demand for a Finals game shows how far the WNBA audience has grown, and the scheduling clash shows how often the league still competes with men's teams for venues and time slots.",
+      "source": "ESPN, Oct 28; Yahoo Sports, Oct 26; Front Office Sports, Oct 28",
+      "quality": "Major outlet",
+      "url": "https://www.espn.com/wnba/story/_/id/50303751/finals-2026-game-6-preview-atlanta-valkyries"
+    },
+    {
+      "id": "mlb-lockout",
+      "date": "2026-10-29",
+      "score": 88,
+      "cat": [
+        "sports",
+        "collectibles"
+      ],
+      "leagues": [
+        "MLB"
+      ],
+      "title": "Baseball's labour deal expires December 1, and a lockout is widely expected",
+      "body": "The five-year agreement expires December 1, and owners could lock players out from December 2. Owners have proposed a $245.3 million team spending cap for 2027, a $171.2 million payroll floor and a limit of 15% of payroll for any one player; the players' union says it will never accept a cap. MLB Trade Rumors reports no sign of significant progress, and the Winter Meetings set for December 7-9 are expected to be cancelled.",
+      "why": "A lockout freezes signings and trades, the moves that drive new jersey and card demand, from the first week of December.",
+      "source": "AP via ABC News, Oct 22; Boston Globe, Oct 29; MLB Trade Rumors, Oct 29",
+      "quality": "Major outlet",
+      "url": "https://abcnews.com/Business/wireStory/lockout-looming-world-series-major-league-baseballs-games-137494687"
+    },
+    {
+      "id": "world-series",
+      "date": "2026-10-28",
+      "score": 86,
+      "cat": [
+        "sports",
+        "fans"
+      ],
+      "leagues": [
+        "MLB"
+      ],
+      "title": "Brewers win their first World Series; small-market series still draws",
+      "body": "Milwaukee beat Tampa Bay 4-1 in Game 5 on October 28 to win its first title in the franchise's 57-year history. About 31,000 fans watched Game 5 on the scoreboard at American Family Field, and a parade and rally are set for Friday, October 30. Game 4 drew a preliminary 13.5 million viewers on FOX and FOX Deportes despite two teams with payrolls of about $142 million and $90 million.",
+      "why": "A first championship opens a short window of local demand for title merchandise and memorabilia, and the ratings suggest national interest does not depend on big-market teams.",
+      "source": "MLB.com, Oct 28; BizTimes Milwaukee, Oct 29; Forbes, Oct 28",
+      "quality": "Major outlet",
+      "url": "https://www.mlb.com/news/brewers-beat-rays-game-5-win-2026-world-series"
+    },
+    {
+      "id": "psa",
+      "date": "2026-10-28",
+      "score": 84,
+      "cat": [
+        "collectibles",
+        "competitors"
+      ],
+      "leagues": [
+        "Multi"
+      ],
+      "title": "PSA reopens low-cost grading today at a higher price",
+      "body": "PSA's Value tier reopens October 29 at 8 a.m. PT at $39.99 a card, up from $32.99 before its June pause, with an estimated 90-100 business days. Standard ($59.99) and Priority ($79.99) turnaround estimates were each cut by 20 business days. The backlog was about 7.2 million items on October 20, against a 5 million target for fully reopening, and Value Bulk has no return date.",
+      "why": "Reopening the cheapest tier brings more lower-value modern cards back into grading and resale, though at a cost about 21% higher than before.",
+      "source": "Heavy, Oct 28",
+      "quality": "Trade press",
+      "url": "https://heavy.com/sports/cards/psa-value-grading-reopens/"
+    },
+    {
+      "id": "sparks-sale",
+      "date": "2026-10-27",
+      "score": 79,
+      "cat": [
+        "women"
+      ],
+      "leagues": [
+        "WNBA"
+      ],
+      "title": "ESPN confirms early talks on a Sparks sale at about $700M",
+      "body": "ESPN reported that early-stage discussions about selling the Los Angeles Sparks have taken place, backing an earlier Bloomberg report; no deal has been announced. The figure discussed is about $700 million, against Sportico's $400 million valuation. The Sparks went 16-28 last season and missed the playoffs.",
+      "why": "A sale near the ask would reset WNBA franchise values and signal how much investors believe women's basketball can grow.",
+      "source": "Yahoo Sports, citing ESPN, Oct 27; The Hockey News, citing Bloomberg, Oct 23",
+      "quality": "Reported",
+      "url": "https://sports.yahoo.com/articles/sparks-rumors-espn-confirms-700-184619094.html"
+    },
+    {
+      "id": "whatnot-ebay",
+      "date": "2026-10-28",
+      "score": 78,
+      "cat": [
+        "competitors"
+      ],
+      "leagues": [
+        "Multi"
+      ],
+      "title": "Whatnot expects sales to more than double; eBay cuts about 1,000 jobs",
+      "body": "Whatnot's 2027 Consumer Trends report says sales should more than double from the $8B sold on the platform last year, and over 100 million sports cards have sold on it so far in 2026. eBay is eliminating about 1,000 jobs while putting resources into its fastest-growing areas, including collectibles.",
+      "why": "Live selling is where many new collectors start, and the two largest marketplaces are both doubling down on cards.",
+      "source": "ICv2, Oct 28; Sports Collectors Daily, Oct 20",
+      "quality": "Trade press",
+      "url": "https://icv2.com/articles/news/view/63736/whatnot-doubling-ebay-laying-off-1000-nrf-predicts-holiday-sales"
+    },
+    {
+      "id": "pwhl-growth",
+      "date": "2026-10-23",
+      "score": 76,
+      "cat": [
+        "women"
+      ],
+      "leagues": [
+        "PWHL"
+      ],
+      "title": "The PWHL expands to 12 teams after taking its first outside investment",
+      "body": "Detroit, Hamilton, Las Vegas and San Jose join a 12-team league whose season opens December 5. Kilmer Sports Ventures (Larry Tanenbaum) reportedly invested $100 million and the Ilitch Companies also bought in. The league says it expects no change to its ownership.",
+      "why": "More teams in big markets means more players with a local following, which is what collectible demand is built on.",
+      "source": "Sportico; The Hockey News, Oct 23",
+      "quality": "Reported",
+      "url": "https://www.sportico.com/leagues/hockey/2026/pwhl-investment-larry-tanenbaum-ilitch-companies-1234936659/"
+    },
+    {
+      "id": "nba-europe",
+      "date": "2026-10-25",
+      "score": 74,
+      "cat": [
+        "sports"
+      ],
+      "leagues": [
+        "NBA",
+        "Soccer (Europe)"
+      ],
+      "title": "NBA courts European soccer clubs for its planned Europe league",
+      "body": "The NBA and FIBA expect to launch NBA Europe next fall after EuroLeague shareholders rejected the NBA's merger offer. Deputy commissioner Mark Tatum called it the league's biggest investment ever and projected multi-billions of dollars in distributions to clubs over the first decade. The NBA planned to meet several major soccer clubs in London this week; Real Madrid was reported to attend.",
+      "why": "A league built with soccer club brands would create new teams, rosters and fan bases in Europe for basketball products.",
+      "source": "Hoops Rumors, Oct 25",
+      "quality": "Trade press",
+      "url": "https://www.hoopsrumors.com/2026/10/latest-on-nba-europe-3.html"
+    },
+    {
+      "id": "auctions",
+      "date": "2026-10-28",
+      "score": 72,
+      "cat": [
+        "collectibles",
+        "competitors"
+      ],
+      "leagues": [
+        "NBA",
+        "MLB"
+      ],
+      "title": "Sotheby's sells a Kobe Bryant high school jersey for $2.18M; Heritage fall sale tops $25.6M",
+      "body": "Bryant's game-worn 1994-95 Lower Merion jersey sold for $2,176,000 at Sotheby's on October 28, above a $1M-$2M estimate, after selling for $51,400 in 2013. Heritage's three-session Fall Sports Catalog Auction (October 23-25) totalled more than $25.6 million, including a record $256,200 for a 1903 World Series ticket.",
+      "why": "Fine-art auction houses keep competing for top sports memorabilia consignments alongside the specialist sports auction houses.",
+      "source": "Sports Collectors Daily, Oct 28",
+      "quality": "Trade press",
+      "url": "https://www.sportscollectorsdaily.com/notes-kobe-jersey-sells-for-2-1-m-heritage-sale-hits-25m-lelands-dates-arizona-teens-build-card-business/"
+    },
+    {
+      "id": "women-soccer",
+      "date": "2026-10-20",
+      "score": 70,
+      "cat": [
+        "women",
+        "collectibles"
+      ],
+      "leagues": [
+        "NWSL"
+      ],
+      "title": "Women's soccer searches up about 70% on Whatnot",
+      "body": "Searches for women's soccer on Whatnot grew about 70% in 2026, led by interest in Trinity Rodman. Whatnot predicts the 2027 Women's World Cup will bring new fans into collecting.",
+      "why": "Demand is building a year ahead of a World Cup, while Panini holds NWSL and U.S. women's team player card rights.",
+      "source": "Sports Collectors Daily, Oct 20",
+      "quality": "Trade press",
+      "url": "https://www.sportscollectorsdaily.com/notes-fanatics-paris-opening-postponed-panini-signs-florian-wirtz-ex-hobby-shop-employee-gets-probation-whatnot-sales/"
+    },
+    {
+      "id": "top-sales",
+      "date": "2026-10-26",
+      "score": 66,
+      "cat": [
+        "collectibles"
+      ],
+      "leagues": [
+        "MLB",
+        "NBA"
+      ],
+      "title": "Seven-figure one-of-ones keep clearing at auction",
+      "body": "Three cards topped $1M in the week of October 23, led by a Shohei Ohtani 1/1 auto patch at $3.24M and a Cooper Flagg Logoman 1/1 at $2.16M. A restored T206 Honus Wagner brought $1.98M at Heritage.",
+      "why": "The top of the market is still absorbing big prices even as some longtime collectors say the very top tier has started to cool.",
+      "source": "Sports Illustrated Collectibles, Oct 26",
+      "quality": "Major outlet",
+      "url": "https://www.si.com/collectibles/epic-3-42m-ohtani-sale-leads-weekly-top-5"
+    },
+    {
+      "id": "nwsl-decision",
+      "date": "2026-10-26",
+      "score": 62,
+      "cat": [
+        "women",
+        "sports"
+      ],
+      "leagues": [
+        "NWSL"
+      ],
+      "title": "NWSL Decision Day on Sunday will settle the Shield and the playoff bracket",
+      "body": "All 16 clubs play at 5 p.m. ET on November 1, with ESPN carrying all eight matches. The Shield and seeding are still open. Kansas City, Angel City, Utah and Portland had clinched berths as of October 26, with Seattle, North Carolina and Denver chasing the last spot.",
+      "why": "The bracket sets which markets host playoff games ahead of the November 21 final in Washington, DC.",
+      "source": "ESPN Press Room, Oct 26; Just Women's Sports, Oct 26",
+      "quality": "Official",
+      "url": "https://espnpressroom.com/press-release/espn-to-provide-exclusive-coverage-of-all-eight-nwsl-decision-day-matches/"
+    },
+    {
+      "id": "nba-week1",
+      "date": "2026-10-27",
+      "score": 60,
+      "cat": [
+        "sports"
+      ],
+      "leagues": [
+        "NBA"
+      ],
+      "title": "NBA week one: rookies Boozer and Lendeborg stand out; injuries pile up",
+      "body": "Memphis opened 3-0 with rookie Cameron Boozer contributing, and Warriors rookie Yaxel Lendeborg stood out on an 0-3 team. The defending champion Knicks started 0-3. Thunder guard Jalen Williams suffered a serious ankle injury and Kawhi Leonard is expected to miss weeks.",
+      "why": "Early rookie form moves card prices fastest, and star injuries shift where fan attention goes.",
+      "source": "ESPN, Oct 27",
+      "quality": "Major outlet",
+      "url": "https://www.espn.com/nba/story/_/id/50260679/nba-first-week-best-worst-moments-2026-27"
+    },
+    {
+      "id": "panini-wirtz",
+      "date": "2026-10-20",
+      "score": 58,
+      "cat": [
+        "competitors"
+      ],
+      "leagues": [
+        "Soccer (Europe)"
+      ],
+      "title": "Panini signs Florian Wirtz to an exclusive deal",
+      "body": "Panini signed Liverpool's Florian Wirtz, 23, to an exclusive multi-year cards and memorabilia deal. He joins Kylian Mbappé and Christian Pulisic as Panini Authentic athletes.",
+      "why": "Without major U.S. league licenses, Panini is building around individual soccer stars.",
+      "source": "Sports Collectors Daily, Oct 20",
+      "quality": "Trade press",
+      "url": "https://www.sportscollectorsdaily.com/notes-fanatics-paris-opening-postponed-panini-signs-florian-wirtz-ex-hobby-shop-employee-gets-probation-whatnot-sales/"
+    },
+    {
+      "id": "nfl-trades",
+      "date": "2026-10-27",
+      "score": 56,
+      "cat": [
+        "sports"
+      ],
+      "leagues": [
+        "NFL"
+      ],
+      "title": "Colts trade DeForest Buckner and Quenton Nelson ahead of the deadline",
+      "body": "Buckner went to the 49ers and Nelson to the Seahawks on October 27. Earlier deals sent Marvin Harrison Jr. to Houston and J.J. McCarthy to the Giants. The deadline is November 10 at 4 p.m. ET.",
+      "why": "Midseason trades create new jersey and card storylines overnight.",
+      "source": "ABC7 New York",
+      "quality": "Major outlet",
+      "url": "https://abc7ny.com/post/2026-nfl-trade-deadline-updates-latest-season-deals-news/19884108/"
+    }
+  ],
+  "indicators": [
+    {
+      "id": "psa",
+      "name": "PSA grading backlog",
+      "unit": "M cards",
+      "format": "{v}M",
+      "kind": "line",
+      "note": "Lower means faster grading. Value tiers reopen near 5M.",
+      "points": [
+        {
+          "d": "2026-07-28",
+          "v": 12.4
+        },
+        {
+          "d": "2026-10-06",
+          "v": 8.2
+        },
+        {
+          "d": "2026-10-20",
+          "v": 7.2
+        }
+      ],
+      "source": "Heavy",
+      "url": "https://heavy.com/sports/cards/psa-backlog-update-october-20/"
+    },
+    {
+      "id": "womens-record",
+      "name": "Women's sports card record",
+      "unit": "$K",
+      "format": "${v}K",
+      "kind": "step",
+      "note": "Serena Williams held the record until Caitlin Clark passed it in 2025.",
+      "points": [
+        {
+          "d": "2022-05-22",
+          "v": 266.4,
+          "tag": "Serena Williams"
+        },
+        {
+          "d": "2025-03-29",
+          "v": 366,
+          "tag": "Caitlin Clark"
+        },
+        {
+          "d": "2025-07-24",
+          "v": 660,
+          "tag": "Caitlin Clark"
+        }
+      ],
+      "source": "Sports Illustrated; Just Women's Sports",
+      "url": "https://www.si.com/tennis/2022/05/22/serena-williams-trading-card-sale-doubles-record-female-athlete"
+    },
+    {
+      "id": "whatnot",
+      "name": "Whatnot live sales",
+      "unit": "$B per year",
+      "format": "${v}B",
+      "kind": "line",
+      "note": "2024 and 2025 are reported minimums (\"more than\"). 2026 is Whatnot's own projection.",
+      "points": [
+        {
+          "d": "2024-12-31",
+          "v": 3
+        },
+        {
+          "d": "2025-12-31",
+          "v": 8
+        },
+        {
+          "d": "2026-12-31",
+          "v": 16,
+          "projected": true
+        }
+      ],
+      "source": "Value Added Resource; ICv2",
+      "url": "https://www.valueaddedresource.net/whatnot-20-billion-valuation/"
+    },
+    {
+      "id": "top-sale",
+      "name": "Top public sale of the week",
+      "unit": "$M",
+      "format": "${v}M",
+      "kind": "line",
+      "note": "Biggest sale in each week's top-sales list.",
+      "points": [
+        {
+          "d": "2026-10-23",
+          "v": 3.24,
+          "tag": "Ohtani 1/1"
+        }
+      ],
+      "source": "Sports Illustrated Collectibles",
+      "url": "https://www.si.com/collectibles/epic-3-42m-ohtani-sale-leads-weekly-top-5"
+    }
+  ],
+  "sales": {
+    "label": "Week of October 23",
+    "rows": [
+      {
+        "card": "2025 Topps MLB MVP Dynasty Black Auto Patch 1/1, Shohei Ohtani (PSA 9)",
+        "price": "$3.24M",
+        "where": "Fanatics Premier",
+        "when": "Oct 23"
+      },
+      {
+        "card": "2025 Topps Motif Logoman Auto 1/1, Cooper Flagg",
+        "price": "$2.16M",
+        "where": "Fanatics Premier",
+        "when": "Oct 23"
+      },
+      {
+        "card": "1909-11 T206 Sweet Caporal Honus Wagner (Authentic, restored)",
+        "price": "$1.98M",
+        "where": "Heritage",
+        "when": "Oct 24"
+      },
+      {
+        "card": "2026 Topps Chrome Dual MVP Gold Logoman Auto 1/1, Judge / Ohtani",
+        "price": "$1.23M",
+        "where": "Fanatics Premier",
+        "when": "Oct 23"
+      },
+      {
+        "card": "2025 Topps Chrome Update Superfractor Auto 1/1, Cooper Flagg (PSA 8)",
+        "price": "$750K",
+        "where": "Fanatics Premier",
+        "when": "Oct 23"
+      }
+    ],
+    "source": "Sports Illustrated Collectibles, Oct 26",
+    "url": "https://www.si.com/collectibles/epic-3-42m-ohtani-sale-leads-weekly-top-5"
+  },
+  "rookies": [
+    {
+      "name": "Cooper Flagg",
+      "league": "NBA",
+      "team": "Mavericks",
+      "maker": "Topps",
+      "signal": "Reigning Rookie of the Year; two of his 1/1s sold for $8M+ and $2.16M this fall",
+      "url": "https://hypebeast.com/2026/9/cooper-flagg-rookie-card-sells-for-record-8-million"
+    },
+    {
+      "name": "Cameron Boozer",
+      "league": "NBA",
+      "team": "Grizzlies",
+      "maker": "Topps",
+      "signal": "Productive early on a 3-0 team",
+      "url": "https://www.espn.com/nba/story/_/id/50260679/nba-first-week-best-worst-moments-2026-27"
+    },
+    {
+      "name": "Yaxel Lendeborg",
+      "league": "NBA",
+      "team": "Warriors",
+      "maker": "Topps",
+      "signal": "Standout on an 0-3 team",
+      "url": "https://www.espn.com/nba/story/_/id/50260679/nba-first-week-best-worst-moments-2026-27"
+    },
+    {
+      "name": "Cooper Pratt",
+      "league": "MLB",
+      "team": "Brewers",
+      "maker": "Topps",
+      "signal": "Set a World Series rookie record with hits in six straight plate appearances as Milwaukee won the title",
+      "url": "https://www.mlb.com/news/brewers-beat-rays-game-5-win-2026-world-series"
+    },
+    {
+      "name": "Fernando Mendoza",
+      "league": "NFL",
+      "team": "Raiders",
+      "maker": "Topps",
+      "signal": "No. 1 pick, backing up Kirk Cousins; top NFL Debut Patch chase for 2027",
+      "url": "https://www.kold.com/2026/10/13/fernando-mendoza-looked-ready-garbage-time-raiders-offense-still-belongs-kirk-cousins/"
+    },
+    {
+      "name": "Porter Martone",
+      "league": "NHL",
+      "team": "Flyers",
+      "maker": "Upper Deck",
+      "signal": "Top Young Guns chase, playing first line",
+      "url": "https://www.si.com/collectibles/2026-27-upper-deck-series-1-preview-top-young-guns-and-inserts-chase"
+    },
+    {
+      "name": "Anton Frondell",
+      "league": "NHL",
+      "team": "Blackhawks",
+      "maker": "Upper Deck",
+      "signal": "2025 No. 3 pick, on a line with Patrick Kane",
+      "url": "https://www.si.com/collectibles/2026-27-upper-deck-series-1-preview-top-young-guns-and-inserts-chase"
+    },
+    {
+      "name": "James Hagens",
+      "league": "NHL",
+      "team": "Bruins",
+      "maker": "Upper Deck",
+      "signal": "2025 No. 5 pick with top-six potential",
+      "url": "https://www.si.com/collectibles/2026-27-upper-deck-series-1-preview-top-young-guns-and-inserts-chase"
+    }
+  ],
+  "forecasts": [
+    {
+      "id": "f-psa",
+      "made": "2026-10-28",
+      "checkBy": "2026-11-30",
+      "status": "open",
+      "confidence": "Medium",
+      "claim": "PSA's reported backlog falls below 6 million cards by November 30.",
+      "evidence": [
+        "The backlog fell from 8.2M to 7.2M between October 6 and 20.",
+        "At that pace it would pass 6M in early to mid-November."
+      ],
+      "check": "PSA backlog updates as reported by hobby media.",
+      "result": "",
+      "topic": "Grading",
+      "related": [
+        "psa"
+      ]
+    },
+    {
+      "id": "f-women",
+      "made": "2026-10-28",
+      "checkBy": "2026-12-31",
+      "status": "open",
+      "confidence": "Medium",
+      "claim": "No women's sports card beats Caitlin Clark's $660K record by December 31.",
+      "evidence": [
+        "The record is more than 2.5x the largest recent women's sale, Paige Bueckers' $249,750 in August.",
+        "Most top women's basketball cards are Panini 1/1s, which appear rarely at auction."
+      ],
+      "check": "Record-sale coverage from major auction houses and hobby media.",
+      "result": "",
+      "topic": "Women's sports",
+      "related": []
+    },
+    {
+      "id": "f-whatnot",
+      "made": "2026-10-28",
+      "checkBy": "2027-03-31",
+      "status": "open",
+      "confidence": "Medium",
+      "claim": "Whatnot reports 2026 live sales above $16B, double 2025.",
+      "evidence": [
+        "Whatnot's own trends report projects sales to more than double from $8B.",
+        "Over 100 million sports cards sold on the app by October."
+      ],
+      "check": "Whatnot's annual results or funding announcements.",
+      "result": "",
+      "topic": "Marketplaces",
+      "related": [
+        "whatnot-ebay"
+      ]
+    }
+  ],
+  "competitors": [
+    {
+      "name": "Panini",
+      "what": "Card maker",
+      "holds": "WNBA players, NWSL and players, Unrivaled, U.S. women's team players; athlete deals with Mbappé, Pulisic and Wirtz",
+      "latest": "Signed Florian Wirtz to an exclusive multi-year deal (Oct 20). Its NBA license ended in 2025 and its NFL league license on March 31, 2026; its antitrust suit against Fanatics is in discovery.",
+      "watch": "More individual star signings in soccer and women's sports.",
+      "url": "https://www.sportscollectorsdaily.com/notes-fanatics-paris-opening-postponed-panini-signs-florian-wirtz-ex-hobby-shop-employee-gets-probation-whatnot-sales/"
+    },
+    {
+      "name": "Upper Deck",
+      "what": "Card maker",
+      "holds": "NHL and NHLPA, NHL Alumni, PWHL",
+      "latest": "Released 2026-27 Series 1 Hockey on October 7, led by Young Guns rookies Martone, Hagens and Frondell.",
+      "watch": "How PWHL expansion to 12 teams changes its women's hockey products.",
+      "url": "https://www.si.com/collectibles/2026-27-upper-deck-series-1-preview-top-young-guns-and-inserts-chase"
+    },
+    {
+      "name": "Whatnot",
+      "what": "Live marketplace",
+      "holds": "About 60% of live shopping in North America and Europe; valued at $20B",
+      "latest": "Expects sales to more than double from $8B; 100M+ sports cards sold in 2026; women's soccer searches up about 70%.",
+      "watch": "Scrutiny of breaks and repacks, and its push into Europe.",
+      "url": "https://icv2.com/articles/news/view/63736/whatnot-doubling-ebay-laying-off-1000-nrf-predicts-holiday-sales"
+    },
+    {
+      "name": "eBay",
+      "what": "Marketplace",
+      "holds": "The largest general resale marketplace for cards",
+      "latest": "Cutting about 1,000 jobs after 800 earlier this year, while prioritizing collectibles, authenticated luxury and refurbished goods.",
+      "watch": "New collectibles features or acquisitions funded by the cuts.",
+      "url": "https://icv2.com/articles/news/view/63736/whatnot-doubling-ebay-laying-off-1000-nrf-predicts-holiday-sales"
+    },
+    {
+      "name": "PSA",
+      "what": "Grading",
+      "holds": "The largest card grader",
+      "latest": "Reopens its Value tier on October 29 at $39.99, up from $32.99, and cut Standard and Priority turnaround estimates; backlog about 7.2M items (Oct 20).",
+      "watch": "When Value Bulk reopens, and whether the backlog keeps falling toward the 5M target.",
+      "url": "https://heavy.com/sports/cards/psa-value-grading-reopens/"
+    }
+  ],
+  "calendar": [
+    {
+      "date": "2026-10-29",
+      "end": "",
+      "event": "WNBA Finals Game 6, Valkyries at Dream",
+      "where": "State Farm Arena, Atlanta",
+      "league": "WNBA",
+      "note": "Today, 12:30 p.m. ET on USA. Golden State leads 3-2 and can clinch its first title. Game 7, if needed, is Saturday, October 31 in San Francisco.",
+      "url": "https://www.espn.com/wnba/story/_/id/50303751/finals-2026-game-6-preview-atlanta-valkyries",
+      "time": "12:30 p.m. ET"
+    },
+    {
+      "date": "2026-10-30",
+      "end": "",
+      "event": "NBA Cup group play begins",
+      "where": "Home arenas",
+      "league": "NBA",
+      "note": "Cup nights every Friday through November 27.",
+      "url": "https://abc7.com/post/2026-nba-cup-schedule-format-groups-updates-more/19668665/"
+    },
+    {
+      "date": "2026-10-30",
+      "end": "",
+      "event": "Brewers championship parade and rally",
+      "where": "Downtown Milwaukee to Henry Maier Festival Park",
+      "league": "MLB",
+      "note": "10 a.m. CT. Free rally grounds open at 8 a.m.; the city's first World Series celebration.",
+      "url": "https://www.cbs58.com/news/brewers-announce-world-series-championship-parade-rally-for-friday",
+      "time": "10 a.m. CT"
+    },
+    {
+      "date": "2026-11-02",
+      "end": "",
+      "event": "MLB free agents can sign with any team",
+      "where": "",
+      "league": "MLB",
+      "note": "4 p.m. CT. Option and qualifying offer decisions are also due; signings must happen before the December 1 labour deadline or wait out a lockout.",
+      "url": "https://mlbtraderumors.com/2026/10/the-2026-27-offseason-begins.html"
+    },
+    {
+      "date": "2026-11-01",
+      "end": "",
+      "event": "NWSL Decision Day",
+      "where": "League-wide",
+      "league": "NWSL",
+      "note": "All eight matches at 5 p.m. ET on ESPN platforms. Decides the Shield and the full playoff bracket.",
+      "url": "https://espnpressroom.com/press-release/espn-to-provide-exclusive-coverage-of-all-eight-nwsl-decision-day-matches/",
+      "time": "5 p.m. ET"
+    },
+    {
+      "date": "2026-11-06",
+      "end": "2026-11-08",
+      "event": "NWSL playoff quarterfinals",
+      "where": "Home stadiums",
+      "league": "NWSL",
+      "note": "Semifinals follow November 13-15.",
+      "url": "https://eventsdc.com/news/2026-nwsl-championship-presented-google-pixel-be-staged-audi-field-washington-dc"
+    },
+    {
+      "date": "2026-11-07",
+      "end": "",
+      "event": "MLS Decision Day",
+      "where": "League-wide",
+      "league": "MLS",
+      "note": "Sets playoff seeding.",
+      "url": "https://www.si.com/soccer/mls-official-2026-playoffs-schedule"
+    },
+    {
+      "date": "2026-11-09",
+      "end": "2026-11-12",
+      "event": "MLB GM Meetings and BBWAA awards",
+      "where": "Las Vegas",
+      "league": "MLB",
+      "note": "Rookie of the Year Nov 9, Manager Nov 10, Cy Young Nov 11, MVP Nov 12. Front office leaders gather in one place.",
+      "url": "https://www.justbaseball.com/?p=245063"
+    },
+    {
+      "date": "2026-11-10",
+      "end": "",
+      "event": "NFL trade deadline (4 p.m. ET)",
+      "where": "",
+      "league": "NFL",
+      "note": "Last chance for midseason roster changes.",
+      "url": "https://abc7ny.com/post/2026-nfl-trade-deadline-updates-latest-season-deals-news/19884108/",
+      "time": "4 p.m. ET"
+    },
+    {
+      "date": "2026-11-21",
+      "end": "",
+      "event": "NWSL Championship",
+      "where": "Audi Field, Washington, DC",
+      "league": "NWSL",
+      "note": "8 p.m. ET on CBS. NWSL Awards, Skills Challenge and a fan fest run that week in DC, so league and club leadership will be there.",
+      "url": "https://eventsdc.com/news/2026-nwsl-championship-presented-google-pixel-be-staged-audi-field-washington-dc"
+    },
+    {
+      "date": "2026-12-01",
+      "end": "",
+      "event": "MLB collective bargaining agreement expires",
+      "where": "",
+      "league": "MLB",
+      "note": "Owners are widely expected to lock players out without a deal; the salary cap is the main dispute.",
+      "url": "https://www.foxnews.com/sports/inside-mlb-cba-negotiations-manfred-players-union-exec-discuss-issues-sides-attempt-save-2027-season",
+      "time": "10:59 p.m. CT"
+    },
+    {
+      "date": "2026-12-05",
+      "end": "2026-12-06",
+      "event": "PWHL season opens",
+      "where": "Vancouver, Laval, San Jose, Ottawa, Newark, Las Vegas",
+      "league": "PWHL",
+      "note": "First weekend of the 12-team league; Las Vegas hosts Detroit at T-Mobile Arena on December 6.",
+      "url": "https://thehockeynews.com/womens/pwhl/pwhl-announces-home-openers-for-all-12-teams-beginning-december-5"
+    },
+    {
+      "date": "2026-12-07",
+      "end": "2026-12-09",
+      "event": "MLB Winter Meetings",
+      "where": "San Diego",
+      "league": "MLB",
+      "note": "Widely expected to be cancelled because of a likely lockout.",
+      "url": "https://www.justbaseball.com/?p=245063"
+    },
+    {
+      "date": "2026-12-11",
+      "end": "",
+      "event": "NBA Cup Championship",
+      "where": "Hinkle Fieldhouse, Indianapolis",
+      "league": "NBA",
+      "note": "Moved from Las Vegas this year.",
+      "url": "https://abc7.com/post/2026-nba-cup-schedule-format-groups-updates-more/19668665/"
+    },
+    {
+      "date": "2026-12-18",
+      "end": "",
+      "event": "MLS Cup",
+      "where": "Higher-seeded finalist's stadium",
+      "league": "MLS",
+      "note": "Hosted by the finalist with the better regular-season record.",
+      "url": "https://www.si.com/soccer/mls-official-2026-playoffs-schedule"
+    },
+    {
+      "date": "2027-01-01",
+      "end": "",
+      "event": "Larry Berg becomes MLS commissioner",
+      "where": "",
+      "league": "MLS",
+      "note": "Succeeds Don Garber, who becomes chairman.",
+      "url": "https://frontofficesports.com/newsletter/mlss-next-commissioner/"
+    }
+  ],
+  "people": [
+    {
+      "date": "2026-10-23",
+      "who": "Mark Walter",
+      "org": "Los Angeles Sparks (WNBA)",
+      "move": "Exploring a sale of the team",
+      "context": "Follows his sales of the Lakers and his Chelsea stake. The PWHL, which he also owns, says it expects no ownership change.",
+      "quality": "Reported",
+      "url": "https://thehockeynews.com/womens/pwhl/pwhl-owner-mark-walter-continues-rapid-sell-off-of-sporting-assets-with-wnbas-los-angeles-sparks-next-to-go"
+    },
+    {
+      "date": "2026-10-19",
+      "who": "Taylor Smith",
+      "org": "Athletics (MLB)",
+      "move": "Named president of baseball operations",
+      "context": "Joins from the Red Sox, where he was assistant GM. At 31 he is the youngest head of baseball operations in MLB, taking over as the team moves to Las Vegas.",
+      "quality": "Major outlet",
+      "url": "https://www.nbcsportsbayarea.com/mlb/athletics/taylor-smith-president-of-baseball-operations/1972063/"
+    },
+    {
+      "date": "2026-08-04",
+      "who": "Larry Berg",
+      "org": "Major League Soccer",
+      "move": "Named next commissioner, starting January 1",
+      "context": "LAFC co-owner and private equity executive; will sell his stake. Don Garber, commissioner since 1999, becomes chairman.",
+      "quality": "Major outlet",
+      "url": "https://frontofficesports.com/newsletter/mlss-next-commissioner/"
+    }
+  ],
+  "week": {
+    "label": "Week of October 26",
+    "items": [
+      "The Brewers beat the Rays 4-1 in Game 5 to win their first World Series.",
+      "The Valkyries lead the Dream 3-2 in the WNBA Finals; Game 6 is Thursday afternoon in Atlanta.",
+      "Baseball's labour deal expires December 1, and a lockout is widely expected.",
+      "PSA reopens its Value grading tier at $39.99 after a nearly five-month pause.",
+      "ESPN confirms early talks on a Sparks sale at about $700M; the PWHL expands to 12 teams.",
+      "Whatnot projects more than double 2025's $8B in sales; eBay cuts about 1,000 jobs.",
+      "Three cards topped $1M at auction, led by a $3.24M Ohtani 1/1."
+    ]
+  },
+  "archive": [
+    {
+      "edition": "Thursday, October 29, 2026",
+      "headlines": [
+        "Valkyries can clinch the WNBA title in a Thursday matinee in Atlanta",
+        "With the season over, baseball's labour deal expires December 1",
+        "Brewers win their first World Series; small-market series still draws"
+      ]
+    },
+    {
+      "edition": "Wednesday, October 28, 2026",
+      "headlines": [
+        "Valkyries lead the Dream 3-2 in the WNBA Finals; Game 6 moves to a Thursday matinee",
+        "Baseball's offseason is shaping up around a likely lockout",
+        "The LA Sparks are reportedly for sale, with a $700M+ asking price"
+      ]
+    }
+  ],
+  "reads": [
+    {
+      "title": "Valkyries clinch title or Dream stay alive? Previewing Game 6 of the WNBA Finals",
+      "outlet": "ESPN",
+      "date": "2026-10-28",
+      "blurb": "What has decided this series so far, from turnovers to Angel Reese's shooting and Golden State's shorter rotation.",
+      "url": "https://www.espn.com/wnba/story/_/id/50303751/finals-2026-game-6-preview-atlanta-valkyries"
+    },
+    {
+      "title": "2026 World Series Game 4 extra innings instant classic posts big TV viewership",
+      "outlet": "Forbes",
+      "date": "2026-10-28",
+      "blurb": "The numbers behind a small-market World Series that held its national audience.",
+      "url": "https://www.forbes.com/sites/maurybrown/2026/10/28/2026-world-series-game-4-extra-innings-instant-classic-posts-big-tv-viewership/"
+    },
+    {
+      "title": "Knicks Owner Gets $10M in MSG Split",
+      "outlet": "Front Office Sports",
+      "date": "2026-10-28",
+      "blurb": "How the Knicks and Rangers spin-off paid out, plus the Aspen Institute's data on youth flag football growth.",
+      "url": "https://frontofficesports.com/newsletter/the-memo-am/"
+    },
+    {
+      "title": "Rare Nagurski, Ohtani Superfractor and Iconic Rookies Were Among Cards Stolen in PSA Shipment Theft",
+      "outlet": "Sports Collectors Daily",
+      "date": "2026-10-25",
+      "blurb": "What was in the 2,161 sports cards taken from a FedEx truck outside PSA, and why it exposes shipping risk in grading.",
+      "url": "https://www.sportscollectorsdaily.com/rare-nagurski-ohtani-superfractor-and-iconic-rookies-were-among-cards-stolen-in-psa-shipment-theft/"
+    },
+    {
+      "title": "Latest On NBA Europe",
+      "outlet": "Hoops Rumors",
+      "date": "2026-10-25",
+      "blurb": "Where the NBA's European league stands after the EuroLeague rejection, and which soccer clubs are at the table.",
+      "url": "https://www.hoopsrumors.com/2026/10/latest-on-nba-europe-3.html"
+    }
+  ],
+  "cards": {
+    "note": "Every price here is a completed public sale from a named source. Each sale is a different card, so the list is a sales log, not a price index. Forecasts, when shown, sit in a separate dashed box and are never mixed with sale prices.",
+    "players": [
+      {
+        "id": "ohtani",
+        "name": "Shohei Ohtani",
+        "league": "MLB",
+        "team": "Dodgers",
+        "maker": "Topps",
+        "sales": [
+          {
+            "date": "2026-10-23",
+            "card": "2025 Topps MLB MVP The Game Dynasty Black Auto Patch 1/1",
+            "grade": "PSA 9",
+            "price": 3240000,
+            "venue": "Fanatics Premier",
+            "source": "Sports Illustrated Collectibles, Oct 26",
+            "url": "https://www.si.com/collectibles/epic-3-42m-ohtani-sale-leads-weekly-top-5"
+          },
+          {
+            "date": "2026-10-23",
+            "card": "2026 Topps Chrome Dual MVP Gold Logoman Auto 1/1 (with Aaron Judge)",
+            "grade": "",
+            "price": 1230000,
+            "venue": "Fanatics Premier",
+            "source": "Sports Illustrated Collectibles, Oct 26",
+            "url": "https://www.si.com/collectibles/epic-3-42m-ohtani-sale-leads-weekly-top-5"
+          }
+        ]
+      },
+      {
+        "id": "flagg",
+        "name": "Cooper Flagg",
+        "league": "NBA",
+        "team": "Mavericks",
+        "maker": "Topps",
+        "sales": [
+          {
+            "date": "2026-10-23",
+            "card": "2025 Topps Motif Logoman Auto 1/1 (unscratched redemption)",
+            "grade": "",
+            "price": 2160000,
+            "venue": "Fanatics Premier",
+            "source": "Sports Illustrated Collectibles, Oct 26",
+            "url": "https://www.si.com/collectibles/epic-3-42m-ohtani-sale-leads-weekly-top-5"
+          },
+          {
+            "date": "2026-10-23",
+            "card": "2025 Topps Chrome Update Superfractor Auto 1/1",
+            "grade": "PSA 8",
+            "price": 750000,
+            "venue": "Fanatics Premier",
+            "source": "Sports Illustrated Collectibles, Oct 26",
+            "url": "https://www.si.com/collectibles/epic-3-42m-ohtani-sale-leads-weekly-top-5"
+          }
+        ]
+      },
+      {
+        "id": "judge",
+        "name": "Aaron Judge",
+        "league": "MLB",
+        "team": "Yankees",
+        "maker": "Topps",
+        "sales": [
+          {
+            "date": "2026-10-23",
+            "card": "2026 Topps Chrome Dual MVP Gold Logoman Auto 1/1 (with Shohei Ohtani)",
+            "grade": "",
+            "price": 1230000,
+            "venue": "Fanatics Premier",
+            "source": "Sports Illustrated Collectibles, Oct 26",
+            "url": "https://www.si.com/collectibles/epic-3-42m-ohtani-sale-leads-weekly-top-5"
+          }
+        ]
+      },
+      {
+        "id": "clark",
+        "name": "Caitlin Clark",
+        "league": "WNBA",
+        "team": "Fever",
+        "maker": "Panini",
+        "sales": [
+          {
+            "date": "2025-07-24",
+            "card": "2024 Panini Flawless Logowoman Auto rookie 1/1",
+            "grade": "",
+            "price": 660000,
+            "venue": "Auction",
+            "source": "Sports Illustrated, Jul 2025",
+            "url": "https://www.si.com/wnba/fever/caitlin-clark/caitlin-clark-wnba-rookie-card-obliterates-record-with-staggering-sales-price-01k1105zyppk"
+          }
+        ]
+      },
+      {
+        "id": "bueckers",
+        "name": "Paige Bueckers",
+        "league": "WNBA",
+        "team": "Wings",
+        "maker": "Panini",
+        "sales": [
+          {
+            "date": "2026-08-27",
+            "card": "2025 Panini Flawless WNBA Logowomen Patch Auto Platinum 1/1",
+            "grade": "",
+            "price": 249750,
+            "venue": "ALT",
+            "source": "Yardbarker, Sep 24",
+            "url": "https://www.yardbarker.com/wnba/articles/paige_bueckers_249750_wnba_collectible_overtakes_caitlin_clark/s1_17615_44345618"
+          }
+        ]
+      },
+      {
+        "id": "wagner",
+        "name": "Honus Wagner",
+        "league": "MLB",
+        "team": "Vintage",
+        "maker": "T206",
+        "sales": [
+          {
+            "date": "2026-10-24",
+            "card": "1909-11 T206 Sweet Caporal Honus Wagner",
+            "grade": "PSA Authentic (restored)",
+            "price": 1980000,
+            "venue": "Heritage",
+            "source": "Sports Illustrated Collectibles, Oct 26",
+            "url": "https://www.si.com/collectibles/epic-3-42m-ohtani-sale-leads-weekly-top-5"
+          }
+        ]
+      },
+      {
+        "id": "celebrini",
+        "name": "Macklin Celebrini",
+        "league": "NHL",
+        "team": "Sharks",
+        "maker": "Upper Deck",
+        "sales": [
+          {
+            "date": "2026-08-15",
+            "card": "2024-25 Upper Deck Young Guns Outburst Gold 1/1",
+            "grade": "PSA Authentic (no grade)",
+            "price": 1281000,
+            "venue": "Goldin",
+            "source": "Sports Collectors Daily, Aug 16",
+            "url": "https://www.sportscollectorsdaily.com/macklin-celebrini-young-guns-1-1-sets-non-gretzky-hockey-card-record/"
+          }
+        ]
+      },
+      {
+        "id": "mahomes",
+        "name": "Patrick Mahomes",
+        "league": "NFL",
+        "team": "Chiefs",
+        "maker": "Topps",
+        "sales": [
+          {
+            "date": "2026-10-05",
+            "card": "2018 Panini Flawless Shield Auto 1/1",
+            "grade": "BGS 9.5",
+            "price": 200000,
+            "venue": "eBay",
+            "source": "Sports Illustrated Collectibles, Oct 11",
+            "url": "https://www.si.com/collectibles/patrick-mahomes-tom-brady-lead-top-5-football-card-sales"
+          },
+          {
+            "date": "2026-10-08",
+            "card": "2022 Panini Prizm Black Shimmer Prizm 1/1",
+            "grade": "PSA 8",
+            "price": 45140,
+            "venue": "Goldin",
+            "source": "Sports Illustrated Collectibles, Oct 11",
+            "url": "https://www.si.com/collectibles/patrick-mahomes-tom-brady-lead-top-5-football-card-sales"
+          },
+          {
+            "date": "2026-10-08",
+            "card": "2017 Panini Contenders Rookie Ticket Auto",
+            "grade": "BGS 9.5 / Auto 10",
+            "price": 41209.2,
+            "venue": "ALT",
+            "source": "Sports Illustrated Collectibles, Oct 11",
+            "url": "https://www.si.com/collectibles/patrick-mahomes-tom-brady-lead-top-5-football-card-sales"
+          }
+        ]
+      },
+      {
+        "id": "brady",
+        "name": "Tom Brady",
+        "league": "NFL",
+        "team": "Retired",
+        "maker": "Topps",
+        "sales": [
+          {
+            "date": "2026-10-09",
+            "card": "2000 Playoff Contenders Rookie Ticket Auto",
+            "grade": "PSA 7 / Auto 9",
+            "price": 50000,
+            "venue": "eBay",
+            "source": "Sports Illustrated Collectibles, Oct 11",
+            "url": "https://www.si.com/collectibles/patrick-mahomes-tom-brady-lead-top-5-football-card-sales"
+          }
+        ]
+      },
+      {
+        "id": "yamal",
+        "name": "Lamine Yamal",
+        "league": "Soccer (Europe)",
+        "team": "Barcelona",
+        "maker": "Topps",
+        "sales": [
+          {
+            "date": "2026-05-16",
+            "card": "2023-24 Donruss Optic Gold Power 1/1",
+            "grade": "PSA 10",
+            "price": 219600,
+            "venue": "Heritage",
+            "source": "Sports Illustrated Collectibles, May 19",
+            "url": "https://www.si.com/collectibles/lionel-messi-lamine-yamal-new-card-record-world-cup"
+          }
+        ]
+      },
+      {
+        "id": "messi",
+        "name": "Lionel Messi",
+        "league": "MLS",
+        "team": "Inter Miami",
+        "maker": "Topps",
+        "sales": [
+          {
+            "date": "2026-05-16",
+            "card": "2015 Panini Flawless Sole of the Game Signatures Gold /10",
+            "grade": "PSA 7",
+            "price": 549000,
+            "venue": "Heritage",
+            "source": "Sports Illustrated Collectibles, May 19",
+            "url": "https://www.si.com/collectibles/lionel-messi-lamine-yamal-new-card-record-world-cup"
+          }
+        ]
+      }
+    ]
+  },
+  "labour": {
+    "league": "MLB",
+    "title": "MLB labour watch",
+    "deadline": "2026-12-01",
+    "status": "Talks continue with no sign of significant progress. The agreement expires December 1, and owners could lock players out from December 2.",
+    "facts": [
+      {
+        "label": "Owners' proposed cap",
+        "value": "$245.3M",
+        "text": "Team spending limit for 2027, measured with luxury tax payroll figures.",
+        "source": "AP, Oct 22",
+        "url": "https://abcnews.com/Business/wireStory/lockout-looming-world-series-major-league-baseballs-games-137494687"
+      },
+      {
+        "label": "Proposed payroll floor",
+        "value": "$171.2M",
+        "text": "Paired with a 50-50 split of baseball revenue.",
+        "source": "Boston Globe, Oct 29",
+        "url": "https://www.bostonglobe.com/2026/10/29/sports/mlb-labor-owners-players/"
+      },
+      {
+        "label": "Limit per player",
+        "value": "15%",
+        "text": "No player could take more than 15% of a team's payroll; free agent deals capped at $265M over six seasons.",
+        "source": "AP, Oct 22",
+        "url": "https://abcnews.com/Business/wireStory/lockout-looming-world-series-major-league-baseballs-games-137494687"
+      },
+      {
+        "label": "Union position",
+        "value": "No cap",
+        "text": "The players' association says it will never accept a cap and is asking for at least $240M in revenue sharing per small-market club.",
+        "source": "AP, Oct 22; Boston Globe, Oct 29",
+        "url": "https://www.bostonglobe.com/2026/10/29/sports/mlb-labor-owners-players/"
+      }
+    ],
+    "dates": [
+      {
+        "date": "2026-11-02",
+        "event": "Free agents can sign with any team; option and qualifying offer decisions due"
+      },
+      {
+        "date": "2026-11-17",
+        "event": "Qualifying offer decisions due from players; Rule 5 protection deadline"
+      },
+      {
+        "date": "2026-11-20",
+        "event": "Non-tender deadline"
+      },
+      {
+        "date": "2026-12-01",
+        "event": "Collective bargaining agreement expires (10:59 p.m. CT)"
+      },
+      {
+        "date": "2026-12-07",
+        "event": "Winter Meetings in San Diego, expected to be cancelled"
+      },
+      {
+        "date": "2027-03-24",
+        "event": "Scheduled 2027 Opening Day"
+      }
+    ],
+    "datesSource": {
+      "source": "MLB Trade Rumors, Oct 29",
+      "url": "https://mlbtraderumors.com/2026/10/the-2026-27-offseason-begins.html"
+    },
+    "outlook": [
+      {
+        "who": "MLB Trade Rumors",
+        "text": "Expects owners to lock players out on December 2. A lockout would stop major league roster moves until a new deal is ratified.",
+        "date": "2026-10-29",
+        "url": "https://mlbtraderumors.com/2026/10/the-2026-27-offseason-begins.html"
+      },
+      {
+        "who": "Boston Globe (column)",
+        "text": "Expects spring training and the March 24 opener to be delayed, and a deal in July or August.",
+        "date": "2026-10-29",
+        "url": "https://www.bostonglobe.com/2026/10/29/sports/mlb-labor-owners-players/"
+      },
+      {
+        "who": "AP",
+        "text": "Says a lockout from December 2 could cancel 2027 games.",
+        "date": "2026-10-22",
+        "url": "https://abcnews.com/Business/wireStory/lockout-looming-world-series-major-league-baseballs-games-137494687"
+      }
+    ],
+    "articles": [
+      {
+        "title": "With an MLB lockout likely, let's look at how we got here, and how the owners and players might come to an agreement",
+        "outlet": "Boston Globe",
+        "date": "2026-10-29",
+        "url": "https://www.bostonglobe.com/2026/10/29/sports/mlb-labor-owners-players/"
+      },
+      {
+        "title": "The 2026-27 Offseason Begins",
+        "outlet": "MLB Trade Rumors",
+        "date": "2026-10-29",
+        "url": "https://mlbtraderumors.com/2026/10/the-2026-27-offseason-begins.html"
+      },
+      {
+        "title": "With lockout looming, World Series could be MLB's last games for a while",
+        "outlet": "AP via ABC News",
+        "date": "2026-10-22",
+        "url": "https://abcnews.com/Business/wireStory/lockout-looming-world-series-major-league-baseballs-games-137494687"
+      }
+    ]
+  },
+  "ticker": [
+    "World Series: Brewers beat Rays in Game 5 to win their first title",
+    "WNBA Finals: Valkyries lead Dream 3-2, Game 6 at 12:30 p.m. ET today",
+    "WNBA Finals Game 5: Valkyries 64, Dream 55"
+  ]
+}
+</script>
+
+<aside class="side" id="side" aria-label="Sections">
+  <a class="brand" href="#home"><b>The Sporting<br>Reporter</b><span>Created by Jesse Fader</span></a>
+  <span class="fresh" id="fresh-side"></span>
+  <div class="theme" id="theme" role="group" aria-label="Colour theme"></div>
+  <nav id="nav">
+    <a href="#home">Home</a>
+    <details data-g="news"><summary>News</summary><div class="sub"><a href="#news">All stories <small id="n-all"></small></a><span class="lbl">Leagues</span><div id="m-leagues" style="display:grid;gap:1px"></div><span class="lbl">Topics</span><div id="m-topics" style="display:grid;gap:1px"></div></div></details>
+    <details data-g="markets"><summary>Markets</summary><div class="sub"><a href="#cards">Card prices</a><a href="#markets">Indicators and top sales</a><a href="#rookies">Rookies to watch</a></div></details>
+    <a href="#forecasts">Forecasts</a>
+    <a href="#labour" id="nav-labour">Labour watch</a>
+    <a href="#competitors">Competitors</a>
+    <a href="#calendar">Calendar</a>
+    <a href="#saved">Saved stories <small id="n-saved"></small></a>
+    <details data-g="packs"><summary>Card packs</summary><div class="sub"><a href="#packs">Open packs</a><a href="#library">My library</a></div></details>
+    <details data-g="more"><summary>More</summary><div class="sub"><a href="#people">People moves</a><a href="#reads">Worth reading</a><a href="#archive">Past editions</a></div></details>
+  </nav>
+  <div class="side-foot"><span>Created by Jesse Fader</span><span>Smith School of Business, Queen's University</span></div>
+</aside>
+<div class="nscrim" id="nscrim" hidden></div>
+<div class="shell">
+<div class="mtop"><a class="brand" href="#home"><b>The Sporting Reporter</b><span>Created by Jesse Fader</span></a><button class="mbtn" type="button" id="mopen" aria-controls="side" aria-expanded="false">Menu</button></div>
+<div class="ticker" role="region" aria-label="Key numbers and results"><span class="tlab">Today</span><div class="twrap"><div class="ttrack" id="ticker-track"></div></div></div>
+
+
+<section class="hero" id="hero">
+  <div class="scenes" id="scenes"></div>
+  <div class="in" id="hero-in"></div>
+</section>
+
+<main>
+  <div class="in">
+
+    <!-- HOME -->
+    <section class="view" data-view="home">
+      <div class="homegrid first">
+        <div class="greet"><h2>Your day at a glance</h2><span id="readtime"></span></div>
+        <div class="timeline" id="timeline"></div>
+        <a class="btn allbtn" href="#news">All stories &rarr;</a>
+      </div>
+      <div class="packzone" id="packzone">
+        <div class="pz-h"><div><h2>Open a pack</h2><p>Pick a sport. Each pack holds one player card for your library, with no repeats.</p></div><div class="left" id="packs-left"></div></div>
+        <div class="packs" id="packs"></div>
+        <div class="pz-h"><span class="eyebrow" style="color:#aab3c0" id="pz-count"></span><a class="lk" href="#library" style="color:#fff;font-size:14px;font-weight:600">My library &rarr;</a></div>
+        <div class="mini lib" id="mini"></div>
+      </div>
+    </section>
+
+    <!-- NEWS -->
+    <section class="view first" data-view="news" hidden>
+      <div class="stories" id="stories"></div>
+      <div class="twocol">
+        <div class="sec"><div class="sec-h"><h2 id="week-label">This week</h2></div><ol class="week" id="week"></ol></div>
+        <div class="sec"><div class="sec-h"><h2>Worth reading</h2></div><div class="reads" id="reads-mini"></div></div>
+      </div>
+    </section>
+
+    <section class="view first" data-view="library" hidden>
+      <div class="libtools"><div class="prog" id="lib-prog"></div><div class="chips" id="lib-chips"></div></div>
+      <div class="lib" id="lib"></div>
+    </section>
+
+    <section class="view first" data-view="saved" hidden><div class="reads" id="saved"></div></section>
+
+    <section class="view first" data-view="reads" hidden><div class="reads" id="reads"></div></section>
+
+
+    <section class="view first" data-view="cards" hidden>
+      <div class="legend"><span><i class="sw sw-fact"></i>Verified sale from a named source</span><span><i class="sw sw-fc"></i>Forecast, not a sale</span></div>
+      <div class="tools">
+        <input class="search" id="card-q" type="search" placeholder="Search a player: Ohtani, Flagg, Clark..." aria-label="Search a player" autocomplete="off">
+        <div class="chips" id="card-lg"></div>
+      </div>
+      <div class="players" id="players"></div>
+    </section>
+
+    <section class="view first" data-view="markets" hidden>
+      <div class="legend"><span><i class="sw sw-fact"></i>Published figure</span><span><i class="sw sw-fc"></i>Projection (dashed line)</span></div>
+      <div class="ind" id="ind"></div>
+      <div class="sec"><div class="sec-h"><h2 id="sales-label">Top sales</h2><span id="sales-src"></span></div>
+        <div class="tw"><table><thead><tr><th>Card</th><th class="r">Price</th><th>Sold via</th><th>Date</th></tr></thead><tbody id="sales"></tbody></table></div></div>
+    </section>
+
+    <section class="view first" data-view="rookies" hidden>
+      <div class="tw"><table><thead><tr><th>Player</th><th>League</th><th>Team</th><th>Card rights</th><th>Why now</th></tr></thead><tbody id="rookies"></tbody></table></div>
+    </section>
+
+    <section class="view first" data-view="forecasts" hidden>
+      <div class="legend"><span><i class="sw sw-fc"></i>Forecast: an evidence-based judgment with a check date</span><span><i class="sw sw-fact"></i>Facts elsewhere on this page</span></div>
+      <div class="sec"><div class="sec-h"><h2>Open calls</h2><span id="f-open-n"></span></div><div class="fgrid" id="f-open"></div></div>
+      <div class="sec" id="f-past-wrap"><div class="sec-h"><h2>Checked calls</h2><span>What happened, against what was called</span></div><div class="fgrid" id="f-past"></div></div>
+    </section>
+
+    <section class="view first" data-view="labour" hidden>
+      <div class="lstatus" id="lab-status"></div>
+      <div class="facts" id="lab-facts"></div>
+      <div class="sec"><div class="sec-h"><h2>Key dates</h2><span id="lab-dsrc"></span></div><ul class="tl" id="lab-dates"></ul></div>
+      <div class="sec"><div class="sec-h"><h2>What the reporting expects</h2><span>Expectations of the outlets named, not this brief</span></div><div class="ol" id="lab-out"></div></div>
+      <div class="sec"><div class="sec-h"><h2>Related articles</h2></div><div class="reads" id="lab-art"></div></div>
+    </section>
+
+    <section class="view first" data-view="competitors" hidden><div class="board" id="board"></div></section>
+
+    <section class="view first" data-view="calendar" hidden>
+      <div class="filters"><label class="ctl" for="cal-lg">League <select id="cal-lg"></select></label></div>
+      <div class="tw"><table><thead><tr><th>Date</th><th>Event</th><th>Where</th><th>What to know</th></tr></thead><tbody id="cal"></tbody></table></div>
+    </section>
+
+    <section class="view first" data-view="people" hidden>
+      <div class="tw"><table><thead><tr><th>Date</th><th>Who</th><th>Organization</th><th>Move</th><th>Context</th></tr></thead><tbody id="people"></tbody></table></div>
+    </section>
+
+    <section class="view first" data-view="archive" hidden>
+      <div class="reads" id="archive"></div>
+    </section>
+
+    <section class="view first" data-view="ask" hidden>
+      <div class="ask">
+        <div id="ask-ready" hidden style="display:grid;gap:12px">
+          <form id="ask-form">
+            <label for="ask-input" class="muted" style="flex-basis:100%;font-size:13px">Answers use today's edition as their main source and say when they draw on general knowledge.</label>
+            <input id="ask-input" type="text" placeholder="What would a lockout mean for card releases?" autocomplete="off">
+            <button class="btn" id="ask-btn" type="submit">Ask</button>
+            <button class="btn ghost" id="stop-btn" type="button" hidden>Stop</button>
+          </form>
+          <div class="sugg" id="sugg"></div>
+          <p class="answer" id="answer" aria-live="polite"></p>
+        </div>
+        <p id="ask-off" class="muted" style="margin:0">Questions or feedback? Email jessefader27@gmail.com.</p>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site">
+  <div class="in">
+    <b>The Sporting Reporter</b>
+    <p>An independent daily brief researched and built by Jesse Fader, Bachelor of Commerce candidate, Smith School of Business, Queen's University. Public sources only; not affiliated with Fanatics or any league or team. Facts link to their source and are labelled by source type; reported items are marked; forecasts are dashed and are not financial advice.</p>
+    <p>jessefader27@gmail.com · linkedin.com/in/jesse-fader-00b3292a0</p>
+  </div>
+</footer>
+</div>
+<nav class="tabbar" aria-label="Quick sections" id="tabbar">
+  <a href="#home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11 12 4l9 7v9h-6v-6H9v6H3z"/></svg>Home</a>
+  <a href="#news"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9h10M7 13h10M7 17h6"/></svg>News</a>
+  <a href="#cards"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5M4 19h16M8 15l4-4 3 3 5-6"/></svg>Markets</a>
+  <a href="#packs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M9 7h6"/></svg>Packs</a>
+  <button type="button" id="mopen2" aria-controls="side"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>Menu</button>
+</nav>
+
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="d-title" hidden>
+  <div class="dh"><span class="kick" id="d-kick"></span><button class="x" id="d-x" type="button" aria-label="Close">&times;</button></div>
+  <div class="db" id="d-body"></div>
+</aside>
+
+<script>
+(function(){
+  var D; try { D = JSON.parse(document.getElementById("pulse-data").textContent); } catch(e) { D = null; }
+  if (!D) return;
+  var CATS=[["women","Women's sports"],["collectibles","Card market"],["sports","League and team news"],["competitors","Competitors"],["venues","Venues and real estate"],["fans","Fan pulse"],["ai","AI and technology"]];
+  var CATNAME={}; CATS.forEach(function(c){ CATNAME[c[0]]=c[1]; });
+  var LEAGUES=["NBA","NFL","MLB","NHL","MLS","Soccer (Europe)","WNBA","NWSL","PWHL"];
+  var MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  function el(t,c,x){ var e=document.createElement(t); if(c) e.className=c; if(x!=null) e.textContent=x; return e; }
+  function link(text,url,cls){ var a=el("a",cls||"lk",text); a.href=url; a.target="_blank"; a.rel="noopener"; return a; }
+  function md(iso){ if(!iso) return ""; var p=iso.split("-"); return MON[+p[1]-1]+" "+(+p[2]); }
+  function mdy(iso){ var p=iso.split("-"); return MON[+p[1]-1]+" "+(+p[2])+", "+p[0]; }
+  function dnum(iso){ var p=iso.split("-"); return Date.UTC(+p[0],+p[1]-1,+p[2])/864e5; }
+  function slug(s){ return s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""); }
+  var TODAY=D.updated;
+  function ago(iso){ var n=dnum(TODAY)-dnum(iso); return n<=0?"Today":n===1?"Yesterday":n<7?n+" days ago":md(iso); }
+  function money(v){ return v>=1e6?"$"+(Math.round(v/1e4)/100)+"M":v>=1e3?"$"+Math.round(v/1e3)+"K":"$"+v; }
+  function qbadge(q){ return el("span","badge "+(q==="Reported"||q==="Social"?"b-rep":"b-fact"),q==="Reported"?"Reported, unconfirmed":q==="Social"?"Social, unverified":q); }
+  function store(get,key,val){ try { if(get) return localStorage.getItem(key); localStorage.setItem(key,val); } catch(e){ return null; } }
+  function localISO(){ try { return new Intl.DateTimeFormat("en-CA",{timeZone:"America/Toronto",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date()); } catch(e){ return TODAY; } }
+  var SI={
+    basketball:'<svg class="si" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="44" fill="#f07a2c"/><path d="M6 50h88M50 6v88M20 18c14 12 14 52 0 64M80 18c-14 12-14 52 0 64" stroke="#3a1606" stroke-width="6" fill="none"/></svg>',
+    football:'<svg class="si" viewBox="0 0 100 100" aria-hidden="true"><ellipse cx="50" cy="50" rx="46" ry="28" transform="rotate(-35 50 50)" fill="#a0522d"/><path d="M36 64 64 36M42 50l8 8M48 44l8 8M54 38l8 8" stroke="#fff" stroke-width="6" stroke-linecap="round"/></svg>',
+    baseball:'<svg class="si" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="44" fill="#fbfaf5" stroke="#aeb6c2" stroke-width="5"/><path d="M22 18c12 20 12 44 0 64M78 18c-12 20-12 44 0 64" fill="none" stroke="#d6202f" stroke-width="6" stroke-dasharray="8 6"/></svg>',
+    hockey:'<svg class="si" viewBox="0 0 100 100" aria-hidden="true"><path d="M30 6 54 68h32v14H46L20 8z" fill="#dfe6ee"/><ellipse cx="30" cy="86" rx="18" ry="7" fill="#9aa5b5"/></svg>',
+    soccer:'<svg class="si" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="44" fill="#fff"/><path d="M50 30l18 13-7 21H39l-7-21z" fill="#111"/><path d="M50 30V6M68 43l23-7M61 64l14 20M39 64 25 84M32 43 9 36" stroke="#111" stroke-width="5"/></svg>',
+    multi:'<svg class="si" viewBox="0 0 100 100" aria-hidden="true"><rect x="22" y="10" width="56" height="80" rx="8" fill="#ff3d4d"/><rect x="30" y="18" width="40" height="46" rx="4" fill="#fff" opacity=".9"/><rect x="30" y="70" width="40" height="8" rx="2" fill="#fff" opacity=".6"/></svg>'
+  };
+  var LSPORT={NBA:"basketball",WNBA:"basketball",NFL:"football",MLB:"baseball",NHL:"hockey",PWHL:"hockey",MLS:"soccer","Soccer (Europe)":"soccer",NWSL:"soccer"};
+  function sportOf(leagues){ for(var i=0;i<(leagues||[]).length;i++){ if(LSPORT[leagues[i]]) return LSPORT[leagues[i]]; } return "multi"; }
+  function sicon(leagues){ var s=document.createElement("span"); s.className="sic"; var sp=sportOf(leagues); s.innerHTML=SI[sp]; s.title=sp==="multi"?"Multiple sports":sp.charAt(0).toUpperCase()+sp.slice(1); return s; }
+  var ITEMS={}; (D.items||[]).forEach(function(it){ ITEMS[it.id]=it; });
+  var L=D.labour;
+
+  /* ---------- menus ---------- */
+  var present={}, presentL={}; (D.items||[]).forEach(function(it){ it.cat.forEach(function(c){ present[c]=1; }); it.leagues.forEach(function(l){ presentL[l]=1; }); });
+  function cnt(f){ return (D.items||[]).filter(f).length; }
+  var ml=document.getElementById("m-leagues"), mt=document.getElementById("m-topics");
+  function mitem(box,href,label,n){ var a=el("a"); a.href=href; a.append(document.createTextNode(label)); if(n!=null) a.append(el("small",null,String(n))); box.append(a); return a; }
+  document.getElementById("n-all").textContent=(D.items||[]).length;
+  LEAGUES.forEach(function(l){ if(presentL[l]) mitem(ml,"#league-"+slug(l),l,cnt(function(it){return it.leagues.indexOf(l)>=0;})); });
+  CATS.forEach(function(c){ if(present[c[0]]) mitem(mt,"#topic-"+c[0],c[1],cnt(function(it){return it.cat.indexOf(c[0])>=0;})); });
+  if(L){ document.getElementById("nav-labour").textContent=(L.league||"")+" labour watch"; }
+  var side=document.getElementById("side"), nscrim=document.getElementById("nscrim"), mopen=document.getElementById("mopen");
+  function openSide(){ side.classList.add("open"); nscrim.hidden=false; mopen.setAttribute("aria-expanded","true"); }
+  function closeSide(){ side.classList.remove("open"); nscrim.hidden=true; mopen.setAttribute("aria-expanded","false"); }
+  mopen.onclick=openSide; document.getElementById("mopen2").onclick=openSide; nscrim.onclick=closeSide;
+  side.addEventListener("click",function(e){ if(e.target.closest("a")) closeSide(); });
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape") closeSide(); });
+
+  /* ---------- banner: rotating sports scenes ---------- */
+  var scenesBox=document.getElementById("scenes");
+  var SCENES=["arena","basketball","baseball","hockey","soccer","football"];
+  (function(){ var top=(D.items||[]).slice().sort(function(a,b){return b.score-a.score;})[0]; var sp=top?sportOf(top.leagues):"";
+    var i=SCENES.indexOf(sp); if(i>0){ SCENES.splice(i,1); SCENES.unshift(sp); } })();
+  function paintScene(cv,kind){ var r=scenesBox.getBoundingClientRect(); if(!r.width) return; var dpr=Math.min(window.devicePixelRatio||1,2), W=r.width*1.1, H=r.height*1.1;
+    cv.width=W*dpr; cv.height=H*dpr; var c=cv.getContext("2d"); c.setTransform(dpr,0,0,dpr,0,0);
+    var seed=11+SCENES.indexOf(kind)*7; function rnd(){ seed=(seed*16807)%2147483647; return seed/2147483647; }
+    var g=c.createLinearGradient(0,0,0,H); g.addColorStop(0,"#05070b"); g.addColorStop(.5,"#0d1828"); g.addColorStop(1,"#04060a"); c.fillStyle=g; c.fillRect(0,0,W,H);
+    var hy=H*(kind==="arena"?.76:.5), cx=W*.62;
+    function P(u,v){ var z=1+v*3, t=(1/z-.25)/.75; return [cx+u*W*.95/z, hy+(H-hy)*t]; }
+    function poly(pts,fill){ c.beginPath(); pts.forEach(function(p,i){ var q=P(p[0],p[1]); if(i) c.lineTo(q[0],q[1]); else c.moveTo(q[0],q[1]); }); c.closePath(); c.fillStyle=fill; c.fill(); }
+    function line(pts,col,w){ c.beginPath(); pts.forEach(function(p,i){ var q=P(p[0],p[1]); if(i) c.lineTo(q[0],q[1]); else c.moveTo(q[0],q[1]); }); c.strokeStyle=col; c.lineWidth=w||1.4; c.stroke(); }
+    function ring(u0,v0,ru,rv,col,w,a0,a1){ var pts=[]; a0=a0||0; a1=a1==null?Math.PI*2:a1; for(var k=0;k<=48;k++){ var a=a0+(a1-a0)*k/48; pts.push([u0+ru*Math.cos(a),v0+rv*Math.sin(a)]); } line(pts,col,w); }
+    function lights(){ [[.56,.08],[.88,.05],[.24,.12]].forEach(function(t){ var x=t[0]*W,y=t[1]*H; var b=c.createRadialGradient(x,y,0,x,y,H); b.addColorStop(0,"rgba(220,232,255,.34)"); b.addColorStop(.3,"rgba(160,185,230,.1)"); b.addColorStop(1,"rgba(0,0,0,0)"); c.fillStyle=b; c.fillRect(0,0,W,H);
+      for(var i=0;i<3;i++) for(var j=0;j<6;j++){ var lx=x-30+j*12, ly=y-8+i*10, s=c.createRadialGradient(lx,ly,0,lx,ly,8); s.addColorStop(0,"#fff"); s.addColorStop(.4,"rgba(235,242,255,.5)"); s.addColorStop(1,"rgba(255,255,255,0)"); c.fillStyle=s; c.fillRect(lx-8,ly-8,16,16); } }); }
+    function crowd(y0,y1){ for(var t=0;t<4;t++){ var a=y0+(y1-y0)*t/4, b=a+(y1-y0)/4-3; c.fillStyle="rgba(255,255,255,"+(.02+t*.01)+")"; c.fillRect(0,a,W,b-a); for(var k=0;k<W/3;k++){ var h=rnd(); c.fillStyle=h>.94?"rgba(214,32,47,.55)":h>.86?"rgba(255,255,255,.3)":"rgba(150,170,200,.15)"; c.fillRect(rnd()*W,a+rnd()*(b-a),1.6,1.6); } } }
+    lights(); crowd(H*.3,hy);
+    var Wt="rgba(255,255,255,.75)";
+    if(kind==="arena"){ var fg=c.createLinearGradient(0,hy,0,H); fg.addColorStop(0,"#0f2235"); fg.addColorStop(1,"#060b12"); c.fillStyle=fg; c.fillRect(0,hy,W,H-hy); c.strokeStyle="rgba(255,255,255,.16)"; c.beginPath(); c.moveTo(0,hy); c.lineTo(W,hy); c.stroke(); }
+    if(kind==="basketball"){ var wg=c.createLinearGradient(0,hy,0,H); wg.addColorStop(0,"#6e4422"); wg.addColorStop(1,"#c88a4c"); poly([[-1.2,0],[1.2,0],[1.2,1],[-1.2,1]],wg);
+      for(var u=-1.2;u<=1.2;u+=.06) line([[u,0],[u,1]],"rgba(60,30,10,.25)",1);
+      line([[-1,0],[1,0],[1,1],[-1,1],[-1,0]],Wt,2); line([[-1,.5],[1,.5]],Wt,2); ring(0,.5,.22,.07,Wt,2);
+      poly([[-.25,0],[.25,0],[.25,.2],[-.25,.2]],"rgba(214,32,47,.55)"); poly([[-.25,1],[.25,1],[.25,.8],[-.25,.8]],"rgba(214,32,47,.55)");
+      ring(0,.02,.8,.3,Wt,2,0,Math.PI); ring(0,.98,.8,.3,Wt,2,Math.PI,Math.PI*2); }
+    if(kind==="hockey"){ var ig=c.createLinearGradient(0,hy,0,H); ig.addColorStop(0,"#8fa7bf"); ig.addColorStop(1,"#e6eef6"); poly([[-1,0],[1,0],[1,1],[-1,1]],ig);
+      line([[-1,.5],[1,.5]],"rgba(200,20,40,.9)",4); line([[-1,.34],[1,.34]],"rgba(30,70,200,.9)",4); line([[-1,.66],[1,.66]],"rgba(30,70,200,.9)",4);
+      ring(0,.5,.18,.06,"rgba(30,70,200,.9)",2); [[-.5,.18],[.5,.18],[-.5,.82],[.5,.82]].forEach(function(p){ ring(p[0],p[1],.17,.055,"rgba(200,20,40,.85)",2); });
+      line([[-1,.06],[1,.06]],"rgba(200,20,40,.8)",2); line([[-1,.94],[1,.94]],"rgba(200,20,40,.8)",2); c.fillStyle="rgba(4,8,14,.25)"; c.fillRect(0,hy,W,H-hy); }
+    if(kind==="soccer"||kind==="football"){ for(var s=0;s<12;s++){ poly([[-1.3,s/12],[1.3,s/12],[1.3,(s+1)/12],[-1.3,(s+1)/12]],s%2?"#1d6b34":"#22803e"); } }
+    if(kind==="soccer"){ line([[-1,0],[1,0],[1,1],[-1,1],[-1,0]],Wt,2); line([[-1,.5],[1,.5]],Wt,2); ring(0,.5,.22,.07,Wt,2);
+      line([[-.45,0],[-.45,.16],[.45,.16],[.45,0]],Wt,2); line([[-.45,1],[-.45,.84],[.45,.84],[.45,1]],Wt,2); line([[-.2,0],[-.2,.06],[.2,.06],[.2,0]],Wt,2); }
+    if(kind==="football"){ poly([[-1,0],[1,0],[1,.08],[-1,.08]],"rgba(214,32,47,.7)"); poly([[-1,.92],[1,.92],[1,1],[-1,1]],"rgba(30,70,200,.7)");
+      for(var y=1;y<10;y++){ line([[-1,.08+y*.084],[1,.08+y*.084]],Wt,y===5?2.6:1.6); for(var hm=-.9;hm<=.9;hm+=.18){} }
+      line([[-1,0],[1,0],[1,1],[-1,1],[-1,0]],Wt,2); }
+    if(kind==="baseball"){ poly([[-1.6,0],[1.6,0],[1.6,1],[-1.6,1]],"#1f7a3a"); for(var s2=0;s2<14;s2++) poly([[-1.6,s2/14],[1.6,s2/14],[1.6,(s2+.5)/14],[-1.6,(s2+.5)/14]],"rgba(255,255,255,.04)");
+      var dirt=[]; for(var k2=0;k2<=40;k2++){ var a2=Math.PI*(.25+.5*k2/40); dirt.push([Math.cos(a2)*.95,.04+Math.sin(a2)*.62]); } dirt.unshift([0,0]); poly(dirt,"#9b6a3e");
+      poly([[0,.08],[.42,.3],[0,.52],[-.42,.3]],"#1f7a3a"); [[0,.08],[.42,.3],[0,.52],[-.42,.3]].forEach(function(b){ var q=P(b[0],b[1]); c.fillStyle="#fff"; c.fillRect(q[0]-4,q[1]-3,8,6); });
+      line([[0,.06],[1.6,.9]],Wt,2); line([[0,.06],[-1.6,.9]],Wt,2); ring(0,.06,1.5,.88,"rgba(155,106,62,.8)",6,Math.PI*.22,Math.PI*.78); }
+    var sh=c.createRadialGradient(cx,hy+(H-hy)*.5,0,cx,hy+(H-hy)*.5,W*.6); sh.addColorStop(0,"rgba(255,255,255,.06)"); sh.addColorStop(1,"rgba(0,0,0,.35)"); c.fillStyle=sh; c.fillRect(0,0,W,H); }
+  var sceneEls=SCENES.map(function(k){ var cv=document.createElement("canvas"); cv.className="scene"; cv.setAttribute("aria-hidden","true"); scenesBox.append(cv); return {k:k,cv:cv}; });
+  function paintAll(){ sceneEls.forEach(function(s){ paintScene(s.cv,s.k); }); }
+  paintAll(); var rt; window.addEventListener("resize",function(){ clearTimeout(rt); rt=setTimeout(paintAll,150); });
+  var sIdx=0; sceneEls[0].cv.classList.add("on");
+  var reduceM=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(!reduceM) setInterval(function(){ if(document.hidden) return; var cur=sceneEls[sIdx].cv; sIdx=(sIdx+1)%sceneEls.length; var nx=sceneEls[sIdx].cv; nx.classList.remove("on"); void nx.offsetWidth; nx.classList.add("on"); setTimeout(function(){ cur.classList.remove("on"); },1700); },6500);
+
+  /* ---------- views and banner text ---------- */
+  var TITLES={home:["Today's brief",""],saved:["Saved stories","Stories you starred, kept here until you remove them."],news:["All stories","Every story in today's edition, ranked by how much it matters."],library:["My library","Every card you have pulled. Open up to three packs a day."],reads:["Worth reading","Articles from the past week worth reading in full."],cards:["Card prices","A searchable log of verified public sales by player, across leagues."],markets:["Markets","Figures tracked over time, added only when a source publishes them, plus the week's top sales."],
+    rookies:["Rookies to watch","First-year players whose performance is moving card demand, with each league's card licensee."],forecasts:["Forecasts","Short-range calls built on public evidence, each with a date when it will be checked."],
+    labour:[(L&&L.title)||"Labour watch","Where bargaining stands, the dates that matter, and what the reporting expects."],competitors:["Competitors","Who holds what, their latest verified move, and what to watch next."],
+    calendar:["Calendar","The next 60 days, with what to know before each date."],people:["People moves","Leadership and ownership changes at leagues, teams and competitors."],
+    archive:["Past editions","The top three headlines from each daily edition."],ask:["Ask the Reporter","Ask anything about today's edition, or follow a thread further."]};
+  var heroIn=document.getElementById("hero-in"), hero=document.getElementById("hero");
+  var fresh=localISO()===D.updated;
+  function freshPill(){ var f=el("span","fresh"+(fresh?"":" stale")); f.append(el("i"), document.createTextNode(fresh?"Updated this morning":"Last updated "+mdy(D.updated))); return f; }
+  function setHero(v){ heroIn.textContent=""; hero.classList.toggle("small",v!=="home");
+    if(v==="home"){ var m=el("div","hmeta"); m.append(el("span",null,D.edition), freshPill()); heroIn.append(m, el("h1",null,"Today's brief"));
+      var g0=(D.glance||[])[0]; if(g0) heroIn.append(el("p",null,g0.text)); else { var top=(D.items||[]).slice().sort(function(a,b){return b.score-a.score;})[0]; if(top) heroIn.append(el("p",null,"Leading today: "+top.title+".")); }
+    } else { var cr=el("a","crumb","← Home"); cr.href="#home"; var m2=el("div","hmeta"); m2.append(cr, el("span",null,D.edition)); heroIn.append(m2, el("h1",null,TITLES[v][0])); if(TITLES[v][1]) heroIn.append(el("p",null,TITLES[v][1])); } }
+  (function(){ var fs=document.getElementById("fresh-side"); if(!fresh) fs.classList.add("stale"); fs.append(el("i"), document.createTextNode(fresh?"Updated this morning":"Last updated "+md(D.updated))); })();
+  var VIEWS=Object.keys(TITLES);
+  var st={cat:"all",league:"all"}, current=null;
+  function resolve(h){ var v=h, title=null, sub=null; st.cat="all"; st.league="all";
+    if(h==="news"){ v="news"; }
+    else if(h.indexOf("league-")===0){ v="news"; var lg=LEAGUES.filter(function(l){return "league-"+slug(l)===h;})[0]; if(lg){ st.league=lg; title=lg; sub="Today's "+lg+" stories that matter to the business."; } }
+    else if(h.indexOf("topic-")===0){ v="news"; var tp=h.slice(6); if(CATNAME[tp]){ st.cat=tp; title=CATNAME[tp]; sub="Today's stories on "+CATNAME[tp].toLowerCase()+"."; } }
+    else if(h==="packs"){ v="home"; }
+    if(VIEWS.indexOf(v)<0) v="home";
+    return {v:v,title:title,sub:sub}; }
+  function navMark(h,v){ var key=h&&h!=="home"?h:"home"; if(VIEWS.indexOf(key)<0&&key.indexOf("league-")!==0&&key.indexOf("topic-")!==0&&key!=="packs") key="home";
+    document.querySelectorAll("#nav details").forEach(function(d){ d.open=false; });
+    document.querySelectorAll("#nav a").forEach(function(a){ var on=a.getAttribute("href")==="#"+key; if(on){ a.setAttribute("aria-current","page"); var d=a.closest("details"); if(d) d.open=true; } else a.removeAttribute("aria-current"); });
+    var tk=v==="news"?"news":["cards","markets","rookies"].indexOf(v)>=0?"cards":(key==="packs"||v==="library")?"packs":v==="home"?"home":"";
+    document.querySelectorAll("#tabbar a").forEach(function(a){ if(a.getAttribute("href")==="#"+tk) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); }); }
+  function route(){ var h=(location.hash||"").slice(1), r=resolve(h), next=document.querySelector('.view[data-view="'+r.v+'"]'), prev=current;
+    if(r.v==="news") render();
+    navMark(h,r.v);
+    function paint(){ setHero(r.v); if(r.title){ var h1=heroIn.querySelector("h1"); h1.textContent=r.title; var p=heroIn.querySelector("p"); if(p) p.textContent=r.sub; } }
+    function after(){ if(h==="packs") document.getElementById("packzone").scrollIntoView({behavior:"smooth",block:"start"}); }
+    if(!prev){ document.querySelectorAll(".view").forEach(function(s){ s.hidden=s!==next; }); paint(); current=next; after(); return; }
+    heroIn.classList.add("pre"); if(prev!==next) prev.classList.add("out");
+    setTimeout(function(){ window.scrollTo(0,0);
+      if(prev!==next){ prev.hidden=true; prev.classList.remove("out"); next.classList.add("pre"); next.hidden=false; }
+      paint(); void heroIn.offsetWidth; void next.offsetWidth;
+      requestAnimationFrame(function(){ heroIn.classList.remove("pre"); next.classList.remove("pre"); after(); });
+    },200);
+    current=next; }
+
+  /* ---------- drawer ---------- */
+  var drawer=document.getElementById("drawer"), scrim=document.getElementById("scrim"), lastFocus=null;
+  function openItem(id){ var it=ITEMS[id]; if(!it) return; lastFocus=document.activeElement;
+    var dk=document.getElementById("d-kick"); dk.textContent=""; dk.append(sicon(it.leagues), document.createTextNode(it.cat.map(function(c){return CATNAME[c]||c;}).join(" · ")));
+    var b=document.getElementById("d-body"); b.textContent="";
+    var h=el("h3",null,it.title); h.id="d-title";
+    markRead(id); var meta=el("div","srcline"); meta.append(star(it), el("span",null,ago(it.date)+" · "+mdy(it.date)), qbadge(it.quality)); var lg=it.leagues.filter(function(x){return x!=="Multi";}); if(lg.length) meta.append(el("span",null,lg.join(", ")));
+    var why=el("div","whybox"); why.append(el("span","eyebrow","Why it matters"), el("p",null,it.why));
+    b.append(meta,h,el("p",null,it.body),why,el("div","srcline","Source: "+it.source),link("Read the source ↗",it.url,"btn"));
+    var rel=(D.forecasts||[]).filter(function(f){ return (f.related||[]).indexOf(id)>=0; });
+    if(rel.length){ var s=el("div"); s.style.cssText="display:grid;gap:10px"; s.append(el("span","eyebrow","Related forecast")); rel.forEach(function(f){ s.append(fcard(f)); }); b.append(s); }
+    scrim.hidden=false; drawer.hidden=false; requestAnimationFrame(function(){ scrim.classList.add("on"); drawer.classList.add("on"); document.getElementById("d-x").focus(); }); document.body.style.overflow="hidden"; }
+  function closeDrawer(){ if(drawer.hidden) return; scrim.classList.remove("on"); drawer.classList.remove("on"); document.body.style.overflow=""; setTimeout(function(){ drawer.hidden=true; scrim.hidden=true; },270); if(lastFocus&&lastFocus.focus) lastFocus.focus(); }
+  scrim.onclick=closeDrawer; document.getElementById("d-x").onclick=closeDrawer;
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape"){ closeDrawer(); document.querySelectorAll(".dd.open").forEach(function(x){ x.classList.remove("open"); }); } });
+
+  /* ---------- per-viewer: saved stories and read marks ---------- */
+  function jget(k,d){ try { return JSON.parse(localStorage.getItem(k)||"null")||d; } catch(e){ return d; } }
+  function jset(k,v){ try { localStorage.setItem(k,JSON.stringify(v)); } catch(e){} }
+  var SAVED=jget("tsr-saved",{}), READ=jget("tsr-read",{});
+  function isSaved(id){ return !!SAVED[id]; }
+  function toggleSave(it){ if(SAVED[it.id]) delete SAVED[it.id]; else SAVED[it.id]={id:it.id,title:it.title,why:it.why,url:it.url,source:it.source,date:it.date,leagues:it.leagues,cat:it.cat,savedAt:TODAY};
+    jset("tsr-saved",SAVED); syncStars(); renderSaved(); }
+  function star(it){ var b=el("button","star"); b.type="button"; b.dataset.id=it.id; setStar(b); b.onclick=function(e){ e.stopPropagation(); toggleSave(it); }; return b; }
+  function setStar(b){ var on=isSaved(b.dataset.id); b.textContent=on?"★":"☆"; b.setAttribute("aria-pressed",String(on)); b.setAttribute("aria-label",on?"Remove from saved":"Save this story"); b.title=on?"Saved":"Save"; }
+  function syncStars(){ document.querySelectorAll(".star").forEach(setStar); var n=Object.keys(SAVED).length, sc=document.getElementById("n-saved"); if(sc) sc.textContent=n||""; }
+  function markRead(id){ if(!READ[id]){ READ[id]=TODAY; jset("tsr-read",READ); } document.querySelectorAll('[data-read="'+id+'"]').forEach(function(x){ x.hidden=false; }); }
+  function readTick(id){ var s=el("span","rtick","✓ Read"); s.dataset.read=id; s.hidden=!READ[id]; return s; }
+
+  /* ---------- home: day timeline ---------- */
+  var last=store(true,"tsr-last-visit"); store(false,"tsr-last-visit",D.updated);
+  function isNew(it){ return last ? it.date>last : it.date>=TODAY; }
+  var ranked=(D.items||[]).slice().sort(function(a,b){ return (b.score-a.score)||(a.date<b.date?1:-1); });
+  (function(){ var words=0; (D.items||[]).forEach(function(it){ words+=(it.title+" "+it.why+" "+it.body).split(/\s+/).length; }); var mins=Math.max(1,Math.round(words/230));
+    var rt=document.getElementById("readtime"); if(rt) rt.textContent="Full edition: "+mins+"-minute read"; })();
+  var DAYS=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+  function dow(iso){ var p=iso.split("-"); return DAYS[new Date(Date.UTC(+p[0],+p[1]-1,+p[2])).getUTCDay()]; }
+  var tl=document.getElementById("timeline");
+  function group(label,sub){ var g=el("section","tgroup"); var h=el("div","tlabel"); h.append(el("span",null,label)); if(sub) h.append(el("small",null,sub)); g.append(h); var ul=el("ol","tlist"); g.append(ul); tl.append(g); return ul; }
+  var over=ranked.filter(function(it){ return dnum(TODAY)-dnum(it.date)<=1; }); if(over.length<3) over=ranked.slice(0,5); over=over.slice(0,5);
+  var g1=group("Overnight","The biggest stories since yesterday");
+  over.forEach(function(it){ var li=el("li","tstory"); var b=el("button","tbtn"); b.type="button";
+    var k=el("span","kick"); k.append(sicon(it.leagues), document.createTextNode(CATNAME[it.cat[0]]||it.cat[0])); var meta=el("span","tmeta"); meta.append(k, el("span","tage"+(ago(it.date)==="Today"?" today":""),ago(it.date)), readTick(it.id));
+    b.append(meta, el("b",null,it.title), el("span","twhy",it.why)); b.onclick=function(){ openItem(it.id); };
+    li.append(el("i","dot"), b, star(it)); g1.append(li); });
+  var todayEv=(D.calendar||[]).filter(function(e){ return e.date<=TODAY&&(e.end||e.date)>=TODAY; });
+  var g2=group("Today",dow(TODAY)+", "+md(TODAY));
+  if(!todayEv.length) g2.append(Object.assign(el("li","tevent quiet"),{textContent:"No major events on the schedule today."}));
+  todayEv.forEach(function(e){ var li=el("li","tevent"); li.append(el("i","dot"), el("span","twhen",e.time||"All day")); var d=el("span","tdesc"); var t=el("b"); t.append(sicon([e.league]), document.createTextNode(e.event)); d.append(t, el("span","twhy",e.note)); li.append(d); g2.append(li); });
+  var wk=[]; (D.calendar||[]).forEach(function(e){ var n=dnum(e.date)-dnum(TODAY); if(n>0&&n<=7) wk.push({date:e.date,time:e.time,event:e.event,league:e.league}); });
+  if(L) (L.dates||[]).forEach(function(x){ var n=dnum(x.date)-dnum(TODAY); if(n>0&&n<=7&&!wk.some(function(w){ return w.date===x.date&&w.event.indexOf("MLB")>=0; })) wk.push({date:x.date,event:x.event,league:L.league}); });
+  wk.sort(function(a,b){ return a.date<b.date?-1:1; });
+  var g3=group("This week","The next seven days");
+  if(!wk.length) g3.append(Object.assign(el("li","tevent quiet"),{textContent:"Nothing major scheduled this week."}));
+  wk.forEach(function(e){ var li=el("li","tevent"); li.append(el("i","dot"), el("span","twhen",dow(e.date)+" "+md(e.date).split(" ")[1])); var d=el("span","tdesc"); var t=el("b"); t.append(sicon([e.league]), document.createTextNode(e.event)); d.append(t); if(e.time) d.append(el("span","twhy",e.time)); li.append(d); g3.append(li); });
+  if(L&&dnum(L.deadline)-dnum(TODAY)>7){ var g4=group("Coming up",""); var li4=el("li","tevent big"); li4.append(el("i","dot"), el("span","twhen",md(L.deadline))); var d4=el("span","tdesc"); var t4=el("b"); t4.append(sicon([L.league]), document.createTextNode((L.league||"")+" labour deal expires")); var a4=el("a","lk","Labour watch →"); a4.href="#labour"; d4.append(t4, el("span","twhy",(dnum(L.deadline)-dnum(TODAY))+" days away. "), a4); li4.append(d4); g4.append(li4); }
+
+  /* ---------- news pages ---------- */
+  function render(){ var box=document.getElementById("stories"); box.textContent="";
+    var list=ranked.filter(function(it){ if(st.cat!=="all"&&it.cat.indexOf(st.cat)<0) return false; if(st.league!=="all"&&it.leagues.indexOf(st.league)<0) return false; return true; });
+    if(!list.length){ box.append(el("div","empty","No stories here in today's edition.")); return; }
+    list.forEach(function(it){ var s=el("article","story"), side=el("div","sside"), m=el("div","main"); var a=ago(it.date);
+      var kk=el("span","kick"); kk.append(sicon(it.leagues), document.createTextNode(CATNAME[it.cat[0]]||it.cat[0])); side.append(kk, el("span","age"+(a==="Today"?" today":""),a)); if(isNew(it)) side.append(el("span","badge b-new","New")); side.append(readTick(it.id));
+      var h=el("h3"), hb=el("button",null,it.title); hb.type="button"; hb.onclick=function(){ openItem(it.id); }; h.append(hb, star(it));
+      var w=el("p","why"); w.append(el("b",null,"Why it matters"), document.createTextNode(it.why));
+      var f=el("div","foot"); f.append(link(it.source,it.url), qbadge(it.quality)); var lg=it.leagues.filter(function(x){return x!=="Multi";}); if(lg.length) f.append(el("span",null,lg.join(" · ")));
+      m.append(h, el("p","sum",it.body), w, f); s.append(side,m); box.append(s); }); }
+  var fo=(D.forecasts||[]).filter(function(f){return f.status==="open";}).sort(function(a,b){return a.checkBy<b.checkBy?-1:1;});
+  var cal=(D.calendar||[]).filter(function(e){ return (e.end||e.date)>=TODAY; }).sort(function(a,b){return a.date<b.date?-1:1;});
+
+  /* week, reads, archive */
+  if(D.week&&D.week.items&&D.week.items.length){ document.getElementById("week-label").textContent=D.week.label; var wk=document.getElementById("week"); D.week.items.forEach(function(x){ wk.append(el("li",null,x)); }); }
+  function readRow(r){ var a=link("",r.url,"read"); a.append(el("b",null,r.title), el("span",null,r.outlet+" · "+md(r.date)+" · "+r.blurb)); return a; }
+  (D.reads||[]).forEach(function(r){ document.getElementById("reads").append(readRow(r)); });
+  (D.reads||[]).slice(0,3).forEach(function(r){ document.getElementById("reads-mini").append(readRow(r)); });
+  var ar=document.getElementById("archive"); (D.archive||[]).forEach(function(a){ var d=el("div","read"); d.append(el("b",null,a.edition), el("span",null,a.headlines.join(" · "))); ar.append(d); });
+
+  /* ---------- card prices ---------- */
+  var C=D.cards||{players:[]};
+  var lgs=["All"]; C.players.forEach(function(p){ if(lgs.indexOf(p.league)<0) lgs.push(p.league); });
+  var curLg="All", q=document.getElementById("card-q"), lgBox=document.getElementById("card-lg"), plBox=document.getElementById("players");
+  lgs.forEach(function(l){ var b=el("button","chip",l); b.type="button"; b.setAttribute("aria-pressed",l==="All"?"true":"false"); b.onclick=function(){ curLg=l; lgBox.querySelectorAll(".chip").forEach(function(x){ x.setAttribute("aria-pressed",x===b?"true":"false"); }); renderPl(); }; lgBox.append(b); });
+  function sortS(arr){ return arr.slice().sort(function(x,y){return x.date<y.date?1:x.date>y.date?-1:y.price-x.price;}); }
+  function renderPl(){ plBox.textContent=""; var term=q.value.trim().toLowerCase();
+    var ps=C.players.filter(function(p){ return (curLg==="All"||p.league===curLg)&&(!term||(p.name+" "+p.team).toLowerCase().indexOf(term)>=0); })
+      .sort(function(a,b){ var x=sortS(a.sales)[0], y=sortS(b.sales)[0]; return x.date<y.date?1:x.date>y.date?-1:y.price-x.price; });
+    if(!ps.length){ plBox.append(el("p","muted","No tracked player matches. Players are added once a verified public sale is reported.")); return; }
+    ps.forEach(function(p){ var s=sortS(p.sales), top=s[0]; var d=el("details","pl"), sm=el("summary"), l=el("div");
+      var nmEl=el("div","nm"); nmEl.append(sicon([p.league]), document.createTextNode(p.name)); l.append(nmEl, el("div","sub",[p.team,p.league,p.maker].filter(Boolean).join(" · ")+" · "+s.length+" logged sale"+(s.length===1?"":"s")));
+      var r=el("div","last"); r.append(el("span",null,"Latest verified sale"), el("b",null,money(top.price)), el("span",null,md(top.date)+(top.date.slice(0,4)!==TODAY.slice(0,4)?", "+top.date.slice(0,4):"")+" · "+top.venue));
+      sm.append(l,r); d.append(sm); var body=el("div","body"), tw=el("div","tw"), t=el("table");
+      t.innerHTML="<thead><tr><th>Date</th><th>Card</th><th>Grade</th><th class='r'>Sale price</th><th>Sold via</th><th>Source</th></tr></thead>"; var tb=el("tbody");
+      s.forEach(function(x){ var tr=el("tr"), sc=el("td"); sc.append(link(x.source,x.url)); tr.append(el("td","dt",mdy(x.date)),el("td",null,x.card),el("td","muted",x.grade||"Not stated"),el("td","n r","$"+x.price.toLocaleString("en-US",{minimumFractionDigits:x.price%1?2:0})),el("td",null,x.venue),sc); tb.append(tr); });
+      t.append(tb); tw.append(t); body.append(tw);
+      if(p.forecast){ var f=el("div","pfc"); f.append(el("span","badge b-fc","Forecast, not a sale"), el("b",null,p.forecast.card+": "+money(p.forecast.low)+" to "+money(p.forecast.high)+" by "+md(p.forecast.by)), el("span","muted",p.forecast.basis)); body.append(f); }
+      d.append(body); plBox.append(d); }); }
+  q.addEventListener("input",renderPl); renderPl();
+
+  /* ---------- markets ---------- */
+  var ind=D.indicators||[];
+  function chart(s){ var W=320,H=110,P={l:6,r:6,t:22,b:20}, pts=s.points; var ns="http://www.w3.org/2000/svg", svg=document.createElementNS(ns,"svg");
+    var xs=pts.map(function(p){return dnum(p.d);}), vs=pts.map(function(p){return p.v;}); var x0=Math.min.apply(null,xs), x1=Math.max.apply(null,xs), v0=0, v1=Math.max.apply(null,vs)*1.15;
+    function X(x){ return x1===x0?W/2:P.l+(x-x0)/(x1-x0)*(W-P.l-P.r); } function Y(v){ return H-P.b-(v-v0)/(v1-v0||1)*(H-P.t-P.b); }
+    svg.setAttribute("viewBox","0 0 "+W+" "+H); svg.setAttribute("role","img"); svg.setAttribute("aria-label",s.name+" chart");
+    function add(t,a){ var e=document.createElementNS(ns,t); for(var k in a) e.setAttribute(k,a[k]); svg.append(e); return e; }
+    add("line",{x1:0,x2:W,y1:Y(0),y2:Y(0),stroke:"var(--line)","stroke-width":1});
+    var act=pts.filter(function(p){return !p.projected;}), pr=pts.filter(function(p){return p.projected;});
+    function path(arr){ var d=""; arr.forEach(function(p,i){ var x=X(dnum(p.d)),y=Y(p.v); d+=i===0?"M"+x+" "+y:(s.kind==="step"?"H"+x+"V"+y:"L"+x+" "+y); }); return d; }
+    if(act.length>1){ var a=path(act); add("path",{d:a+"V"+Y(0)+"H"+X(dnum(act[0].d))+"Z",fill:"var(--accent)",opacity:".08"}); add("path",{d:a,fill:"none",stroke:"var(--accent)","stroke-width":2.2,"stroke-linejoin":"round"}); }
+    if(pr.length&&act.length) add("path",{d:path([act[act.length-1]].concat(pr)),fill:"none",stroke:"var(--fc)","stroke-width":2,"stroke-dasharray":"5 4"});
+    pts.forEach(function(p){ add("circle",{cx:X(dnum(p.d)),cy:Y(p.v),r:3.5,fill:p.projected?"var(--surface)":"var(--accent)",stroke:p.projected?"var(--fc)":"var(--surface)","stroke-width":p.projected?2:1.5}); });
+    function txt(x,y,t,anc,col){ var e=add("text",{x:x,y:y,"text-anchor":anc,"font-size":11,fill:col||"var(--muted)","font-family":"Archivo, sans-serif"}); e.textContent=t; }
+    var f=pts[0], l=pts[pts.length-1], yr=f.d.slice(0,4)!==l.d.slice(0,4);
+    txt(X(dnum(f.d)),H-4,md(f.d)+(yr?" "+f.d.slice(0,4):""),pts.length>1?"start":"middle"); if(pts.length>1) txt(X(dnum(l.d)),H-4,md(l.d)+(yr?" "+l.d.slice(0,4):""),"end");
+    txt(X(dnum(l.d)),Y(l.v)-9,s.format.replace("{v}",l.v)+(l.projected?" projected":""),pts.length>1?"end":"middle",l.projected?"var(--fc)":"var(--ink)");
+    return svg; }
+  var ib=document.getElementById("ind");
+  ind.forEach(function(s){ var c=el("div","ic"), lp=s.points.filter(function(p){return !p.projected;}).slice(-1)[0];
+    c.append(el("span","eyebrow",s.name), el("span","v",lp?s.format.replace("{v}",lp.v):"–"), el("span","d",(lp?"As of "+mdy(lp.d)+(lp.tag?", "+lp.tag:"")+". ":"")+s.note), chart(s));
+    var src=el("span","d"); src.append(document.createTextNode("Source: "), link(s.source,s.url)); c.append(src); ib.append(c); });
+  var S=D.sales||{rows:[]}; document.getElementById("sales-label").textContent="Top sales, "+(S.label||"");
+  if(S.url){ var ss=document.getElementById("sales-src"); ss.append(document.createTextNode("Source: "), link(S.source,S.url)); }
+  var sb2=document.getElementById("sales"); (S.rows||[]).forEach(function(r){ var tr=el("tr"); tr.append(el("td",null,r.card),el("td","n r",r.price),el("td",null,r.where),el("td","dt",r.when)); sb2.append(tr); });
+  var rb=document.getElementById("rookies"); (D.rookies||[]).forEach(function(r){ var tr=el("tr"), n=el("td"); n.append(el("b",null,r.name)); var sg=el("td"); sg.append(document.createTextNode(r.signal+" "), link("Source",r.url)); tr.append(n,el("td",null,r.league),el("td",null,r.team),el("td",null,r.maker),sg); rb.append(tr); });
+
+  /* ---------- forecasts ---------- */
+  function fcard(f){ var c=el("div","fcard"), top=el("div","fmeta"); top.append(el("span","badge b-fc","Forecast")); if(f.topic) top.append(el("span","kick",f.topic));
+    if(f.status!=="open") top.append(el("span","badge b-"+f.status,f.status==="hit"?"Happened":f.status==="miss"?"Did not happen":"Partly happened"));
+    c.append(top, el("h4",null,f.claim)); var m=el("div","fmeta"), lv={Low:1,Medium:2,High:3}[f.confidence]||0, pp=el("span","pips"); for(var i=1;i<=3;i++) pp.append(el("i",i<=lv?"on":null));
+    var cf=el("span"); cf.append(document.createTextNode(f.confidence+" confidence"), pp); m.append(cf);
+    var left=dnum(f.checkBy)-dnum(TODAY); m.append(el("span",null,f.status==="open"?"Checks "+md(f.checkBy)+(left>0?", in "+left+" days":", due now"):"Checked "+md(f.checkBy))); m.append(el("span",null,"Made "+md(f.made))); c.append(m);
+    if(f.result) c.append(el("p",null,"Result: "+f.result));
+    var ev=el("details","ev"); ev.append(el("summary",null,"Evidence and how it is checked")); var u=el("ul"); (f.evidence||[]).forEach(function(x){ u.append(el("li",null,x)); }); u.append(el("li","muted","Checked against: "+f.check)); ev.append(u); c.append(ev); return c; }
+  var fob=document.getElementById("f-open"); fo.forEach(function(f){ fob.append(fcard(f)); }); if(!fo.length) fob.append(el("p","muted","No open calls today."));
+  document.getElementById("f-open-n").textContent=fo.length+" open";
+  var past=(D.forecasts||[]).filter(function(f){return f.status!=="open";}); if(past.length) past.forEach(function(f){ document.getElementById("f-past").append(fcard(f)); }); else document.getElementById("f-past-wrap").hidden=true;
+
+  /* ---------- labour ---------- */
+  if(L){ var stx=document.getElementById("lab-status"), d2=dnum(L.deadline)-dnum(TODAY);
+    stx.append(el("span","eyebrow","Status as of "+mdy(TODAY)), el("span","cd",d2>0?d2+" days to "+md(L.deadline):"Agreement expired "+md(L.deadline)), el("p",null,L.status));
+    var lf=document.getElementById("lab-facts"); (L.facts||[]).forEach(function(f){ var c=el("div","fact"); c.append(el("span","eyebrow",f.label), el("span","v",f.value), el("p",null,f.text), link(f.source,f.url)); lf.append(c); });
+    var ld=document.getElementById("lab-dates"); (L.dates||[]).forEach(function(x){ var li=el("li",x.date<TODAY?"past":null); li.append(el("b",null,md(x.date)+(x.date.slice(0,4)!==TODAY.slice(0,4)?", "+x.date.slice(0,4):"")), el("span",null,x.event)); ld.append(li); });
+    if(L.datesSource){ var lds=document.getElementById("lab-dsrc"); lds.append(document.createTextNode("Source: "), link(L.datesSource.source,L.datesSource.url)); }
+    var lo=document.getElementById("lab-out"); (L.outlook||[]).forEach(function(o){ var c=el("div","ob"), h=el("div","fmeta"); h.append(el("span","badge b-rep","Outlet's expectation"), el("b",null,o.who), el("span",null,md(o.date))); c.append(h, el("p",null,o.text), link("Read it",o.url)); lo.append(c); });
+    var la=document.getElementById("lab-art"); (L.articles||[]).forEach(function(r){ var a=link("",r.url,"read"); a.append(el("b",null,r.title), el("span",null,r.outlet+" · "+md(r.date))); la.append(a); });
+  } else { document.getElementById("nav-labour").hidden=true; }
+
+  /* ---------- competitors, calendar, people ---------- */
+  var bd=document.getElementById("board");
+  (D.competitors||[]).forEach(function(c){ var x=el("article","co"), h=el("header"), b=el("div","b"), dl3=el("dl"); h.append(el("span","eyebrow",c.what), el("h4",null,c.name));
+    [["Holds",c.holds],["Latest",c.latest],["Watch",c.watch]].forEach(function(p){ var w=el("div"); w.append(el("dt",null,p[0]), el("dd",null,p[1])); dl3.append(w); }); b.append(dl3, link("Source",c.url)); x.append(h,b); bd.append(x); });
+  var cs=document.getElementById("cal-lg"), cb=document.getElementById("cal"), cl=["all"]; cal.forEach(function(e){ if(cl.indexOf(e.league)<0) cl.push(e.league); });
+  cl.forEach(function(l){ var op=el("option",null,l==="all"?"All leagues":l); op.value=l; cs.append(op); });
+  function renderCal(){ cb.textContent=""; cal.filter(function(e){ return cs.value==="all"||e.league===cs.value; }).forEach(function(e){ var tr=el("tr"), ev=el("td"); var lgl=el("div","muted"); lgl.append(sicon([e.league]), document.createTextNode(e.league)); ev.append(el("b",null,e.event), lgl); var nt=el("td"); nt.append(document.createTextNode(e.note+" "), link("Source",e.url));
+    tr.append(el("td","dt",md(e.date)+(e.end?" – "+md(e.end):"")),ev,el("td",null,e.where||"–"),nt); cb.append(tr); }); }
+  cs.onchange=renderCal; renderCal();
+  var pb=document.getElementById("people"); (D.people||[]).slice().sort(function(a,b){return a.date<b.date?1:-1;}).forEach(function(p){ var tr=el("tr"), who=el("td"); who.append(el("b",null,p.who)); var ctx=el("td"); ctx.append(document.createTextNode(p.context+" "), link("Source",p.url)); if(p.quality==="Reported"){ ctx.append(document.createTextNode(" ")); ctx.append(qbadge("Reported")); }
+    tr.append(el("td","dt",md(p.date)),who,el("td",null,p.org),el("td",null,p.move),ctx); pb.append(tr); });
+
+
+  /* ---------- saved page ---------- */
+  function renderSaved(){ var box=document.getElementById("saved"); if(!box) return; box.textContent=""; var arr=Object.keys(SAVED).map(function(k){ return SAVED[k]; }).sort(function(a,b){ return a.savedAt<b.savedAt?1:-1; });
+    if(!arr.length){ box.append(el("div","libempty","No saved stories yet. Tap the star next to any story to keep it here.")); return; }
+    arr.forEach(function(s){ var row=el("div","read saved-row"); var top=el("span"); var k=el("span","kick"); k.append(sicon(s.leagues), document.createTextNode((CATNAME[(s.cat||[])[0]]||"")+" · "+md(s.date))); top.append(k);
+      var t=ITEMS[s.id]?el("button","tlink",s.title):el("b",null,s.title); if(ITEMS[s.id]){ t.type="button"; t.onclick=function(){ openItem(s.id); }; }
+      var f=el("span","muted"); f.append(document.createTextNode(s.why+" "), link("Source ↗",s.url));
+      var body=el("div"); body.style.cssText="display:grid;gap:4px;min-width:0"; body.append(top,t,f); var rm=el("button","star","★"); rm.type="button"; rm.dataset.id=s.id; rm.setAttribute("aria-label","Remove from saved"); rm.setAttribute("aria-pressed","true"); rm.onclick=function(){ delete SAVED[s.id]; jset("tsr-saved",SAVED); syncStars(); renderSaved(); };
+      row.append(body,rm); box.append(row); }); }
+  renderSaved(); syncStars();
+
+  /* ---------- ticker ---------- */
+  (function(){ var tk=document.getElementById("ticker-track"); if(!tk) return; var bits=(D.ticker||[]).slice();
+    if(L){ var dl=dnum(L.deadline)-dnum(TODAY); if(dl>0) bits.push((L.league||"")+" labour deal expires in "+dl+" days"); }
+    var ps=(D.indicators||[])[0]; if(ps){ var lp=ps.points.filter(function(p){return !p.projected;}).slice(-1)[0]; if(lp) bits.push(ps.name+": "+ps.format.replace("{v}",lp.v)+" ("+md(lp.d)+")"); }
+    if(D.sales&&D.sales.rows&&D.sales.rows[0]) bits.push("Top sale, "+D.sales.label.toLowerCase()+": "+D.sales.rows[0].price);
+    (D.calendar||[]).filter(function(e){ return e.date>TODAY; }).sort(function(a,b){ return a.date<b.date?-1:1; }).slice(0,3).forEach(function(e){ bits.push("Next: "+e.event+", "+md(e.date)); });
+    function fill(){ var s=el("span","tseg"); bits.forEach(function(b){ s.append(el("span","titem",b), el("span","tsep","●")); }); return s; }
+    tk.append(fill(), fill()); var dur=Math.max(30,bits.join(" ").length/5); tk.style.animationDuration=dur+"s"; })();
+
+  /* ---------- theme switch ---------- */
+  (function(){ var root=document.documentElement, box=document.getElementById("theme"); if(!box) return; var cur=jget("tsr-theme","auto");
+    function apply(v){ cur=v; if(v==="auto") root.removeAttribute("data-theme"); else root.setAttribute("data-theme",v); jset("tsr-theme",v); box.querySelectorAll("button").forEach(function(b){ b.setAttribute("aria-pressed",String(b.dataset.t===v)); }); }
+    [["auto","Auto"],["light","Light"],["dark","Dark"]].forEach(function(o){ var b=el("button",null,o[1]); b.type="button"; b.dataset.t=o[0]; b.onclick=function(){ apply(o[0]); }; box.append(b); });
+    apply(cur); })();
+
+  /* ---------- card packs and library ---------- */
+  var ROSTER=[["ba-lebron-james", "LeBron James", "F", "NBA", "basketball"], ["ba-stephen-curry", "Stephen Curry", "G", "NBA", "basketball"], ["ba-kevin-durant", "Kevin Durant", "F", "NBA", "basketball"], ["ba-giannis-antetokounmpo", "Giannis Antetokounmpo", "F", "NBA", "basketball"], ["ba-nikola-jokic", "Nikola Jokic", "C", "NBA", "basketball"], ["ba-luka-doncic", "Luka Doncic", "G", "NBA", "basketball"], ["ba-shai-gilgeous-alexander", "Shai Gilgeous-Alexander", "G", "NBA", "basketball"], ["ba-jayson-tatum", "Jayson Tatum", "F", "NBA", "basketball"], ["ba-joel-embiid", "Joel Embiid", "C", "NBA", "basketball"], ["ba-anthony-edwards", "Anthony Edwards", "G", "NBA", "basketball"], ["ba-victor-wembanyama", "Victor Wembanyama", "C", "NBA", "basketball"], ["ba-ja-morant", "Ja Morant", "G", "NBA", "basketball"], ["ba-devin-booker", "Devin Booker", "G", "NBA", "basketball"], ["ba-donovan-mitchell", "Donovan Mitchell", "G", "NBA", "basketball"], ["ba-jalen-brunson", "Jalen Brunson", "G", "NBA", "basketball"], ["ba-tyrese-haliburton", "Tyrese Haliburton", "G", "NBA", "basketball"], ["ba-anthony-davis", "Anthony Davis", "F-C", "NBA", "basketball"], ["ba-kawhi-leonard", "Kawhi Leonard", "F", "NBA", "basketball"], ["ba-damian-lillard", "Damian Lillard", "G", "NBA", "basketball"], ["ba-paolo-banchero", "Paolo Banchero", "F", "NBA", "basketball"], ["ba-chet-holmgren", "Chet Holmgren", "C", "NBA", "basketball"], ["ba-jaylen-brown", "Jaylen Brown", "G-F", "NBA", "basketball"], ["ba-zion-williamson", "Zion Williamson", "F", "NBA", "basketball"], ["ba-trae-young", "Trae Young", "G", "NBA", "basketball"], ["ba-de-aaron-fox", "De'Aaron Fox", "G", "NBA", "basketball"], ["ba-bam-adebayo", "Bam Adebayo", "C", "NBA", "basketball"], ["ba-jalen-williams", "Jalen Williams", "G-F", "NBA", "basketball"], ["ba-cade-cunningham", "Cade Cunningham", "G", "NBA", "basketball"], ["ba-scottie-barnes", "Scottie Barnes", "F", "NBA", "basketball"], ["ba-evan-mobley", "Evan Mobley", "F-C", "NBA", "basketball"], ["ba-cooper-flagg", "Cooper Flagg", "F", "NBA", "basketball"], ["ba-dylan-harper", "Dylan Harper", "G", "NBA", "basketball"], ["ba-kyrie-irving", "Kyrie Irving", "G", "NBA", "basketball"], ["ba-jimmy-butler", "Jimmy Butler", "F", "NBA", "basketball"], ["ba-karl-anthony-towns", "Karl-Anthony Towns", "C", "NBA", "basketball"], ["ba-domantas-sabonis", "Domantas Sabonis", "C", "NBA", "basketball"], ["ba-tyrese-maxey", "Tyrese Maxey", "G", "NBA", "basketball"], ["ba-lamelo-ball", "LaMelo Ball", "G", "NBA", "basketball"], ["ba-franz-wagner", "Franz Wagner", "F", "NBA", "basketball"], ["ba-alperen-sengun", "Alperen Sengun", "C", "NBA", "basketball"], ["ba-stephon-castle", "Stephon Castle", "G", "NBA", "basketball"], ["ba-ace-bailey", "Ace Bailey", "F", "NBA", "basketball"], ["ba-vj-edgecombe", "VJ Edgecombe", "G", "NBA", "basketball"], ["ba-cameron-boozer", "Cameron Boozer", "F", "NBA", "basketball"], ["ba-caitlin-clark", "Caitlin Clark", "G", "WNBA", "basketball"], ["ba-a-ja-wilson", "A'ja Wilson", "F", "WNBA", "basketball"], ["ba-breanna-stewart", "Breanna Stewart", "F", "WNBA", "basketball"], ["ba-sabrina-ionescu", "Sabrina Ionescu", "G", "WNBA", "basketball"], ["ba-paige-bueckers", "Paige Bueckers", "G", "WNBA", "basketball"], ["ba-angel-reese", "Angel Reese", "F", "WNBA", "basketball"], ["ba-napheesa-collier", "Napheesa Collier", "F", "WNBA", "basketball"], ["ba-aliyah-boston", "Aliyah Boston", "C", "WNBA", "basketball"], ["ba-kelsey-plum", "Kelsey Plum", "G", "WNBA", "basketball"], ["ba-jewell-loyd", "Jewell Loyd", "G", "WNBA", "basketball"], ["ba-arike-ogunbowale", "Arike Ogunbowale", "G", "WNBA", "basketball"], ["ba-jackie-young", "Jackie Young", "G", "WNBA", "basketball"], ["ba-alyssa-thomas", "Alyssa Thomas", "F", "WNBA", "basketball"], ["ba-chelsea-gray", "Chelsea Gray", "G", "WNBA", "basketball"], ["ba-rhyne-howard", "Rhyne Howard", "G", "WNBA", "basketball"], ["ba-cameron-brink", "Cameron Brink", "F", "WNBA", "basketball"], ["ba-kahleah-copper", "Kahleah Copper", "G", "WNBA", "basketball"], ["ba-satou-sabally", "Satou Sabally", "F", "WNBA", "basketball"], ["ba-nneka-ogwumike", "Nneka Ogwumike", "F", "WNBA", "basketball"], ["ba-jonquel-jones", "Jonquel Jones", "C", "WNBA", "basketball"], ["ba-courtney-williams", "Courtney Williams", "G", "WNBA", "basketball"], ["ba-kayla-mcbride", "Kayla McBride", "G", "WNBA", "basketball"], ["ba-dearica-hamby", "Dearica Hamby", "F", "WNBA", "basketball"], ["fo-patrick-mahomes", "Patrick Mahomes", "QB", "NFL", "football"], ["fo-josh-allen", "Josh Allen", "QB", "NFL", "football"], ["fo-lamar-jackson", "Lamar Jackson", "QB", "NFL", "football"], ["fo-joe-burrow", "Joe Burrow", "QB", "NFL", "football"], ["fo-jalen-hurts", "Jalen Hurts", "QB", "NFL", "football"], ["fo-c-j-stroud", "C.J. Stroud", "QB", "NFL", "football"], ["fo-justin-herbert", "Justin Herbert", "QB", "NFL", "football"], ["fo-jayden-daniels", "Jayden Daniels", "QB", "NFL", "football"], ["fo-caleb-williams", "Caleb Williams", "QB", "NFL", "football"], ["fo-drake-maye", "Drake Maye", "QB", "NFL", "football"], ["fo-brock-purdy", "Brock Purdy", "QB", "NFL", "football"], ["fo-jordan-love", "Jordan Love", "QB", "NFL", "football"], ["fo-dak-prescott", "Dak Prescott", "QB", "NFL", "football"], ["fo-bo-nix", "Bo Nix", "QB", "NFL", "football"], ["fo-cam-ward", "Cam Ward", "QB", "NFL", "football"], ["fo-fernando-mendoza", "Fernando Mendoza", "QB", "NFL", "football"], ["fo-travis-hunter", "Travis Hunter", "WR-CB", "NFL", "football"], ["fo-ashton-jeanty", "Ashton Jeanty", "RB", "NFL", "football"], ["fo-saquon-barkley", "Saquon Barkley", "RB", "NFL", "football"], ["fo-christian-mccaffrey", "Christian McCaffrey", "RB", "NFL", "football"], ["fo-derrick-henry", "Derrick Henry", "RB", "NFL", "football"], ["fo-bijan-robinson", "Bijan Robinson", "RB", "NFL", "football"], ["fo-jahmyr-gibbs", "Jahmyr Gibbs", "RB", "NFL", "football"], ["fo-justin-jefferson", "Justin Jefferson", "WR", "NFL", "football"], ["fo-ja-marr-chase", "Ja'Marr Chase", "WR", "NFL", "football"], ["fo-ceedee-lamb", "CeeDee Lamb", "WR", "NFL", "football"], ["fo-tyreek-hill", "Tyreek Hill", "WR", "NFL", "football"], ["fo-amon-ra-st-brown", "Amon-Ra St. Brown", "WR", "NFL", "football"], ["fo-puka-nacua", "Puka Nacua", "WR", "NFL", "football"], ["fo-a-j-brown", "A.J. Brown", "WR", "NFL", "football"], ["fo-malik-nabers", "Malik Nabers", "WR", "NFL", "football"], ["fo-brian-thomas-jr", "Brian Thomas Jr.", "WR", "NFL", "football"], ["fo-marvin-harrison-jr", "Marvin Harrison Jr.", "WR", "NFL", "football"], ["fo-travis-kelce", "Travis Kelce", "TE", "NFL", "football"], ["fo-brock-bowers", "Brock Bowers", "TE", "NFL", "football"], ["fo-george-kittle", "George Kittle", "TE", "NFL", "football"], ["fo-micah-parsons", "Micah Parsons", "LB", "NFL", "football"], ["fo-t-j-watt", "T.J. Watt", "LB", "NFL", "football"], ["fo-myles-garrett", "Myles Garrett", "DE", "NFL", "football"], ["fo-aidan-hutchinson", "Aidan Hutchinson", "DE", "NFL", "football"], ["fo-nick-bosa", "Nick Bosa", "DE", "NFL", "football"], ["fo-sauce-gardner", "Sauce Gardner", "CB", "NFL", "football"], ["ba-shohei-ohtani", "Shohei Ohtani", "DH-P", "MLB", "baseball"], ["ba-aaron-judge", "Aaron Judge", "OF", "MLB", "baseball"], ["ba-mookie-betts", "Mookie Betts", "SS", "MLB", "baseball"], ["ba-juan-soto", "Juan Soto", "OF", "MLB", "baseball"], ["ba-bobby-witt-jr", "Bobby Witt Jr.", "SS", "MLB", "baseball"], ["ba-ronald-acuna-jr", "Ronald Acuna Jr.", "OF", "MLB", "baseball"], ["ba-freddie-freeman", "Freddie Freeman", "1B", "MLB", "baseball"], ["ba-mike-trout", "Mike Trout", "OF", "MLB", "baseball"], ["ba-gunnar-henderson", "Gunnar Henderson", "SS", "MLB", "baseball"], ["ba-elly-de-la-cruz", "Elly De La Cruz", "SS", "MLB", "baseball"], ["ba-julio-rodriguez", "Julio Rodriguez", "OF", "MLB", "baseball"], ["ba-corbin-carroll", "Corbin Carroll", "OF", "MLB", "baseball"], ["ba-paul-skenes", "Paul Skenes", "P", "MLB", "baseball"], ["ba-tarik-skubal", "Tarik Skubal", "P", "MLB", "baseball"], ["ba-zack-wheeler", "Zack Wheeler", "P", "MLB", "baseball"], ["ba-jackson-chourio", "Jackson Chourio", "OF", "MLB", "baseball"], ["ba-fernando-tatis-jr", "Fernando Tatis Jr.", "OF", "MLB", "baseball"], ["ba-manny-machado", "Manny Machado", "3B", "MLB", "baseball"], ["ba-jose-ramirez", "Jose Ramirez", "3B", "MLB", "baseball"], ["ba-yordan-alvarez", "Yordan Alvarez", "DH", "MLB", "baseball"], ["ba-kyle-tucker", "Kyle Tucker", "OF", "MLB", "baseball"], ["ba-vladimir-guerrero-jr", "Vladimir Guerrero Jr.", "1B", "MLB", "baseball"], ["ba-pete-alonso", "Pete Alonso", "1B", "MLB", "baseball"], ["ba-francisco-lindor", "Francisco Lindor", "SS", "MLB", "baseball"], ["ba-rafael-devers", "Rafael Devers", "3B", "MLB", "baseball"], ["ba-cal-raleigh", "Cal Raleigh", "C", "MLB", "baseball"], ["ba-jackson-holliday", "Jackson Holliday", "2B", "MLB", "baseball"], ["ba-roman-anthony", "Roman Anthony", "OF", "MLB", "baseball"], ["ba-yoshinobu-yamamoto", "Yoshinobu Yamamoto", "P", "MLB", "baseball"], ["ba-roki-sasaki", "Roki Sasaki", "P", "MLB", "baseball"], ["ba-jacob-misiorowski", "Jacob Misiorowski", "P", "MLB", "baseball"], ["ba-bryce-harper", "Bryce Harper", "1B", "MLB", "baseball"], ["ba-kyle-schwarber", "Kyle Schwarber", "DH", "MLB", "baseball"], ["ba-wyatt-langford", "Wyatt Langford", "OF", "MLB", "baseball"], ["ba-cooper-pratt", "Cooper Pratt", "SS", "MLB", "baseball"], ["ba-jackson-merrill", "Jackson Merrill", "OF", "MLB", "baseball"], ["ba-james-wood", "James Wood", "OF", "MLB", "baseball"], ["ba-garrett-crochet", "Garrett Crochet", "P", "MLB", "baseball"], ["ba-christian-yelich", "Christian Yelich", "OF", "MLB", "baseball"], ["ba-corbin-burnes", "Corbin Burnes", "P", "MLB", "baseball"], ["ho-connor-mcdavid", "Connor McDavid", "C", "NHL", "hockey"], ["ho-leon-draisaitl", "Leon Draisaitl", "C", "NHL", "hockey"], ["ho-nathan-mackinnon", "Nathan MacKinnon", "C", "NHL", "hockey"], ["ho-auston-matthews", "Auston Matthews", "C", "NHL", "hockey"], ["ho-cale-makar", "Cale Makar", "D", "NHL", "hockey"], ["ho-nikita-kucherov", "Nikita Kucherov", "RW", "NHL", "hockey"], ["ho-sidney-crosby", "Sidney Crosby", "C", "NHL", "hockey"], ["ho-alex-ovechkin", "Alex Ovechkin", "LW", "NHL", "hockey"], ["ho-david-pastrnak", "David Pastrnak", "RW", "NHL", "hockey"], ["ho-matthew-tkachuk", "Matthew Tkachuk", "LW", "NHL", "hockey"], ["ho-brady-tkachuk", "Brady Tkachuk", "LW", "NHL", "hockey"], ["ho-connor-bedard", "Connor Bedard", "C", "NHL", "hockey"], ["ho-macklin-celebrini", "Macklin Celebrini", "C", "NHL", "hockey"], ["ho-jack-hughes", "Jack Hughes", "C", "NHL", "hockey"], ["ho-quinn-hughes", "Quinn Hughes", "D", "NHL", "hockey"], ["ho-kirill-kaprizov", "Kirill Kaprizov", "LW", "NHL", "hockey"], ["ho-mitch-marner", "Mitch Marner", "RW", "NHL", "hockey"], ["ho-artemi-panarin", "Artemi Panarin", "LW", "NHL", "hockey"], ["ho-jack-eichel", "Jack Eichel", "C", "NHL", "hockey"], ["ho-mikko-rantanen", "Mikko Rantanen", "RW", "NHL", "hockey"], ["ho-igor-shesterkin", "Igor Shesterkin", "G", "NHL", "hockey"], ["ho-andrei-vasilevskiy", "Andrei Vasilevskiy", "G", "NHL", "hockey"], ["ho-connor-hellebuyck", "Connor Hellebuyck", "G", "NHL", "hockey"], ["ho-lane-hutson", "Lane Hutson", "D", "NHL", "hockey"], ["ho-ivan-demidov", "Ivan Demidov", "RW", "NHL", "hockey"], ["ho-matvei-michkov", "Matvei Michkov", "RW", "NHL", "hockey"], ["ho-adam-fantilli", "Adam Fantilli", "C", "NHL", "hockey"], ["ho-leo-carlsson", "Leo Carlsson", "C", "NHL", "hockey"], ["ho-logan-cooley", "Logan Cooley", "C", "NHL", "hockey"], ["ho-matthew-schaefer", "Matthew Schaefer", "D", "NHL", "hockey"], ["ho-michael-misa", "Michael Misa", "C", "NHL", "hockey"], ["ho-porter-martone", "Porter Martone", "RW", "NHL", "hockey"], ["ho-anton-frondell", "Anton Frondell", "C", "NHL", "hockey"], ["ho-james-hagens", "James Hagens", "C", "NHL", "hockey"], ["ho-marie-philip-poulin", "Marie-Philip Poulin", "F", "PWHL", "hockey"], ["ho-sarah-nurse", "Sarah Nurse", "F", "PWHL", "hockey"], ["ho-hilary-knight", "Hilary Knight", "F", "PWHL", "hockey"], ["ho-kendall-coyne-schofield", "Kendall Coyne Schofield", "F", "PWHL", "hockey"], ["ho-taylor-heise", "Taylor Heise", "F", "PWHL", "hockey"], ["ho-sarah-fillier", "Sarah Fillier", "F", "PWHL", "hockey"], ["ho-alex-carpenter", "Alex Carpenter", "F", "PWHL", "hockey"], ["ho-natalie-spooner", "Natalie Spooner", "F", "PWHL", "hockey"], ["ho-ann-renee-desbiens", "Ann-Renee Desbiens", "G", "PWHL", "hockey"], ["ho-aerin-frankel", "Aerin Frankel", "G", "PWHL", "hockey"], ["ho-daryl-watts", "Daryl Watts", "F", "PWHL", "hockey"], ["ho-renata-fast", "Renata Fast", "D", "PWHL", "hockey"], ["so-lionel-messi", "Lionel Messi", "FW", "Men's", "soccer"], ["so-cristiano-ronaldo", "Cristiano Ronaldo", "FW", "Men's", "soccer"], ["so-kylian-mbappe", "Kylian Mbappe", "FW", "Men's", "soccer"], ["so-erling-haaland", "Erling Haaland", "FW", "Men's", "soccer"], ["so-jude-bellingham", "Jude Bellingham", "MF", "Men's", "soccer"], ["so-vinicius-junior", "Vinicius Junior", "FW", "Men's", "soccer"], ["so-lamine-yamal", "Lamine Yamal", "FW", "Men's", "soccer"], ["so-mohamed-salah", "Mohamed Salah", "FW", "Men's", "soccer"], ["so-harry-kane", "Harry Kane", "FW", "Men's", "soccer"], ["so-kevin-de-bruyne", "Kevin De Bruyne", "MF", "Men's", "soccer"], ["so-pedri", "Pedri", "MF", "Men's", "soccer"], ["so-bukayo-saka", "Bukayo Saka", "FW", "Men's", "soccer"], ["so-phil-foden", "Phil Foden", "MF", "Men's", "soccer"], ["so-florian-wirtz", "Florian Wirtz", "MF", "Men's", "soccer"], ["so-jamal-musiala", "Jamal Musiala", "MF", "Men's", "soccer"], ["so-rodri", "Rodri", "MF", "Men's", "soccer"], ["so-christian-pulisic", "Christian Pulisic", "FW", "Men's", "soccer"], ["so-son-heung-min", "Son Heung-min", "FW", "Men's", "soccer"], ["so-virgil-van-dijk", "Virgil van Dijk", "DF", "Men's", "soccer"], ["so-cole-palmer", "Cole Palmer", "MF", "Men's", "soccer"], ["so-declan-rice", "Declan Rice", "MF", "Men's", "soccer"], ["so-martin-odegaard", "Martin Odegaard", "MF", "Men's", "soccer"], ["so-raphinha", "Raphinha", "FW", "Men's", "soccer"], ["so-ousmane-dembele", "Ousmane Dembele", "FW", "Men's", "soccer"], ["so-lautaro-martinez", "Lautaro Martinez", "FW", "Men's", "soccer"], ["so-alexander-isak", "Alexander Isak", "FW", "Men's", "soccer"], ["so-federico-valverde", "Federico Valverde", "MF", "Men's", "soccer"], ["so-bruno-fernandes", "Bruno Fernandes", "MF", "Men's", "soccer"], ["so-thibaut-courtois", "Thibaut Courtois", "GK", "Men's", "soccer"], ["so-alisson-becker", "Alisson Becker", "GK", "Men's", "soccer"], ["so-weston-mckennie", "Weston McKennie", "MF", "Men's", "soccer"], ["so-tyler-adams", "Tyler Adams", "MF", "Men's", "soccer"], ["so-aitana-bonmati", "Aitana Bonmati", "MF", "Women's", "soccer"], ["so-alexia-putellas", "Alexia Putellas", "MF", "Women's", "soccer"], ["so-sam-kerr", "Sam Kerr", "FW", "Women's", "soccer"], ["so-trinity-rodman", "Trinity Rodman", "FW", "Women's", "soccer"], ["so-sophia-wilson", "Sophia Wilson", "FW", "Women's", "soccer"], ["so-mallory-swanson", "Mallory Swanson", "FW", "Women's", "soccer"], ["so-lindsey-heaps", "Lindsey Heaps", "MF", "Women's", "soccer"], ["so-naomi-girma", "Naomi Girma", "DF", "Women's", "soccer"], ["so-barbra-banda", "Barbra Banda", "FW", "Women's", "soccer"], ["so-temwa-chawinga", "Temwa Chawinga", "FW", "Women's", "soccer"], ["so-marta", "Marta", "FW", "Women's", "soccer"], ["so-lauren-james", "Lauren James", "FW", "Women's", "soccer"], ["so-alessia-russo", "Alessia Russo", "FW", "Women's", "soccer"], ["so-khadija-shaw", "Khadija Shaw", "FW", "Women's", "soccer"], ["so-caroline-graham-hansen", "Caroline Graham Hansen", "FW", "Women's", "soccer"], ["so-ada-hegerberg", "Ada Hegerberg", "FW", "Women's", "soccer"], ["so-rose-lavelle", "Rose Lavelle", "MF", "Women's", "soccer"], ["so-kadidiatou-diani", "Kadidiatou Diani", "FW", "Women's", "soccer"]];
+  var SPORTS={
+    basketball:{name:"Basketball",line:"NBA · WNBA",p1:"#e4572e",p2:"#7a1d0c",a1:"#c2410c",a2:"#3b0d05"},
+    football:{name:"Football",line:"NFL",p1:"#2f7d3b",p2:"#0c2a12",a1:"#166534",a2:"#05200d"},
+    baseball:{name:"Baseball",line:"MLB",p1:"#1d4ed8",p2:"#0b1a4d",a1:"#1e40af",a2:"#081233"},
+    hockey:{name:"Hockey",line:"NHL · PWHL",p1:"#5b7fa6",p2:"#0f1f33",a1:"#334f73",a2:"#0a1422"},
+    soccer:{name:"Soccer",line:"Men's · Women's",p1:"#7c3aed",p2:"#240b52",a1:"#5b21b6",a2:"#16063a"}
+  };
+  var ICON={
+    basketball:'<svg class="icon" viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="4"><circle cx="50" cy="50" r="44" fill="#f07a2c"/><path d="M6 50h88M50 6v88M20 18c14 12 14 52 0 64M80 18c-14 12-14 52 0 64" stroke="#3a1606"/></svg>',
+    football:'<svg class="icon" viewBox="0 0 100 100"><ellipse cx="50" cy="50" rx="44" ry="27" transform="rotate(-35 50 50)" fill="#7a3b16" stroke="#fff" stroke-width="3"/><path d="M36 64 64 36M42 50l8 8M48 44l8 8M54 38l8 8" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/></svg>',
+    baseball:'<svg class="icon" viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="#fbfaf5" stroke="#fff" stroke-width="3"/><path d="M22 18c12 20 12 44 0 64M78 18c-12 20-12 44 0 64" fill="none" stroke="#d6202f" stroke-width="3.5" stroke-dasharray="5 4"/></svg>',
+    hockey:'<svg class="icon" viewBox="0 0 100 100"><path d="M30 8 52 70h30v12H46L22 10z" fill="#e8edf3" stroke="#0b1320" stroke-width="2"/><ellipse cx="34" cy="84" rx="16" ry="6" fill="#111"/><rect x="18" y="78" width="32" height="6" fill="#111"/></svg>',
+    soccer:'<svg class="icon" viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="#fff" stroke="#fff" stroke-width="3"/><path d="M50 32l17 12-6 20H39l-6-20z" fill="#111"/><path d="M50 32V8M67 44l22-7M61 64l13 19M39 64 26 83M33 44 11 37" stroke="#111" stroke-width="3"/></svg>'
+  };
+  var FIELD={
+    basketball:'<svg class="field" viewBox="0 0 100 140" fill="none" stroke="#fff" stroke-width="1"><rect x="6" y="6" width="88" height="128"/><path d="M6 70h88"/><circle cx="50" cy="70" r="14"/><path d="M30 6v40h40V6M30 134V94h40v40"/><path d="M14 6v18a36 36 0 0 0 72 0V6M14 134v-18a36 36 0 0 1 72 0v18"/></svg>',
+    football:'<svg class="field" viewBox="0 0 100 140" fill="none" stroke="#fff" stroke-width="1"><rect x="6" y="6" width="88" height="128"/><path d="M6 18h88M6 30h88M6 42h88M6 54h88M6 66h88M6 78h88M6 90h88M6 102h88M6 114h88M6 126h88"/></svg>',
+    baseball:'<svg class="field" viewBox="0 0 100 140" fill="none" stroke="#fff" stroke-width="1"><path d="M50 120 14 84 50 48l36 36z"/><path d="M50 120 2 72M50 120l48-48"/><path d="M2 72a68 68 0 0 1 96 0"/><circle cx="50" cy="84" r="5"/></svg>',
+    hockey:'<svg class="field" viewBox="0 0 100 140" fill="none" stroke="#fff" stroke-width="1"><rect x="6" y="6" width="88" height="128" rx="22"/><path d="M6 70h88M6 46h88M6 94h88"/><circle cx="50" cy="70" r="12"/><circle cx="28" cy="28" r="9"/><circle cx="72" cy="28" r="9"/><circle cx="28" cy="112" r="9"/><circle cx="72" cy="112" r="9"/></svg>',
+    soccer:'<svg class="field" viewBox="0 0 100 140" fill="none" stroke="#fff" stroke-width="1"><rect x="6" y="6" width="88" height="128"/><path d="M6 70h88"/><circle cx="50" cy="70" r="14"/><path d="M26 6v24h48V6M26 134v-24h48v24M38 6v9h24V6M38 134v-9h24v9"/></svg>'
+  };
+  var RAR={base:{label:"Base",cls:"r-base",glow:"rgba(255,255,255,.25)"},ref:{label:"Refractor",cls:"r-ref",glow:"rgba(120,200,255,.6)"},gold:{label:"Gold /50",cls:"r-gold",glow:"rgba(255,210,90,.7)"},one:{label:"1 of 1",cls:"r-one",glow:"rgba(255,215,120,.9)"}};
+  var BYID={}; ROSTER.forEach(function(r,i){ BYID[r[0]]={id:r[0],name:r[1],pos:r[2],league:r[3],sport:r[4],no:i+1}; });
+  var DAILY=3, TOTAL=ROSTER.length;
+  var PS={cards:[],day:"",opened:0}, dbRef=null;
+  function loadLocal(){ try { var s=JSON.parse(localStorage.getItem("tsr-packs")||"null"); if(s&&s.cards) PS=s; } catch(e){} }
+  function saveState(){ try { localStorage.setItem("tsr-packs",JSON.stringify(PS)); } catch(e){}
+    if(dbRef) dbRef.set({cards:PS.cards,day:PS.day,opened:PS.opened}).catch(function(){ dbRef=null; }); }
+  function today(){ return localISO(); }
+  function left(){ return PS.day===today()?Math.max(0,DAILY-PS.opened):DAILY; }
+  function owned(){ var o={}; PS.cards.forEach(function(c){ o[c.id]=c; }); return o; }
+  loadLocal();
+  (function(){ if(!window.claude||!window.claude.use) return;
+    Promise.all([window.claude.use("db"),window.claude.use("user")]).then(function(r){ var db=r[0], user=r[1]; if(!db||!user) return;
+      return user.id().then(function(uid){ if(!uid) return; var ref=db.collection("data/users/"+uid).doc("packs");
+        return ref.get().then(function(snap){ dbRef=ref; var d=snap.exists?snap.data():null;
+          if(d&&Array.isArray(d.cards)){ var m=owned(); d.cards.forEach(function(c){ if(!m[c.id]){ PS.cards.push(c); m[c.id]=c; } });
+            if(d.day&&(d.day>PS.day||(d.day===PS.day&&d.opened>PS.opened))){ PS.day=d.day; PS.opened=d.opened; } }
+          saveState(); renderPacks(); renderLib(); }); }); }).catch(function(){}); })();
+
+  function cardEl(p,rar,serial){ var sp=SPORTS[p.sport], R=RAR[rar]||RAR.base;
+    var tc=el("div","tc "+R.cls); tc.style.setProperty("--glow",R.glow);
+    var face=el("div","face"); if(rar==="base"||rar==="ref") face.style.setProperty("--cbg","linear-gradient(135deg,#f4f5f7,#cfd5de)");
+    var fr=el("div","frame"); fr.style.setProperty("--a1",sp.a1); fr.style.setProperty("--a2",sp.a2);
+    var ini=p.name.split(/[\s-]+/).map(function(w){return w[0];}).join("").slice(0,2).toUpperCase(); var art=el("div","art"); art.innerHTML=FIELD[p.sport]+jersey(p.sport,ini,sp)+ICON[p.sport].replace('class="icon"','class="icon sm"');
+    var top=el("div","top"); top.append(el("span","rar",R.label), el("span",null,p.league));
+    var plate=el("div","plate"); plate.append(el("span","nm",p.name)); var sub=el("span","sub"); sub.append(el("span",null,p.pos+" · "+sp.name), el("span",null,"No. "+String(p.no).padStart(3,"0")+(serial?" · "+serial:""))); plate.append(sub);
+    fr.append(art,top,el("span"),plate); face.append(fr, el("div","sheen"));
+    var back=el("div","back"); back.innerHTML="<span>Sporting<br>Reporter</span>";
+    tc.append(face,back); return tc; }
+  function jersey(k,ini,sp){ var body=k==="basketball"?"M33 6 Q50 24 67 6 L74 9 Q73 27 82 35 L82 96 L18 96 L18 35 Q27 27 26 9 Z":"M31 7 L42 3 Q50 13 58 3 L69 7 L94 22 L84 42 L73 36 L73 96 L27 96 L27 36 L16 42 L6 22 Z";
+    return '<svg class="jersey" viewBox="0 0 100 100"><defs><linearGradient id="jg-'+k+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#d9dee6"/></linearGradient></defs><path d="'+body+'" fill="url(#jg-'+k+')" stroke="rgba(0,0,0,.3)" stroke-width="1"/><path d="'+body+'" fill="none" stroke="'+sp.p1+'" stroke-width="3" stroke-dasharray="0" opacity=".9" transform="translate(50 50) scale(.93) translate(-50 -50)"/><rect x="'+(k==="basketball"?18:27)+'" y="84" width="'+(k==="basketball"?64:46)+'" height="5" fill="'+sp.p1+'"/><text x="50" y="72" text-anchor="middle" font-family="Anton, Impact, sans-serif" font-size="34" fill="'+sp.a2+'" stroke="'+sp.p1+'" stroke-width="1.2">'+ini+'</text></svg>'; }
+  function rollRarity(){ var x=Math.random(); return x<.02?"one":x<.10?"gold":x<.32?"ref":"base"; }
+
+  function renderPacks(){ var box=document.getElementById("packs"); if(!box) return; box.textContent=""; var n=left(), m=owned();
+    Object.keys(SPORTS).forEach(function(k){ var sp=SPORTS[k], rem=ROSTER.filter(function(r){ return r[4]===k&&!m[r[0]]; }).length;
+      var b=el("button","pack"); b.type="button"; b.style.setProperty("--p1",sp.p1); b.style.setProperty("--p2",sp.p2);
+      b.innerHTML='<span class="crimp t"></span><span class="pl2">Series 1</span>'+ICON[k]+'<span class="crimp b"></span>'; b.append(el("span","pl1",sp.name));
+      b.setAttribute("aria-label","Open a "+sp.name+" pack ("+sp.line+"), "+rem+" players left to collect");
+      if(!n||!rem) b.disabled=true; b.onclick=function(){ openPack(k); }; box.append(b); });
+    var lf=document.getElementById("packs-left"); lf.textContent=""; for(var i=0;i<DAILY;i++) lf.append(el("i",i<n?null:"used")); lf.append(document.createTextNode(n?n+" of "+DAILY+" packs left today":"No packs left today. New packs at midnight."));
+    var pc=document.getElementById("pz-count"); if(pc) pc.textContent=PS.cards.length+" of "+TOTAL+" collected";
+    renderMini(); }
+
+  function openPack(k){ if(!left()) return; var m=owned(); var pool=ROSTER.filter(function(r){ return r[4]===k&&!m[r[0]]; }); if(!pool.length) return;
+    var pick=BYID[pool[Math.floor(Math.random()*pool.length)][0]], rar=rollRarity(), serial=rar==="gold"?Math.ceil(Math.random()*50)+"/50":rar==="one"?"1/1":"";
+    if(PS.day!==today()){ PS.day=today(); PS.opened=0; } PS.opened++; PS.cards.push({id:pick.id,r:rar,s:serial,at:today()}); saveState();
+    var sp=SPORTS[k], R=RAR[rar], stage=el("div","stage"); stage.setAttribute("role","dialog"); stage.setAttribute("aria-modal","true"); stage.setAttribute("aria-label","Opening a "+sp.name+" pack");
+    stage.style.setProperty("--glow",R.glow);
+    var xb=el("button","stage-x","×"); xb.type="button"; xb.setAttribute("aria-label","Close and stay on this page");
+    var fx=el("canvas","fx"); var inner=el("div","inner"), slotEl=el("div","slot3d"), big=el("div","big"), pk=el("div","pack");
+    pk.style.setProperty("--p1",sp.p1); pk.style.setProperty("--p2",sp.p2);
+    pk.innerHTML='<span class="crimp t"></span><span class="pl2">Series 1</span>'+ICON[k]+'<span class="crimp b"></span>'; pk.append(el("span","pl1",sp.name));
+    var card=cardEl(pick,rar,serial); card.classList.add("inpack");
+    var beam=el("div","beam");
+    big.append(pk); slotEl.append(beam,card,big); inner.append(slotEl); stage.append(fx,xb,inner); document.body.append(stage); document.body.style.overflow="hidden";
+    var closed=false;
+    function close(go){ if(closed) return; closed=true; stage.classList.remove("on"); document.body.style.overflow=""; setTimeout(function(){ stage.remove(); },260); renderPacks(); renderLib(); if(go) location.hash=go; }
+    xb.onclick=function(){ close(); }; stage.addEventListener("keydown",function(e){ if(e.key==="Escape") close(); });
+    requestAnimationFrame(function(){ stage.classList.add("on"); xb.focus(); });
+    var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var T=reduce?{charge:0,tear:0,rise:0,flip:0,ui:0}:{charge:700,tear:1900,rise:2250,flip:3050,ui:3700};
+    big.classList.add("enter");
+    setTimeout(function(){ big.classList.remove("enter"); big.classList.add("charge"); },T.charge);
+    setTimeout(function(){ var t=el("div","tear"); t.style.setProperty("--p1",sp.p1); t.style.setProperty("--p2",sp.p2); big.append(t); big.classList.remove("charge"); big.classList.add("torn"); beam.classList.add("on"); },T.tear);
+    setTimeout(function(){ card.classList.add("out"); big.classList.add("away"); },T.rise);
+    setTimeout(function(){ card.classList.add("show"); burst(fx,R.glow,rar); if(!reduce){ var fl=el("div","flash"); document.body.append(fl); setTimeout(function(){ fl.remove(); },800); } },T.flip);
+    setTimeout(function(){ var msg=el("div","msg"); var tag=el("span","rtag "+R.cls,R.label); msg.append(tag, el("b",null,pick.name), el("span",null,pick.pos+" · "+pick.league+" · added to your library"));
+      var row=el("div","row"), b0=el("button","btn ghost","Back to home"), b1=el("button","btn",left()?"Open another ("+left()+" left)":"No packs left today"), b2=el("button","btn ghost","View library");
+      b0.type=b1.type=b2.type="button"; if(!left()) b1.disabled=true;
+      b0.onclick=function(){ close(); }; b1.onclick=function(){ close(); setTimeout(function(){ document.getElementById("packzone").scrollIntoView({behavior:"smooth",block:"start"}); },280); }; b2.onclick=function(){ close("library"); };
+      row.append(b0,b1,b2); inner.append(msg,row); },T.ui); }
+  function burst(cv,col,rar){ var r=cv.getBoundingClientRect(); if(!r.width) return; cv.width=r.width; cv.height=r.height; var c=cv.getContext("2d"), cx=r.width/2, cy=r.height*.42;
+    var n=rar==="one"?160:rar==="gold"?120:rar==="ref"?90:60, ps=[]; var cols=rar==="gold"||rar==="one"?["#ffd56b","#fff3c4","#f5b638"]:rar==="ref"?["#ff5ec8","#5ee0ff","#a6ff6b","#ffffff"]:["#ffffff","#d6202f","#9fb4d8"];
+    for(var i=0;i<n;i++){ var a=Math.random()*Math.PI*2, s=4+Math.random()*9; ps.push({x:cx,y:cy,vx:Math.cos(a)*s,vy:Math.sin(a)*s-3,life:60+Math.random()*40,c:cols[i%cols.length],w:3+Math.random()*4}); }
+    var f=0; (function tick(){ c.clearRect(0,0,r.width,r.height); f++; var alive=0; ps.forEach(function(p){ if(p.life<=0) return; alive++; p.life--; p.x+=p.vx; p.y+=p.vy; p.vy+=.22; p.vx*=.985; c.globalAlpha=Math.max(0,p.life/90); c.fillStyle=p.c; c.save(); c.translate(p.x,p.y); c.rotate(f*.1+p.w); c.fillRect(-p.w/2,-p.w/4,p.w,p.w/2); c.restore(); }); if(alive&&f<160) requestAnimationFrame(tick); else c.clearRect(0,0,r.width,r.height); })(); }
+
+  function sortedOwned(){ return PS.cards.slice().reverse().map(function(c){ return {c:c,p:BYID[c.id]}; }).filter(function(x){ return x.p; }); }
+  function slot(x){ var b=el("button","slot"); b.type="button"; b.setAttribute("aria-label",x.p.name+", "+RAR[x.c.r].label); b.append(cardEl(x.p,x.c.r,x.c.s)); b.onclick=function(){ zoom(x); }; return b; }
+  function renderMini(){ var mb=document.getElementById("mini"); if(!mb) return; mb.textContent=""; var o=sortedOwned().slice(0,6);
+    if(!o.length){ mb.append(el("p","pz-note","Your cards will show up here.")); return; } o.forEach(function(x){ mb.append(slot(x)); }); }
+  var libSport="all";
+  function renderLib(){ var box=document.getElementById("lib"); if(!box) return; box.textContent=""; var o=sortedOwned().filter(function(x){ return libSport==="all"||x.p.sport===libSport; });
+    var pct=Math.round(PS.cards.length/TOTAL*100); document.getElementById("lib-prog").innerHTML=""; var pg=document.getElementById("lib-prog");
+    pg.append(el("span","eyebrow",PS.cards.length+" of "+TOTAL+" players collected")); var br=el("div","bar2"), fi=el("i"); fi.style.width=pct+"%"; br.append(fi); pg.append(br);
+    if(!o.length){ var e=el("div","libempty"); e.append(document.createTextNode(PS.cards.length?"No cards from this sport yet. ":"Your library is empty. ")); var a=el("a","lk","Open a pack"); a.href="#home"; e.append(a); box.append(e); return; }
+    o.forEach(function(x){ box.append(slot(x)); }); }
+  var lc=document.getElementById("lib-chips");
+  if(lc){ [["all","All"]].concat(Object.keys(SPORTS).map(function(k){ return [k,SPORTS[k].name]; })).forEach(function(s){ var b=el("button","chip",s[1]); b.type="button"; b.setAttribute("aria-pressed",s[0]==="all"?"true":"false");
+    b.onclick=function(){ libSport=s[0]; lc.querySelectorAll(".chip").forEach(function(x){ x.setAttribute("aria-pressed",x===b?"true":"false"); }); renderLib(); }; lc.append(b); }); }
+  function zoom(x){ var stage=el("div","stage"); stage.setAttribute("role","dialog"); stage.setAttribute("aria-modal","true"); stage.setAttribute("aria-label",x.p.name);
+    var inner=el("div","inner"), c=cardEl(x.p,x.c.r,x.c.s); c.classList.add("glow"); var msg=el("div","msg"); msg.append(el("b",null,x.p.name), el("span",null,x.p.pos+" · "+x.p.league+" · "+RAR[x.c.r].label+" · pulled "+md(x.c.at)));
+    var cb=el("button","btn ghost","Close"); cb.type="button"; inner.append(c,msg,cb); stage.append(inner); document.body.append(stage); document.body.style.overflow="hidden"; requestAnimationFrame(function(){ stage.classList.add("on"); }); cb.focus();
+    stage.addEventListener("mousemove",function(e){ var r=c.getBoundingClientRect(), dx=(e.clientX-(r.left+r.width/2))/r.width, dy=(e.clientY-(r.top+r.height/2))/r.height; c.style.transform="rotateY("+(dx*18)+"deg) rotateX("+(-dy*18)+"deg)"; });
+    function close(){ stage.classList.remove("on"); document.body.style.overflow=""; setTimeout(function(){ stage.remove(); },260); }
+    cb.onclick=close; stage.addEventListener("click",function(e){ if(e.target===stage) close(); }); stage.addEventListener("keydown",function(e){ if(e.key==="Escape") close(); }); }
+  renderPacks(); renderLib();
+
+  window.addEventListener("hashchange",function(){ closeDrawer(); route(); });
+  route();
+
+  var SUG=["What would a lockout mean for card releases?","Which story here is most likely to change this week?","What should someone know before the NWSL Championship?"];
+  /* ask */
+  var dataText=document.getElementById("pulse-data").textContent;
+  if(!window.claude||!window.claude.use) return;
+  window.claude.use("sample").then(function(sample){
+    if(!sample) return;
+    document.getElementById("ask-ready").hidden=false; document.getElementById("ask-off").hidden=true;
+    var form=document.getElementById("ask-form"), input=document.getElementById("ask-input"), btn=document.getElementById("ask-btn"), stop=document.getElementById("stop-btn"), out=document.getElementById("answer"), sg=document.getElementById("sugg"), ctl=null;
+    SUG.forEach(function(t){ var b=el("button",null,t); b.type="button"; b.onclick=function(){ input.value=t; form.requestSubmit(); }; sg.append(b); });
+    stop.onclick=function(){ if(ctl) ctl.abort(); };
+    form.addEventListener("submit",function(ev){
+      ev.preventDefault(); var qq=input.value.trim(); if(!qq) return;
+      ctl=new AbortController(); btn.disabled=true; stop.hidden=false; out.textContent="Thinking...";
+      var prompt="You are the research desk for The Sporting Reporter, a daily brief on the business of sports and collectibles. Answer the reader's question using today's edition (JSON below) as your main source. When you add general knowledge, say so. Keep facts and forecasts clearly separate. Never invent figures, dates, names or sales; if the edition does not cover something, say that plainly. Write in a professional, concise tone: a few sentences or up to five bullets, no headings, no em dashes.\n\nTODAY'S EDITION (JSON):\n"+dataText+"\n\nQUESTION: "+qq;
+      sample(prompt,{signal:ctl.signal,onText:function(r){ out.textContent=r.text; }})
+        .then(function(r){ out.textContent=r.text; })
+        .catch(function(e){
+          out.textContent=(e&&e.text)?e.text:"";
+          if(!e||e.code==="cancelled") return;
+          if(e.code==="not_granted"){ document.getElementById("ask-ready").hidden=true; var off=document.getElementById("ask-off"); off.hidden=false; off.textContent="Claude access wasn't allowed for this page, so questions are off."; return; }
+          out.textContent=(out.textContent?out.textContent+"\n\n":"")+(e.code==="rate_limited"?"Too many questions at once. Wait a minute and try again.":"That question couldn't be answered right now. Try again shortly.");
+        })
+        .finally(function(){ btn.disabled=false; stop.hidden=true; });
+    });
+  });
+})();
+</script>
+</body></html>
