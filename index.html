@@ -1711,7 +1711,7 @@ footer.site b{color:#fff;font-family:var(--display);font-weight:400;font-size:20
     <details data-g="markets"><summary>Markets</summary><div class="sub"><a href="#cards">Card prices</a><a href="#markets">Indicators and top sales</a><a href="#rookies">Rookies to watch</a></div></details>
     <a href="#forecasts">Forecasts</a>
     <a href="#labour" id="nav-labour">Labour watch</a>
-    <a href="#competitors">Card industry</a>
+    <a href="#card-industry">Card industry</a>
     <a href="#calendar">Calendar</a>
     <a href="#saved">Saved stories <small id="n-saved"></small></a>
     <details data-g="packs"><summary>Card packs</summary><div class="sub"><a href="#packs">Open packs</a><a href="#library">My library</a></div></details>
@@ -1801,7 +1801,7 @@ footer.site b{color:#fff;font-family:var(--display);font-weight:400;font-size:20
       <div class="sec"><div class="sec-h"><h2>Related articles</h2></div><div class="reads" id="lab-art"></div></div>
     </section>
 
-    <section class="view first" data-view="competitors" hidden><div class="board" id="board"></div></section>
+    <section class="view first" data-view="card-industry" hidden><div class="board" id="board"></div></section>
 
     <section class="view first" data-view="calendar" hidden>
       <div class="filters"><label class="ctl" for="cal-lg">League <select id="cal-lg"></select></label></div>
@@ -1923,8 +1923,8 @@ footer.site b{color:#fff;font-family:var(--display);font-weight:400;font-size:20
   /* ---------- views and banner text ---------- */
   var TITLES={home:["Today's brief",""],saved:["Saved stories","Stories you starred, kept here until you remove them."],news:["All stories","Every story in today's edition, ranked by how much it matters."],library:["My library","Every card you have pulled. Open up to three packs a day."],reads:["Worth reading","Articles from the past week worth reading in full."],cards:["Card prices","A searchable log of verified public sales by player, across leagues."],markets:["Markets","Figures tracked over time, added only when a source publishes them, plus the week's top sales."],
     rookies:["Rookies to watch","First-year players whose performance is moving card demand, with each league's card licensee."],forecasts:["Forecasts","Short-range calls built on public evidence, each with a date when it will be checked."],
-    labour:[(L&&L.title)||"Labour watch","Where bargaining stands, the dates that matter, and what the reporting expects."],competitors:["Card industry","The card makers, marketplaces and graders shaping the hobby: who holds what, their latest verified move, and what to watch next."],
-    calendar:["Calendar","The next 60 days, with what to know before each date."],people:["People moves","Leadership and ownership changes at leagues, teams and competitors."],
+    labour:[(L&&L.title)||"Labour watch","Where bargaining stands, the dates that matter, and what the reporting expects."],"card-industry":["Card industry","The card makers, marketplaces and graders shaping the hobby: who holds what, their latest verified move, and what to watch next."],
+    calendar:["Calendar","The next 60 days, with what to know before each date."],people:["People moves","Leadership and ownership changes at leagues, teams and card industry companies."],
     archive:["Past editions","The top three headlines from each daily edition."],ask:["Ask the Reporter","Ask anything about today's edition, or follow a thread further."]};
   var heroIn=document.getElementById("hero-in"), hero=document.getElementById("hero");
   var fresh=localISO()===D.updated;
@@ -1948,7 +1948,8 @@ footer.site b{color:#fff;font-family:var(--display);font-weight:400;font-size:20
     document.querySelectorAll("#nav a").forEach(function(a){ var on=a.getAttribute("href")==="#"+key; if(on){ a.setAttribute("aria-current","page"); var d=a.closest("details"); if(d) d.open=true; } else a.removeAttribute("aria-current"); });
     var tk=v==="news"?"news":["cards","markets","rookies"].indexOf(v)>=0?"cards":(key==="packs"||v==="library")?"packs":v==="home"?"home":"";
     document.querySelectorAll("#tabbar a").forEach(function(a){ if(a.getAttribute("href")==="#"+tk) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); }); }
-  function route(){ var h=(location.hash||"").slice(1), r=resolve(h), next=document.querySelector('.view[data-view="'+r.v+'"]'), prev=current;
+  function route(){ if(location.hash==="#competitors"){ history.replaceState(null,"","#card-industry"); }
+    var h=(location.hash||"").slice(1), r=resolve(h), next=document.querySelector('.view[data-view="'+r.v+'"]'), prev=current;
     if(r.v==="news") render();
     navMark(h,r.v);
     function paint(){ setHero(r.v); if(r.title){ var h1=heroIn.querySelector("h1"); h1.textContent=r.title; var p=heroIn.querySelector("p"); if(p) p.textContent=r.sub; } }
