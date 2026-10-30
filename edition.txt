@@ -1,0 +1,2 @@
+edition: Friday, October 30, 2026
+updated: 2026-10-30
