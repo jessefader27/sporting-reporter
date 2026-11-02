@@ -1,0 +1,45 @@
+{
+ "collection": "sales",
+ "month": "2021-07",
+ "count": 3,
+ "records": {
+  "babe-ruth_2021-07-10_4212000_1933-goudey-53-psa-9": {
+   "date": "2021-07-10",
+   "card": "1933 Goudey #53",
+   "grade": "PSA 9",
+   "price": 4212000,
+   "venue": "Memory Lane",
+   "source": "Wikipedia, List of most expensive sports cards",
+   "url": "https://en.wikipedia.org/wiki/List_of_most_expensive_sports_cards",
+   "playerId": "babe-ruth",
+   "player": "Babe Ruth",
+   "league": "MLB"
+  },
+  "mike-trout_2021-07-29_1050000_2011-topps-update-platinum-1-1-bgs-9": {
+   "date": "2021-07-29",
+   "card": "2011 Topps Update Platinum 1/1",
+   "grade": "BGS 9",
+   "price": 1050000,
+   "venue": "Private sale",
+   "source": "Wikipedia, List of most expensive sports cards",
+   "url": "https://en.wikipedia.org/wiki/List_of_most_expensive_sports_cards",
+   "rc": true,
+   "playerId": "mike-trout",
+   "player": "Mike Trout",
+   "league": "MLB"
+  },
+  "stephen-curry_2021-07-06_5900000_2009-10-panini-national-treasu-psa-8": {
+   "date": "2021-07-06",
+   "card": "2009-10 Panini National Treasures Logoman Auto 1/1",
+   "grade": "PSA 8",
+   "price": 5900000,
+   "venue": "Private sale",
+   "source": "Wikipedia, List of most expensive sports cards",
+   "url": "https://en.wikipedia.org/wiki/List_of_most_expensive_sports_cards",
+   "rc": true,
+   "playerId": "stephen-curry",
+   "player": "Stephen Curry",
+   "league": "NBA"
+  }
+ }
+}

@@ -1,0 +1,20 @@
+{
+ "collection": "sales",
+ "month": "2021-09",
+ "count": 1,
+ "records": {
+  "mahomes_2021-09-18_1080000_2017-panini-national-treasures-bgs-9-5": {
+   "date": "2021-09-18",
+   "card": "2017 Panini National Treasures Holo Gold Rookie Patch Auto #3/10",
+   "grade": "BGS 9.5",
+   "price": 1080000,
+   "venue": "PWCC Marketplace",
+   "source": "Wikipedia, List of most expensive sports cards",
+   "url": "https://en.wikipedia.org/wiki/List_of_most_expensive_sports_cards",
+   "rc": true,
+   "playerId": "mahomes",
+   "player": "Patrick Mahomes",
+   "league": "NFL"
+  }
+ }
+}

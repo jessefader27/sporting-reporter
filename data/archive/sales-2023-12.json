@@ -1,0 +1,20 @@
+{
+ "collection": "sales",
+ "month": "2023-12",
+ "count": 1,
+ "records": {
+  "babe-ruth_2023-12-03_7200000_1914-baltimore-news-red-sgc-3": {
+   "date": "2023-12-03",
+   "card": "1914 Baltimore News (red)",
+   "grade": "SGC 3",
+   "price": 7200000,
+   "venue": "Robert Edwards Auctions",
+   "source": "Wikipedia, List of most expensive sports cards",
+   "url": "https://en.wikipedia.org/wiki/List_of_most_expensive_sports_cards",
+   "rc": true,
+   "playerId": "babe-ruth",
+   "player": "Babe Ruth",
+   "league": "MLB"
+  }
+ }
+}

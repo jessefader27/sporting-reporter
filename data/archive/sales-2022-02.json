@@ -1,0 +1,19 @@
+{
+ "collection": "sales",
+ "month": "2022-02",
+ "count": 1,
+ "records": {
+  "kobe-bryant_2022-02-22_2000000_1997-98-skybox-metal-universe-bgs-8-5": {
+   "date": "2022-02-22",
+   "card": "1997-98 SkyBox Metal Universe Precious Metal Gems Green /10",
+   "grade": "BGS 8.5",
+   "price": 2000000,
+   "venue": "Private sale",
+   "source": "Wikipedia, List of most expensive sports cards",
+   "url": "https://en.wikipedia.org/wiki/List_of_most_expensive_sports_cards",
+   "playerId": "kobe-bryant",
+   "player": "Kobe Bryant",
+   "league": "NBA"
+  }
+ }
+}

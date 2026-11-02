@@ -1,0 +1,20 @@
+{
+ "collection": "sales",
+ "month": "2021-06",
+ "count": 1,
+ "records": {
+  "brady_2021-06-04_3107372p4_2000-playoff-contenders-champi-bgs-9": {
+   "date": "2021-06-04",
+   "card": "2000 Playoff Contenders Championship Rookie Ticket Auto #144 /100 (#8/100)",
+   "grade": "BGS 9",
+   "price": 3107372.4,
+   "venue": "Lelands",
+   "source": "Wikipedia, List of most expensive sports cards",
+   "url": "https://en.wikipedia.org/wiki/List_of_most_expensive_sports_cards",
+   "rc": true,
+   "playerId": "brady",
+   "player": "Tom Brady",
+   "league": "NFL"
+  }
+ }
+}

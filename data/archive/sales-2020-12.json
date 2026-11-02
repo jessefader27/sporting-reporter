@@ -1,0 +1,33 @@
+{
+ "collection": "sales",
+ "month": "2020-12",
+ "count": 2,
+ "records": {
+  "giannis-antetokounmpo_2020-12-12_1140000_2013-14-panini-prizm-black-mos-bgs-9-5": {
+   "date": "2020-12-12",
+   "card": "2013-14 Panini Prizm Black Mosaic 1/1",
+   "grade": "BGS 9.5",
+   "price": 1140000,
+   "venue": "Not stated",
+   "source": "Wikipedia, List of most expensive sports cards",
+   "url": "https://en.wikipedia.org/wiki/List_of_most_expensive_sports_cards",
+   "rc": true,
+   "playerId": "giannis-antetokounmpo",
+   "player": "Giannis Antetokounmpo",
+   "league": "NBA"
+  },
+  "stephen-curry_2020-12-20_601200_2009-10-panini-national-treasu-bgs-9-5": {
+   "date": "2020-12-20",
+   "card": "2009-10 Panini National Treasures Century Gold Rookie Patch Auto #10/25",
+   "grade": "BGS 9.5",
+   "price": 601200,
+   "venue": "Goldin",
+   "source": "Wikipedia, List of most expensive sports cards",
+   "url": "https://en.wikipedia.org/wiki/List_of_most_expensive_sports_cards",
+   "rc": true,
+   "playerId": "stephen-curry",
+   "player": "Stephen Curry",
+   "league": "NBA"
+  }
+ }
+}

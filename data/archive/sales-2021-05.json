@@ -1,0 +1,21 @@
+{
+ "collection": "sales",
+ "month": "2021-05",
+ "count": 1,
+ "records": {
+  "wayne-gretzky_2021-05-27_3750000_1979-80-o-pee-chee-18-psa-10": {
+   "date": "2021-05-27",
+   "card": "1979-80 O-Pee-Chee #18",
+   "grade": "PSA 10",
+   "price": 3750000,
+   "venue": "Private sale (Heritage)",
+   "source": "Wikipedia, List of most expensive sports cards",
+   "url": "https://en.wikipedia.org/wiki/List_of_most_expensive_sports_cards",
+   "rc": true,
+   "note": "Date is when the sale was announced.",
+   "playerId": "wayne-gretzky",
+   "player": "Wayne Gretzky",
+   "league": "NHL"
+  }
+ }
+}

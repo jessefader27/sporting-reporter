@@ -1,0 +1,17 @@
+{
+ "collection": "indicators",
+ "month": "2022-05",
+ "count": 1,
+ "records": {
+  "womens-record_2022-05-22": {
+   "d": "2022-05-22",
+   "v": 266.4,
+   "tag": "Serena Williams",
+   "series": "womens-record",
+   "name": "Women's sports card record",
+   "unit": "$K",
+   "source": "Sports Illustrated; Just Women's Sports",
+   "url": "https://www.si.com/tennis/2022/05/22/serena-williams-trading-card-sale-doubles-record-female-athlete"
+  }
+ }
+}

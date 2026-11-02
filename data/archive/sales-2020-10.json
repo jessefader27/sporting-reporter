@@ -1,0 +1,19 @@
+{
+ "collection": "sales",
+ "month": "2020-10",
+ "count": 1,
+ "records": {
+  "lebron-james_2020-10-03_720000_2004-topps-chrome-superfractor-psa-10": {
+   "date": "2020-10-03",
+   "card": "2004 Topps Chrome Superfractor 1/1",
+   "grade": "PSA 10",
+   "price": 720000,
+   "venue": "Heritage",
+   "source": "Wikipedia, List of most expensive sports cards",
+   "url": "https://en.wikipedia.org/wiki/List_of_most_expensive_sports_cards",
+   "playerId": "lebron-james",
+   "player": "LeBron James",
+   "league": "NBA"
+  }
+ }
+}

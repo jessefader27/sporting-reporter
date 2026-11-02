@@ -1,0 +1,19 @@
+{
+ "collection": "sales",
+ "month": "2021-10",
+ "count": 1,
+ "records": {
+  "kobe-bryant_2021-10-24_922500_2002-03-upper-deck-autograph-l-bgs-9": {
+   "date": "2021-10-24",
+   "card": "2002-03 Upper Deck Autograph Logo Mania 1/1",
+   "grade": "BGS 9",
+   "price": 922500,
+   "venue": "Not stated",
+   "source": "Wikipedia, List of most expensive sports cards",
+   "url": "https://en.wikipedia.org/wiki/List_of_most_expensive_sports_cards",
+   "playerId": "kobe-bryant",
+   "player": "Kobe Bryant",
+   "league": "NBA"
+  }
+ }
+}

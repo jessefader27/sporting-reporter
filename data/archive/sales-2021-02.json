@@ -1,0 +1,44 @@
+{
+ "collection": "sales",
+ "month": "2021-02",
+ "count": 3,
+ "records": {
+  "babe-ruth_2021-02-27_660000_1917-collins-mccarthy-sgc-8": {
+   "date": "2021-02-27",
+   "card": "1917 Collins-McCarthy",
+   "grade": "SGC 8",
+   "price": 660000,
+   "venue": "Heritage",
+   "source": "Wikipedia, List of most expensive sports cards",
+   "url": "https://en.wikipedia.org/wiki/List_of_most_expensive_sports_cards",
+   "playerId": "babe-ruth",
+   "player": "Babe Ruth",
+   "league": "MLB"
+  },
+  "luka-don-i_2021-02-28_4600000_2018-19-panini-national-treasu-ungraded": {
+   "date": "2021-02-28",
+   "card": "2018-19 Panini National Treasures Logoman Auto 1/1",
+   "grade": "Ungraded",
+   "price": 4600000,
+   "venue": "Private sale",
+   "source": "Wikipedia, List of most expensive sports cards",
+   "url": "https://en.wikipedia.org/wiki/List_of_most_expensive_sports_cards",
+   "rc": true,
+   "playerId": "luka-don-i",
+   "player": "Luka Dončić",
+   "league": "NBA"
+  },
+  "michael-jordan_2021-02-05_1440000_1997-98-upper-deck-game-jersey-psa-7": {
+   "date": "2021-02-05",
+   "card": "1997-98 Upper Deck Game Jerseys #8/23",
+   "grade": "PSA 7",
+   "price": 1440000,
+   "venue": "PWCC Marketplace",
+   "source": "Wikipedia, List of most expensive sports cards",
+   "url": "https://en.wikipedia.org/wiki/List_of_most_expensive_sports_cards",
+   "playerId": "michael-jordan",
+   "player": "Michael Jordan",
+   "league": "NBA"
+  }
+ }
+}

@@ -1,0 +1,35 @@
+{
+ "collection": "sales",
+ "month": "2025-08",
+ "count": 2,
+ "records": {
+  "arch-manning_2025-08_4999_2023-panini-prizm-throwback-au": {
+   "date": "2025-08",
+   "card": "2023 Panini Prizm Throwback Auto /49",
+   "grade": "",
+   "price": 4999,
+   "venue": "eBay",
+   "source": "Sports Illustrated",
+   "url": "https://www.si.com/collectibles/what-happens-to-arch-manning-cards-after-huge-loss",
+   "cardType": "College card",
+   "datePrecision": "month",
+   "playerId": "arch-manning",
+   "player": "Arch Manning",
+   "league": "NFL"
+  },
+  "arch-manning_2025-08_5000_2024-panini-silver-packs-gold-psa-10": {
+   "date": "2025-08",
+   "card": "2024 Panini Silver Packs Gold Auto /10",
+   "grade": "PSA 10",
+   "price": 5000,
+   "venue": "eBay",
+   "source": "Sports Illustrated",
+   "url": "https://www.si.com/collectibles/what-happens-to-arch-manning-cards-after-huge-loss",
+   "cardType": "College card",
+   "datePrecision": "month",
+   "playerId": "arch-manning",
+   "player": "Arch Manning",
+   "league": "NFL"
+  }
+ }
+}

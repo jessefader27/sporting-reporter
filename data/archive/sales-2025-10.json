@@ -1,0 +1,32 @@
+{
+ "collection": "sales",
+ "month": "2025-10",
+ "count": 2,
+ "records": {
+  "ivan-demidov_2025-10-23_10077_2025-26-upper-deck-young-guns": {
+   "date": "2025-10-23",
+   "card": "2025-26 Upper Deck Young Guns #205 High Gloss /10",
+   "grade": "",
+   "price": 10077,
+   "venue": "eBay",
+   "source": "Sports Illustrated, Dec 10, 2025",
+   "url": "https://www.si.com/collectibles/top-5-upper-deck-hockey-card-sales-of-2025",
+   "rc": true,
+   "playerId": "ivan-demidov",
+   "player": "Ivan Demidov",
+   "league": "NHL"
+  },
+  "michael-jordan_2025-10-23_810000_2008-09-upper-deck-exquisite-c-psa-authen": {
+   "date": "2025-10-23",
+   "card": "2008-09 Upper Deck Exquisite Collection Emblems of Endorsement #02/10",
+   "grade": "PSA Authentic",
+   "price": 810000,
+   "venue": "Fanatics Collect",
+   "source": "Wikipedia, List of most expensive sports cards",
+   "url": "https://en.wikipedia.org/wiki/List_of_most_expensive_sports_cards",
+   "playerId": "michael-jordan",
+   "player": "Michael Jordan",
+   "league": "NBA"
+  }
+ }
+}

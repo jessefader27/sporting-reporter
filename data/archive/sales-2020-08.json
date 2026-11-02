@@ -1,0 +1,20 @@
+{
+ "collection": "sales",
+ "month": "2020-08",
+ "count": 1,
+ "records": {
+  "mike-trout_2020-08-23_3936000_2009-bowman-chrome-draft-prosp-bgs-9": {
+   "date": "2020-08-23",
+   "card": "2009 Bowman Chrome Draft Prospects Superfractor Auto 1/1",
+   "grade": "BGS 9",
+   "price": 3936000,
+   "venue": "Goldin",
+   "source": "Wikipedia, List of most expensive sports cards",
+   "url": "https://en.wikipedia.org/wiki/List_of_most_expensive_sports_cards",
+   "cardType": "Prospect card",
+   "playerId": "mike-trout",
+   "player": "Mike Trout",
+   "league": "MLB"
+  }
+ }
+}

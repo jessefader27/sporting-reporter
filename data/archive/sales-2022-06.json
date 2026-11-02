@@ -1,0 +1,19 @@
+{
+ "collection": "sales",
+ "month": "2022-06",
+ "count": 1,
+ "records": {
+  "lebron-james_2022-06-25_2400000_2020-21-panini-flawless-triple-psa-authen": {
+   "date": "2022-06-25",
+   "card": "2020-21 Panini Flawless Triple Logoman Patch Auto 1/1",
+   "grade": "PSA Authentic",
+   "price": 2400000,
+   "venue": "Goldin",
+   "source": "Wikipedia, List of most expensive sports cards",
+   "url": "https://en.wikipedia.org/wiki/List_of_most_expensive_sports_cards",
+   "playerId": "lebron-james",
+   "player": "LeBron James",
+   "league": "NBA"
+  }
+ }
+}

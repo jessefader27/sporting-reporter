@@ -1,0 +1,32 @@
+{
+ "collection": "sales",
+ "month": "2022-12",
+ "count": 2,
+ "records": {
+  "mickey-mantle_2022-12-03_3192000_1951-bowman-253-psa-9": {
+   "date": "2022-12-03",
+   "card": "1951 Bowman #253",
+   "grade": "PSA 9",
+   "price": 3192000,
+   "venue": "Memory Lane",
+   "source": "Wikipedia, List of most expensive sports cards",
+   "url": "https://en.wikipedia.org/wiki/List_of_most_expensive_sports_cards",
+   "rc": true,
+   "playerId": "mickey-mantle",
+   "player": "Mickey Mantle",
+   "league": "MLB"
+  },
+  "mickey-mantle_2022-12-03_933483p6_1969-topps-white-letter-error-psa-9": {
+   "date": "2022-12-03",
+   "card": "1969 Topps (white letter error)",
+   "grade": "PSA 9",
+   "price": 933483.6,
+   "venue": "Memory Lane",
+   "source": "Wikipedia, List of most expensive sports cards",
+   "url": "https://en.wikipedia.org/wiki/List_of_most_expensive_sports_cards",
+   "playerId": "mickey-mantle",
+   "player": "Mickey Mantle",
+   "league": "MLB"
+  }
+ }
+}

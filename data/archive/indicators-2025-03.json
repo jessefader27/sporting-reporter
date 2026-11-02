@@ -1,0 +1,17 @@
+{
+ "collection": "indicators",
+ "month": "2025-03",
+ "count": 1,
+ "records": {
+  "womens-record_2025-03-29": {
+   "d": "2025-03-29",
+   "v": 366,
+   "tag": "Caitlin Clark",
+   "series": "womens-record",
+   "name": "Women's sports card record",
+   "unit": "$K",
+   "source": "Sports Illustrated; Just Women's Sports",
+   "url": "https://www.si.com/tennis/2022/05/22/serena-williams-trading-card-sale-doubles-record-female-athlete"
+  }
+ }
+}

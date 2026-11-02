@@ -1,0 +1,20 @@
+{
+ "collection": "sales",
+ "month": "2021-04",
+ "count": 1,
+ "records": {
+  "lebron-james_2021-04-26_5200000_2003-04-upper-deck-exquisite-c-bgs-9": {
+   "date": "2021-04-26",
+   "card": "2003-04 Upper Deck Exquisite Collection Rookie Patch Auto #07/23",
+   "grade": "BGS 9",
+   "price": 5200000,
+   "venue": "PWCC Marketplace",
+   "source": "Wikipedia, List of most expensive sports cards",
+   "url": "https://en.wikipedia.org/wiki/List_of_most_expensive_sports_cards",
+   "rc": true,
+   "playerId": "lebron-james",
+   "player": "LeBron James",
+   "league": "NBA"
+  }
+ }
+}

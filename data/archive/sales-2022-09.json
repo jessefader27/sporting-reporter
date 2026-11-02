@@ -1,0 +1,33 @@
+{
+ "collection": "sales",
+ "month": "2022-09",
+ "count": 2,
+ "records": {
+  "joe-burrow_2022-09-12_1700000_2020-panini-national-treasures-bgs-9-5": {
+   "date": "2022-09-12",
+   "card": "2020 Panini National Treasures Platinum NFL Shield Auto 1/1",
+   "grade": "BGS 9.5",
+   "price": 1700000,
+   "venue": "Private sale",
+   "source": "Wikipedia, List of most expensive sports cards",
+   "url": "https://en.wikipedia.org/wiki/List_of_most_expensive_sports_cards",
+   "rc": true,
+   "playerId": "joe-burrow",
+   "player": "Joe Burrow",
+   "league": "NFL"
+  },
+  "justin-herbert_2022-09-11_1800000_2020-panini-national-treasures-bgs-8-5": {
+   "date": "2022-09-11",
+   "card": "2020 Panini National Treasures Platinum NFL Shield Auto 1/1",
+   "grade": "BGS 8.5",
+   "price": 1800000,
+   "venue": "Not stated",
+   "source": "Wikipedia, List of most expensive sports cards",
+   "url": "https://en.wikipedia.org/wiki/List_of_most_expensive_sports_cards",
+   "rc": true,
+   "playerId": "justin-herbert",
+   "player": "Justin Herbert",
+   "league": "NFL"
+  }
+ }
+}

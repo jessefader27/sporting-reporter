@@ -1,0 +1,19 @@
+{
+ "collection": "sales",
+ "month": "2016-05",
+ "count": 1,
+ "records": {
+  "willie-mays_2016-05-12_478000_1952-topps-261-psa-9": {
+   "date": "2016-05-12",
+   "card": "1952 Topps #261",
+   "grade": "PSA 9",
+   "price": 478000,
+   "venue": "Not stated",
+   "source": "Wikipedia, List of most expensive sports cards",
+   "url": "https://en.wikipedia.org/wiki/List_of_most_expensive_sports_cards",
+   "playerId": "willie-mays",
+   "player": "Willie Mays",
+   "league": "MLB"
+  }
+ }
+}

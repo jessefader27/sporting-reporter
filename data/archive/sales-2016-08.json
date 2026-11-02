@@ -1,0 +1,19 @@
+{
+ "collection": "sales",
+ "month": "2016-08",
+ "count": 1,
+ "records": {
+  "babe-ruth_2016-08-28_717000_1916-m101-5-sporting-news-blan-psa-7": {
+   "date": "2016-08-28",
+   "card": "1916 M101-5 Sporting News (blank back)",
+   "grade": "PSA 7",
+   "price": 717000,
+   "venue": "Heritage",
+   "source": "Wikipedia, List of most expensive sports cards",
+   "url": "https://en.wikipedia.org/wiki/List_of_most_expensive_sports_cards",
+   "playerId": "babe-ruth",
+   "player": "Babe Ruth",
+   "league": "MLB"
+  }
+ }
+}

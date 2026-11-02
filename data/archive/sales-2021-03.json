@@ -1,0 +1,45 @@
+{
+ "collection": "sales",
+ "month": "2021-03",
+ "count": 3,
+ "records": {
+  "jackie-robinson_2021-03-06_984000_1952-topps-312-psa-9": {
+   "date": "2021-03-06",
+   "card": "1952 Topps #312",
+   "grade": "PSA 9",
+   "price": 984000,
+   "venue": "Goldin",
+   "source": "Wikipedia, List of most expensive sports cards",
+   "url": "https://en.wikipedia.org/wiki/List_of_most_expensive_sports_cards",
+   "playerId": "jackie-robinson",
+   "player": "Jackie Robinson",
+   "league": "MLB"
+  },
+  "kobe-bryant_2021-03-06_1795800_1996-97-topps-chrome-refractor-bgs-10-bla": {
+   "date": "2021-03-06",
+   "card": "1996-97 Topps Chrome Refractor #138",
+   "grade": "BGS 10 (Black Label)",
+   "price": 1795800,
+   "venue": "Not stated",
+   "source": "Wikipedia, List of most expensive sports cards",
+   "url": "https://en.wikipedia.org/wiki/List_of_most_expensive_sports_cards",
+   "rc": true,
+   "playerId": "kobe-bryant",
+   "player": "Kobe Bryant",
+   "league": "NBA"
+  },
+  "lebron-james_2021-03-06_1537500_2003-04-upper-deck-exquisite-c-bgs-8-5": {
+   "date": "2021-03-06",
+   "card": "2003-04 Upper Deck Exquisite Collection Rookie Patch Auto #32/99",
+   "grade": "BGS 8.5",
+   "price": 1537500,
+   "venue": "Not stated",
+   "source": "Wikipedia, List of most expensive sports cards",
+   "url": "https://en.wikipedia.org/wiki/List_of_most_expensive_sports_cards",
+   "rc": true,
+   "playerId": "lebron-james",
+   "player": "LeBron James",
+   "league": "NBA"
+  }
+ }
+}

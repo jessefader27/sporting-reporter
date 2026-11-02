@@ -1,0 +1,20 @@
+{
+ "collection": "sales",
+ "month": "2025-07",
+ "count": 1,
+ "records": {
+  "clark_2025-07-24_660000_2024-panini-flawless-logowoman": {
+   "date": "2025-07-24",
+   "card": "2024 Panini Flawless Logowoman Auto 1/1",
+   "grade": "",
+   "price": 660000,
+   "venue": "Auction",
+   "source": "Sports Illustrated, Jul 2025",
+   "url": "https://www.si.com/wnba/fever/caitlin-clark/caitlin-clark-wnba-rookie-card-obliterates-record-with-staggering-sales-price-01k1105zyppk",
+   "rc": true,
+   "playerId": "clark",
+   "player": "Caitlin Clark",
+   "league": "WNBA"
+  }
+ }
+}

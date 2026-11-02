@@ -1,0 +1,32 @@
+{
+ "collection": "sales",
+ "month": "2025-03",
+ "count": 2,
+ "records": {
+  "ohtani_2025-03-29_1067500_2024-topps-50-50-black-dynasty-psa-9": {
+   "date": "2025-03-29",
+   "card": "2024 Topps 50/50 Black Dynasty Relic Auto #SOD1 1/1",
+   "grade": "PSA 9",
+   "price": 1067500,
+   "venue": "Heritage",
+   "source": "Wikipedia, List of most expensive sports cards",
+   "url": "https://en.wikipedia.org/wiki/List_of_most_expensive_sports_cards",
+   "playerId": "ohtani",
+   "player": "Shohei Ohtani",
+   "league": "MLB"
+  },
+  "paul-skenes_2025-03-21_1110000_2024-topps-chrome-update-mlb-d-psa-10": {
+   "date": "2025-03-21",
+   "card": "2024 Topps Chrome Update MLB Debut Patch Auto 1/1",
+   "grade": "PSA 10",
+   "price": 1110000,
+   "venue": "Fanatics Collect",
+   "source": "Wikipedia, List of most expensive sports cards",
+   "url": "https://en.wikipedia.org/wiki/List_of_most_expensive_sports_cards",
+   "rc": true,
+   "playerId": "paul-skenes",
+   "player": "Paul Skenes",
+   "league": "MLB"
+  }
+ }
+}

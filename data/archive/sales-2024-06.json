@@ -1,0 +1,19 @@
+{
+ "collection": "sales",
+ "month": "2024-06",
+ "count": 1,
+ "records": {
+  "michael-jordan_2024-06-02_2928000_1997-upper-deck-ultimate-colle-psa-authen": {
+   "date": "2024-06-02",
+   "card": "1997 Upper Deck Ultimate Collection Ultimate Logos Signature 1/1",
+   "grade": "PSA Authentic",
+   "price": 2928000,
+   "venue": "Goldin",
+   "source": "Wikipedia, List of most expensive sports cards",
+   "url": "https://en.wikipedia.org/wiki/List_of_most_expensive_sports_cards",
+   "playerId": "michael-jordan",
+   "player": "Michael Jordan",
+   "league": "NBA"
+  }
+ }
+}

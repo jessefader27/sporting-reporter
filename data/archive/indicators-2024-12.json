@@ -1,0 +1,16 @@
+{
+ "collection": "indicators",
+ "month": "2024-12",
+ "count": 1,
+ "records": {
+  "whatnot_2024-12-31": {
+   "d": "2024-12-31",
+   "v": 3,
+   "series": "whatnot",
+   "name": "Whatnot live sales",
+   "unit": "$B per year",
+   "source": "Value Added Resource; ICv2",
+   "url": "https://www.valueaddedresource.net/whatnot-20-billion-valuation/"
+  }
+ }
+}

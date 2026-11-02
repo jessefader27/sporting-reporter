@@ -1,0 +1,33 @@
+{
+ "collection": "sales",
+ "month": "2021-01",
+ "count": 2,
+ "records": {
+  "luka-don-i_2021-01-30_780000_2018-19-panini-prizm-gold-priz-psa-10": {
+   "date": "2021-01-30",
+   "card": "2018-19 Panini Prizm Gold Prizm #3/10",
+   "grade": "PSA 10",
+   "price": 780000,
+   "venue": "Goldin",
+   "source": "Wikipedia, List of most expensive sports cards",
+   "url": "https://en.wikipedia.org/wiki/List_of_most_expensive_sports_cards",
+   "rc": true,
+   "playerId": "luka-don-i",
+   "player": "Luka Dončić",
+   "league": "NBA"
+  },
+  "mahomes_2021-01-30_840000_2017-panini-national-treasures-bgs-9": {
+   "date": "2021-01-30",
+   "card": "2017 Panini National Treasures Black Rookie Patch Auto #1/5",
+   "grade": "BGS 9",
+   "price": 840000,
+   "venue": "Not stated",
+   "source": "Wikipedia, List of most expensive sports cards",
+   "url": "https://en.wikipedia.org/wiki/List_of_most_expensive_sports_cards",
+   "rc": true,
+   "playerId": "mahomes",
+   "player": "Patrick Mahomes",
+   "league": "NFL"
+  }
+ }
+}

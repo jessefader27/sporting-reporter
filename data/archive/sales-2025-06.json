@@ -1,0 +1,48 @@
+{
+ "collection": "sales",
+ "month": "2025-06",
+ "count": 3,
+ "records": {
+  "connor-bedard_2025-06-06_10998_2023-24-upper-deck-the-cup-roo": {
+   "date": "2025-06-06",
+   "card": "2023-24 Upper Deck The Cup Rookie Patch Auto #150 /99",
+   "grade": "",
+   "price": 10998,
+   "venue": "eBay",
+   "source": "Sports Illustrated, Dec 10, 2025",
+   "url": "https://www.si.com/collectibles/top-5-upper-deck-hockey-card-sales-of-2025",
+   "rc": true,
+   "playerId": "connor-bedard",
+   "player": "Connor Bedard",
+   "league": "NHL",
+   "benchmark": "bedard-cup-rpa150"
+  },
+  "connor-bedard_2025-06-12_12842_2023-24-upper-deck-the-cup-roo": {
+   "date": "2025-06-12",
+   "card": "2023-24 Upper Deck The Cup Rookie Patch Auto #150 /99",
+   "grade": "",
+   "price": 12842,
+   "venue": "eBay",
+   "source": "Sports Illustrated, Dec 10, 2025",
+   "url": "https://www.si.com/collectibles/top-5-upper-deck-hockey-card-sales-of-2025",
+   "rc": true,
+   "playerId": "connor-bedard",
+   "player": "Connor Bedard",
+   "league": "NHL",
+   "benchmark": "bedard-cup-rpa150"
+  },
+  "michael-jordan_2025-06-26_2500000_1986-87-fleer-57-signed-psa-9-auto": {
+   "date": "2025-06-26",
+   "card": "1986-87 Fleer #57 (signed)",
+   "grade": "PSA 9 / Auto 10",
+   "price": 2500000,
+   "venue": "Joopiter",
+   "source": "Wikipedia, List of most expensive sports cards",
+   "url": "https://en.wikipedia.org/wiki/List_of_most_expensive_sports_cards",
+   "rc": true,
+   "playerId": "michael-jordan",
+   "player": "Michael Jordan",
+   "league": "NBA"
+  }
+ }
+}

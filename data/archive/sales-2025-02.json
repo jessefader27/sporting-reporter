@@ -1,0 +1,20 @@
+{
+ "collection": "sales",
+ "month": "2025-02",
+ "count": 1,
+ "records": {
+  "marie-philip-poulin_2025-02_20000_upper-deck-young-guns-outburst": {
+   "date": "2025-02",
+   "card": "Upper Deck Young Guns Outburst Gold 1/1",
+   "grade": "",
+   "price": 20000,
+   "venue": "Not stated",
+   "source": "The Hockey News, Feb 26, 2025",
+   "url": "https://thehockeynews.com/womens/pwhl/marie-philip-poulin-card-sells-for-20000",
+   "datePrecision": "month",
+   "playerId": "marie-philip-poulin",
+   "player": "Marie-Philip Poulin",
+   "league": "PWHL"
+  }
+ }
+}

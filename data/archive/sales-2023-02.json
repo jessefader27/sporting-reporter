@@ -1,0 +1,19 @@
+{
+ "collection": "sales",
+ "month": "2023-02",
+ "count": 1,
+ "records": {
+  "babe-ruth_2023-02-25_1770000_1916-m101-4-sporting-news-sgc-7": {
+   "date": "2023-02-25",
+   "card": "1916 M101-4 Sporting News",
+   "grade": "SGC 7",
+   "price": 1770000,
+   "venue": "Heritage",
+   "source": "Wikipedia, List of most expensive sports cards",
+   "url": "https://en.wikipedia.org/wiki/List_of_most_expensive_sports_cards",
+   "playerId": "babe-ruth",
+   "player": "Babe Ruth",
+   "league": "MLB"
+  }
+ }
+}
