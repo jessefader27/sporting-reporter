@@ -1,5 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}</style></head><body>
-<title>The Sporting Reporter</title>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}</style></head><body><title>The Sporting Reporter</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wdth,wght@75..110,400..800&display=swap">
@@ -261,6 +260,20 @@ p.asof{margin:0}
 .labrules{margin:0;font-size:12.5px}
 @media (max-width:760px){.lab .labfig{order:3}.lab .lablines{order:4}.lab #lab-info{order:5}.lab .labrules{order:6}.pgrid{grid-template-columns:1fr}.labbar{flex-direction:column;align-items:stretch}.labbar select{max-width:none;width:100%}.ovline{margin-top:-20px}.labctl{padding:10px 12px}}
 
+/* around the leagues */
+.brfs{display:grid;background:var(--surface);border:1px solid var(--line);border-radius:4px}
+.brf-g{display:grid;grid-template-columns:120px minmax(0,1fr);gap:4px 20px;padding:14px 22px;border-top:1px solid var(--line)}
+.brf-g:first-child{border-top:0}
+.brf-l{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:flex;align-items:flex-start;padding-top:2px}
+.brf-ls{display:grid;gap:8px;min-width:0}
+.brf{margin:0;font-size:15px;line-height:1.45}
+.brf-s{font-size:12.5px;color:var(--muted);margin-left:8px}
+.brf-s a{color:var(--muted)}
+.brf-c{all:unset;cursor:pointer;font-size:12.5px;font-weight:700;margin-left:8px;color:var(--ink2);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px}
+.brf-c:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.brf-one .brf-g{grid-template-columns:1fr}
+.brf-one .brf-l{display:none}
+@media (max-width:640px){.brf-g{grid-template-columns:1fr;padding:12px 16px;gap:6px}.brf-s{display:block;margin-left:0}.brf-c{margin-left:0}}
 .view>*,.sec>*,.sec{min-width:0}
 .tw{position:relative}
 /* sidebar shell */
@@ -8836,7 +8849,66 @@ footer.site b{color:#fff;font-family:var(--display);font-weight:400;font-size:20
         }
       ]
     }
-  }
+  },
+  "briefs": [
+    {
+      "league": "NFL",
+      "date": "2026-11-01",
+      "text": "Cardinals beat Cowboys 33-30 in OT; Jaguars rout Colts 42-7",
+      "source": "CBS Sports, Nov 1",
+      "url": "https://www.cbssports.com/nfl/scoreboard/"
+    },
+    {
+      "league": "NFL",
+      "date": "2026-11-01",
+      "text": "Burrow throws for 462 yards and 5 TDs, then runs in the OT winner as the Bengals beat the Titans 43-36",
+      "source": "theScore, Nov 1",
+      "url": "https://www.thescore.com/nfl/event/140686",
+      "cardLink": "joe-burrow"
+    },
+    {
+      "league": "NFL",
+      "date": "2026-11-01",
+      "text": "Bills beat Ravens 36-10, Broncos edge Chiefs 28-24 and Commanders top Eagles 27-10",
+      "source": "CBS Sports, Nov 1",
+      "url": "https://www.cbssports.com/nfl/scoreboard/"
+    },
+    {
+      "league": "NHL",
+      "date": "2026-11-01",
+      "text": "Kochetkov blanks the Jets 7-0 and is the third goalie in NHL history to start a season 10-0",
+      "source": "ESPN, Nov 1",
+      "url": "https://www.espn.com/nhl/recap?gameId=401892624"
+    },
+    {
+      "league": "NHL",
+      "date": "2026-11-01",
+      "text": "Cutter Gauthier hat trick as the Ducks erase a 3-0 deficit to beat the Senators 6-3",
+      "source": "NHL.com, Nov 1",
+      "url": "https://www.nhl.com/news/ottawa-senators-anaheim-ducks-game-recap-november-1-2026"
+    },
+    {
+      "league": "NBA",
+      "date": "2026-11-01",
+      "text": "Celtics beat the Magic 108-97 and the Nets hold off the Pacers 98-90",
+      "source": "CBS Sports, Nov 1",
+      "url": "https://www.cbssports.com/nba/scoreboard/"
+    },
+    {
+      "league": "NWSL",
+      "date": "2026-11-01",
+      "text": "Quarterfinals set: Gotham hosts Seattle, San Diego hosts Utah, Washington hosts Portland, KC hosts Angel City",
+      "source": "The Equalizer, Nov 1",
+      "url": "https://equalizersoccer.com/2026/11/01/nwsl-playoff-schedule-set/"
+    },
+    {
+      "league": "MLB",
+      "date": "2026-11-01",
+      "text": "The qualifying offer for free agents is set at $23.15 million for 2027",
+      "source": "MLB.com, Nov 1",
+      "url": "https://www.mlb.com/news/qualifying-offer-candidates-and-decisions-2026-27"
+    }
+  ]
 }
 </script>
 
@@ -8879,6 +8951,7 @@ footer.site b{color:#fff;font-family:var(--display);font-weight:400;font-size:20
         <div class="timeline" id="timeline"></div>
         <a class="btn allbtn" href="#news">All stories &rarr;</a>
       </div>
+      <div class="sec" id="atl" hidden><div class="sec-h"><h2>Around the leagues</h2><span>Results and roster news from the last day or two</span></div><div class="brfs" id="briefs"></div></div>
       <section class="mkband" id="mkband" aria-label="Card market"></section>
       <div class="packzone" id="packzone">
         <div class="pz-h"><div><h2>Open a pack</h2><p>Pick a sport. Each pack holds one player card for your library, with no repeats.</p></div><div class="left" id="packs-left"></div></div>
@@ -8890,6 +8963,7 @@ footer.site b{color:#fff;font-family:var(--display);font-weight:400;font-size:20
 
     
     <section class="view first" data-view="news" hidden>
+      <div class="sec" id="lg-atl" hidden><div class="sec-h"><h2>Around the league</h2><span>Results and roster news from the last day or two</span></div><div class="brfs" id="lg-briefs"></div></div>
       <div class="stories" id="stories"></div>
       <div class="twocol">
         <div class="sec"><div class="sec-h"><h2 id="week-label">This week</h2></div><ol class="week" id="week"></ol></div>
@@ -9099,11 +9173,12 @@ footer.site b{color:#fff;font-family:var(--display);font-weight:400;font-size:20
 
   /* ---------- menus ---------- */
   var present={}, presentL={}; (D.items||[]).forEach(function(it){ it.cat.forEach(function(c){ present[c]=1; }); it.leagues.forEach(function(l){ presentL[l]=1; }); });
+  var BRIEFS=(D.briefs||[]).filter(function(b){ return b&&b.text&&LEAGUES.indexOf(b.league)>=0; }); BRIEFS.forEach(function(b){ presentL[b.league]=1; });
   function cnt(f){ return (D.items||[]).filter(f).length; }
   var ml=document.getElementById("m-leagues"), mt=document.getElementById("m-topics");
   function mitem(box,href,label,n){ var a=el("a"); a.href=href; a.append(document.createTextNode(label)); if(n!=null) a.append(el("small",null,String(n))); box.append(a); return a; }
   document.getElementById("n-all").textContent=(D.items||[]).length;
-  LEAGUES.forEach(function(l){ if(presentL[l]) mitem(ml,"#league-"+slug(l),l,cnt(function(it){return it.leagues.indexOf(l)>=0;})); });
+  LEAGUES.forEach(function(l){ if(presentL[l]){ var n=cnt(function(it){return it.leagues.indexOf(l)>=0;}); mitem(ml,"#league-"+slug(l),l,n||null); } });
   CATS.forEach(function(c){ if(present[c[0]]&&c[0]!=="women") mitem(mt,"#topic-"+c[0],c[1],cnt(function(it){return it.cat.indexOf(c[0])>=0;})); });
   if(L){ document.getElementById("nav-labour").textContent=(L.league||"")+" labour watch"; }
   var side=document.getElementById("side"), nscrim=document.getElementById("nscrim"), mopen=document.getElementById("mopen");
@@ -9230,9 +9305,19 @@ footer.site b{color:#fff;font-family:var(--display);font-weight:400;font-size:20
   if(L&&dnum(L.deadline)-dnum(TODAY)>7){ var g4=group("Coming up",""); var li4=el("li","tevent big"); li4.append(el("i","dot"), el("span","twhen",md(L.deadline))); var d4=el("span","tdesc"); var t4=el("b"); t4.append(sicon([L.league]), document.createTextNode((L.league||"")+" labour deal expires")); var a4=el("a","lk","Labour watch →"); a4.href="#labour"; d4.append(t4, el("span","twhy",(dnum(L.deadline)-dnum(TODAY))+" days away. "), a4); li4.append(d4); g4.append(li4); }
 
   /* ---------- news pages ---------- */
+  function openCard(pid){ var p=PBYID[pid]; if(!p) return; location.hash="market-prices"; setTimeout(function(){ q.value=p.name; renderPl(); var dd=plBox.querySelector("details.pl"); if(dd){ dd.open=true; dd.scrollIntoView({block:"start"}); } },260); }
+  function briefGroups(box,list,one){ box.textContent=""; box.classList.toggle("brf-one",!!one);
+    LEAGUES.forEach(function(l){ var bl=list.filter(function(b){ return b.league===l; }); if(!bl.length) return;
+      var g=el("div","brf-g"), lab=el("div","brf-l"); lab.append(sicon([l]), document.createTextNode(l)); var ls=el("div","brf-ls");
+      bl.forEach(function(b){ var p=el("p","brf"); if(one) p.append(sicon([l])); p.append(document.createTextNode(b.text)); var sc=el("span","brf-s"); sc.append(link(b.source||"Source",b.url)); p.append(sc);
+        if(b.cardLink&&PBYID[b.cardLink]){ var c=el("button","brf-c","See card prices"); c.type="button"; c.onclick=function(){ openCard(b.cardLink); }; p.append(c); }
+        ls.append(p); });
+      g.append(lab,ls); box.append(g); }); }
   function render(){ var box=document.getElementById("stories"); box.textContent="";
+    var lgw=document.getElementById("lg-atl"), lgb=BRIEFS.filter(function(b){ return st.league!=="all"&&b.league===st.league; });
+    lgw.hidden=!lgb.length; if(lgb.length) briefGroups(document.getElementById("lg-briefs"),lgb,true);
     var list=ranked.filter(function(it){ if(st.cat!=="all"&&it.cat.indexOf(st.cat)<0) return false; if(st.league!=="all"&&it.leagues.indexOf(st.league)<0) return false; return true; });
-    if(!list.length){ box.append(el("div","empty","No stories here in today's edition.")); return; }
+    if(!list.length){ box.append(el("div","empty",lgb.length?"No business stories for "+st.league+" in today's edition.":"No stories here in today's edition.")); return; }
     list.forEach(function(it){ var s=el("article","story"), side=el("div","sside"), m=el("div","main"); var a=ago(it.date);
       var kk=el("span","kick"); kk.append(sicon(it.leagues), document.createTextNode(CATNAME[it.cat[0]]||it.cat[0])); side.append(kk, el("span","age"+(a==="Today"?" today":""),a)); if(isNew(it)) side.append(el("span","badge b-new","New")); side.append(readTick(it.id));
       var h=el("h3"), hb=el("button",null,it.title); hb.type="button"; hb.onclick=function(){ openItem(it.id); }; h.append(hb, star(it));
@@ -9262,6 +9347,7 @@ footer.site b{color:#fff;font-family:var(--display);font-weight:400;font-size:20
       .sort(function(a,b){ return (b.sales.length-a.sales.length)||(a.last.date<b.last.date?1:-1); }); }
   function hash4(s){ var h=5381; for(var i=0;i<s.length;i++){ h=((h<<5)+h+s.charCodeAt(i))|0; } return (Math.abs(h)%1679616).toString(36).padStart(4,"0"); }
   var PBYID={}; C.players.forEach(function(p){ PBYID[p.id]=p; });
+  (function(){ var w=document.getElementById("atl"); w.hidden=!BRIEFS.length; if(BRIEFS.length) briefGroups(document.getElementById("briefs"),BRIEFS,false); })();
   var TYPES=["Active","Rookie","Prospect","Legend"];
   var WATCH=jget("tsr-watch",{});
   function isWatched(id){ return !!WATCH[id]; }
@@ -9851,5 +9937,4 @@ footer.site b{color:#fff;font-family:var(--display);font-weight:400;font-size:20
   
 })();
 </script>
-
 </body></html>
