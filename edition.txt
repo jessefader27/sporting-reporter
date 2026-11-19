@@ -1,2 +1,2 @@
-edition: Wednesday, November 18, 2026
-updated: 2026-11-18
+edition: Thursday, November 19, 2026
+updated: 2026-11-19
